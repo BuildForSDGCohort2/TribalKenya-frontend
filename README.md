@@ -1,4 +1,4 @@
-# Twild Hub
+# Tribal Kenya
 
 A product aimed to empower E-Tourism in Kenya
 

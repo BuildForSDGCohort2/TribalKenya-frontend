@@ -10,30 +10,30 @@ module.exports = {
   parser: 'babel-eslint',
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    SharedArrayBuffer: 'readonly'
   },
   settings: {
     react: {
       createClass: 'createReactClass',
       pragma: 'React',
       version: 'detect',
-      flowVersion: '0.53',
-    },
+      flowVersion: '0.53'
+    }
   },
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   rules: {
     'comma-dangle': ['error', 'never'],
     'no-param-reassign': [
       'error',
       {
-        props: false,
-      },
+        props: false
+      }
     ],
     'class-methods-use-this': 0,
     'no-invalid-this': 0,
@@ -68,8 +68,8 @@ module.exports = {
         ignoreCase: true,
         ignoreDeclarationSort: true,
         ignoreMemberSort: true,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      },
-    ],
-  },
-}
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
+      }
+    ]
+  }
+};

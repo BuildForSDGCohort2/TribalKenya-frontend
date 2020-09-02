@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import Navlist from './Navlist';
+import './NavBar.css';
 
 const NavBar = () => {
   const [isNavOpen, setisNavOpen] = useState(false);

@@ -21,6 +21,36 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
+:root {
+  --red-bg: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  --red: #ff0844;
+  --black-bg: linear-gradient(to right, #434343 0%, black 100%);
+  --green-bg: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+  --green: #0ba360;
+  --white-bg: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+/* Fonts */
+.medium-text {
+  font-size: 1.2em;
+}
+
+/* Common Classes */
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

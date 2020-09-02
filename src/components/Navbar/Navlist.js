@@ -4,13 +4,13 @@ import Navitem from './Navitem';
 
 const Navlist = () => {
   return (
-        <ul className="center nav-list">
+        <ul className="nav-list">
             <Navitem link="/" title="Home" />
             <Navitem link="/about" title="About" />
             <Navitem link="/sightseeing" title="Sightseeing" />
             <Navitem link="/treks" title="Treks" />
             <Navitem link="live-tv" title="Live TV" />
-            <Navitem icon={<BiSearchAlt className="text-white medium-text" />} />
+            <Navitem icon={<BiSearchAlt className="medium-text" />} />
         </ul>
   );
 };

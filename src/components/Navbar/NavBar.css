@@ -1,0 +1,26 @@
+.my-navbar {
+  background: black;
+  background-image: var(--black-bg);
+  width: 100%;
+  height: auto;
+}
+
+.nav-list {
+  list-style: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.nav-link {
+  font-family: "Overpass", sans-serif;
+  text-decoration: none;
+  color: white;
+  margin: 0 3px;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: var(--green);
+}

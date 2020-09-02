@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import Navlist from './Navlist';
 import './NavBar.css';
 import Account from './Account';
+import Brand from './Brand';
 
 const NavBar = () => {
   const [isNavOpen, setisNavOpen] = useState(false);
@@ -10,11 +11,13 @@ const NavBar = () => {
   return (
     <nav className="my-navbar">
       <div className="top-nav">
-        <div className="brand"></div>
-          <div className="right w-100">
+        <div className="brand">
+          <Brand/>
+        </div>
+        <div className="right w-100">
             <div
               className={
-                isNavOpen ? 'toggler mt-1 ml-2 mr-1 open' : 'toggler mt-1 ml-2 mr-2'
+                isNavOpen ? 'mytoggler mt-1 ml-2 mr-1 open' : 'mytoggler mt-1 ml-2 mr-2'
               }
               onClick={() => setisNavOpen(!isNavOpen)}
             >
@@ -24,7 +27,7 @@ const NavBar = () => {
             </div>
         </div>
         <div className="center">
-          <Navlist />
+          <Navlist isNavOpen={isNavOpen} />
           {search ? <SearchBar setsearch={setsearch} /> : null}
         </div>
       </div>

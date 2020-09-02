@@ -9,6 +9,38 @@
   background-image: var(--black-bg);
 }
 
+.brand {
+  display: none;
+}
+
+.mytoggler {
+  display: none;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  height: 4px;
+  width: 35px;
+  background: var(--green);
+  background-image: var(--green-bg);
+  margin: 7px;
+  transition: 0.3s;
+}
+
+.open .bar1 {
+  transform: rotate(-45deg) translate(-10px, 5px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  transform: rotate(45deg) translate(-10px, -5px);
+}
+
 .nav-list {
   list-style: none;
   width: 100%;
@@ -20,6 +52,7 @@
 .logo {
   height: 4vh;
   width: 30px;
+  cursor: pointer;
 }
 
 .nav-link {
@@ -79,4 +112,66 @@
 .ao-dropdown-options li:hover {
   background: var(--green);
   background-image: var(--green-bg);
+}
+
+@media (min-width: 481px) and (max-width: 860px) {
+  .brand {
+    display: block;
+    position: absolute !important;
+    margin-left: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .drop-navlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .mytoggler {
+    display: block;
+    width: 50px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .brand {
+    display: block;
+    position: absolute !important;
+    margin-left: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .drop-navlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .mytoggler {
+    display: block;
+    width: 50px;
+  }
 }

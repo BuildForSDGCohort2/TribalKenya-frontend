@@ -9,8 +9,13 @@
   list-style: none;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1.2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr 1fr 1fr 1fr;
   grid-template-rows: auto;
+}
+
+.logo {
+  height: 4vh;
+  width: 30px;
 }
 
 .nav-link {
@@ -19,6 +24,7 @@
   color: white;
   margin: 0 3px;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .nav-link:hover {

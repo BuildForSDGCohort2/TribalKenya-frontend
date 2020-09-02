@@ -2,12 +2,11 @@ import React from 'react';
 
 const AODropdownOptions = () => {
   return (
-    <div>
-        <ul className="profile-options">
-            <li className="profile-option">View Profile</li>
-            <li className="profile-option">Settings</li>
-        </ul>
-    </div>
+    <ul className="ao-dropdown-options p-1 mt-1">
+        <li>View Profile</li>
+        <li>Settings</li>
+        <li>Logout</li>
+    </ul>
   );
 };
 

@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { CgUserList } from 'react-icons/cg';
 import AODropdownOptions from './AODropdownOptions';
 
 const AODropdown = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClick = (event) => {
+    event.preventDefault();
+    setIsOpen(!isOpen);
+  };
   return (
-    <div>
-        Profile
-        <AODropdownOptions />
+    <div className="ao">
+      <a
+        href="/"
+        className="account-option small-text"
+        onClick={handleClick}
+      >
+        Profile <CgUserList />
+      </a>
+      {isOpen ? <AODropdownOptions /> : null}
     </div>
   );
 };

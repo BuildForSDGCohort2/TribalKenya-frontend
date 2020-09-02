@@ -29,7 +29,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className="bottom-nav">
-        <div className="right pr-2">
+        <div className="right pr-3">
           <Account />
         </div>
       </div>

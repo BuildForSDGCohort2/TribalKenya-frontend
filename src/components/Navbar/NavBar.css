@@ -52,3 +52,24 @@
   text-decoration: none;
   color: rgba(0, 0, 0, 0.6);
 }
+
+.ao-dropdown-options {
+  position: absolute;
+  right: 10px;
+  list-style: none;
+  background: black;
+  color: #fff;
+  z-index: 99;
+}
+
+.ao-dropdown-options li {
+  font-size: 1em;
+  font-family: "Overpass", sans-serif;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ao-dropdown-options li:hover {
+  background: var(--green);
+  background-image: var(--green-bg);
+}

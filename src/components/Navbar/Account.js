@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AccountOption from './AccountOption';
 
-const Account = () => {
-  const [loggedIn, setloggedIn] = useState(false);
+const Account = ({ user }) => {
+  const [loggedIn, setloggedIn] = useState(true);
+  useEffect(() => {
+    if (user) {
+      setloggedIn(true);
+    }
+  }, [user]);
   return (
         <div className="p-1">
             {loggedIn ? <>
-            <AccountOption link="LogOut" />
             <AccountOption dropdown={true} />
             </>
               : <>

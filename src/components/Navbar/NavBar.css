@@ -1,8 +1,12 @@
 .my-navbar {
-  background: black;
-  background-image: var(--black-bg);
   width: 100%;
   height: auto;
+}
+
+/* Top section */
+.top-nav {
+  background: black;
+  background-image: var(--black-bg);
 }
 
 .nav-list {
@@ -29,4 +33,22 @@
 
 .nav-link:hover {
   color: var(--green);
+}
+
+/* Bottom section */
+.bottom-nav {
+  background: var(--green);
+  background-image: var(--green-bg);
+}
+
+.account-option {
+  font-family: "Overpass", sans-serif;
+  color: black;
+  padding: 10px;
+  font-weight: 800;
+}
+
+.account-option:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.6);
 }

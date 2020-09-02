@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AccountOption from './AccountOption';
 
 const Account = ({ user }) => {
-  const [loggedIn, setloggedIn] = useState(true);
+  const [loggedIn, setloggedIn] = useState(false);
   useEffect(() => {
     if (user) {
       setloggedIn(true);

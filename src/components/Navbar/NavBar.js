@@ -29,7 +29,10 @@ const NavBar = () => {
         </div>
       </div>
       <div className="bottom-nav">
-        <div className="right pr-3">
+        <div className="center pt-1">
+          <span className="brand-name medium-text">Tribal Kenya</span>
+        </div>
+        <div className="center">
           <Account />
         </div>
       </div>

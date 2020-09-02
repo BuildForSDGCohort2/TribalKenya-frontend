@@ -39,6 +39,13 @@
 .bottom-nav {
   background: var(--green);
   background-image: var(--green-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.brand-name {
+  font-family: "Kaushan Script", cursive;
 }
 
 .account-option {

@@ -41,6 +41,7 @@ module.exports = {
     'spaced-comment': 0,
     'max-lines': 0,
     'import/no-named-as-default': 0,
+    'import/no-extraneous-dependencies': 0,
     'no-shadow': 0,
     'array-element-newline': 0,
     'multiline-ternary': 0,

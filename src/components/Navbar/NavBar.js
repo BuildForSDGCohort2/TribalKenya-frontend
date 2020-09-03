@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import animateCSS from '../animate';
 import SearchBar from './SearchBar';
 import Navlist from './Navlist';
 import './NavBar.css';
@@ -8,6 +9,13 @@ import Brand from './Brand';
 const NavBar = () => {
   const [isNavOpen, setisNavOpen] = useState(false);
   const [search, setsearch] = useState(false);
+  useEffect(() => {
+    if (isNavOpen) {
+      animateCSS('.drop-navlist', 'fadeInDown');
+    } else {
+      animateCSS('.drop-navlist', 'fadeOutUp');
+    }
+  }, [isNavOpen]);
   return (
     <nav className="my-navbar">
       <div className="top-nav">
@@ -26,7 +34,7 @@ const NavBar = () => {
               <div className="bar3"></div>
             </div>
         </div>
-        <div className="center">
+        <div className={isNavOpen ? 'center animate__animated animate__fadeInDown' : 'center'}>
           <Navlist isNavOpen={isNavOpen} />
           {search ? <SearchBar setsearch={setsearch} /> : null}
         </div>

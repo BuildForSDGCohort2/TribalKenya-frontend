@@ -1,0 +1,177 @@
+.my-navbar {
+  width: 100%;
+  height: auto;
+}
+
+/* Top section */
+.top-nav {
+  background: black;
+  background-image: var(--black-bg);
+}
+
+.brand {
+  display: none;
+}
+
+.mytoggler {
+  display: none;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  height: 4px;
+  width: 35px;
+  background: var(--green);
+  background-image: var(--green-bg);
+  margin: 7px;
+  transition: 0.3s;
+}
+
+.open .bar1 {
+  transform: rotate(-45deg) translate(-10px, 5px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  transform: rotate(45deg) translate(-10px, -5px);
+}
+
+.nav-list {
+  list-style: none;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.logo {
+  height: 4vh;
+  width: 30px;
+  cursor: pointer;
+}
+
+.nav-link {
+  font-family: "Overpass", sans-serif;
+  text-decoration: none;
+  color: white;
+  margin: 0 3px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--green);
+}
+
+/* Bottom section */
+.bottom-nav {
+  background: var(--green);
+  background-image: var(--green-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.brand-name {
+  font-family: "Kaushan Script", cursive;
+}
+
+.account-option {
+  font-family: "Overpass", sans-serif;
+  color: black;
+  padding: 10px;
+  font-weight: 800;
+}
+
+.account-option:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.ao-dropdown-options {
+  position: absolute;
+  right: 10px;
+  list-style: none;
+  background: black;
+  color: #fff;
+  z-index: 99;
+}
+
+.ao-dropdown-options li {
+  font-size: 1em;
+  font-family: "Overpass", sans-serif;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ao-dropdown-options li:hover {
+  background: var(--green);
+  background-image: var(--green-bg);
+}
+
+@media (min-width: 481px) and (max-width: 860px) {
+  .brand {
+    display: block;
+    position: absolute !important;
+    margin-left: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .drop-navlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .mytoggler {
+    display: block;
+    width: 50px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .brand {
+    display: block;
+    position: absolute !important;
+    margin-left: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .drop-navlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+
+  .mytoggler {
+    display: block;
+    width: 50px;
+  }
+}

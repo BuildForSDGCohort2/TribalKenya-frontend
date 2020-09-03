@@ -1,16 +1,18 @@
 import React from 'react';
 import { BiSearchAlt } from 'react-icons/bi';
 import Navitem from './Navitem';
+import Brand from './Brand';
 
-const Navlist = () => {
+const Navlist = ({ isNavOpen }) => {
   return (
-        <ul className="center nav-list">
+        <ul className={isNavOpen ? 'nav-list drop-navlist' : 'nav-list'}>
+            <Navitem icon={<Brand/>} classname="nav-logo" />
             <Navitem link="/" title="Home" />
             <Navitem link="/about" title="About" />
             <Navitem link="/sightseeing" title="Sightseeing" />
             <Navitem link="/treks" title="Treks" />
             <Navitem link="live-tv" title="Live TV" />
-            <Navitem icon={<BiSearchAlt className="text-white medium-text" />} />
+            <Navitem icon={<BiSearchAlt className="medium-text" />} />
         </ul>
   );
 };

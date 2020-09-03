@@ -57,6 +57,7 @@
 
 .nav-link {
   font-family: "Overpass", sans-serif;
+  font-variant: small-caps;
   text-decoration: none;
   color: white;
   margin: 0 3px;
@@ -66,6 +67,30 @@
 
 .nav-link:hover {
   color: var(--green);
+}
+
+.search {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.search-input {
+  flex: 1 80%;
+}
+
+#search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+}
+
+.search-icon {
+  font-size: 1.3em;
+  cursor: pointer;
 }
 
 /* Bottom section */

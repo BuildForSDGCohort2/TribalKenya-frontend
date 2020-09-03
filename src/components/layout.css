@@ -30,6 +30,31 @@ body {
   --white-bg: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
+button {
+  outline: none !important;
+}
+
+/* Colors */
+.green-bg {
+  background: var(--green);
+  background-image: var(--green-bg);
+}
+
+.black-bg {
+  background: black;
+  background-image: var(--black-bg);
+}
+
+.white-bg {
+  background: #fff;
+  background-image: var(--white-bg);
+}
+
+.red-bg {
+  background: var(--red);
+  background-image: var(--red-bg);
+}
+
 /* Fonts */
 .medium-text {
   font-size: 1.1em;

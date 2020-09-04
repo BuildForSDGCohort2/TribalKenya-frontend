@@ -1,0 +1,17 @@
+.intro-container {
+  flex: 1 30%;
+}
+
+.intro-video-player {
+  width: 100%;
+}
+
+.video-js,
+.vjs-tech,
+.vjs-poster {
+  outline: none;
+}
+
+.vjs-poster {
+  background-size: cover;
+}

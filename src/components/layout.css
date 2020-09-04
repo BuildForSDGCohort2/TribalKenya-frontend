@@ -64,6 +64,13 @@ button {
   font-size: 0.9em;
 }
 
+/* Homepage */
+.home-intro {
+  height: 100vh;
+}
+
+/* grids */
+
 /* Common Classes */
 .right {
   display: flex;
@@ -78,6 +85,16 @@ button {
 .center {
   display: flex;
   justify-content: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+/* Videojs */
+.vjs-big-play-button {
+  border-radius: 20px !important;
+  background-color: var(--green) !important;
 }
 
 @media only screen and (max-width: 480px) {

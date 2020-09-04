@@ -1,8 +1,10 @@
 import React from 'react';
+import { navigate } from '@reach/router';
 
 const Navitem = ({ link, title, icon, classname, handleIconClick }) => {
   const handleClick = (event) => {
     event.preventDefault();
+    navigate(link);
   };
   const iconClick = (event) => {
     event.preventDefault();

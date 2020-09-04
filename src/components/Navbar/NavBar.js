@@ -8,7 +8,7 @@ import Brand from './Brand';
 
 const NavBar = () => {
   const [isNavOpen, setisNavOpen] = useState(false);
-  const [search, setsearch] = useState(true);
+  const [search, setsearch] = useState(false);
   const toggleSearch = () => {
     setsearch(!search);
   };

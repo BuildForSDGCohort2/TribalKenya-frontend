@@ -9,7 +9,7 @@ import video from '../images/intro.mp4';
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <header className="home-intro">
+    <header className="home-intro two-sec-grid">
       <NavBar />
       <Intro poster={poster} videoSRC={video} />
     </header>

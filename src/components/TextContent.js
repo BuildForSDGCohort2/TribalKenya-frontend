@@ -1,9 +1,10 @@
 import React from 'react';
 
-const TextContent = () => {
+const TextContent = ({ heading, children }) => {
   return (
-        <div>
-            <h1>text</h1>
+        <div className="text-content">
+            <h1 className="mb-2 heading">{heading}</h1>
+            {children}
         </div>
   );
 };

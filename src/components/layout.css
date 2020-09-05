@@ -56,6 +56,10 @@ button {
 }
 
 /* Fonts */
+.heading {
+  font-size: 4em;
+}
+
 .medium-text {
   font-size: 1.1em;
 }
@@ -66,10 +70,16 @@ button {
 
 /* Homepage */
 .home-intro {
-  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 /* grids */
+.two-sec-grid {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+}
 
 /* Common Classes */
 .right {
@@ -91,10 +101,16 @@ button {
   flex-direction: column;
 }
 
-/* Videojs */
-.vjs-big-play-button {
-  border-radius: 20px !important;
-  background-color: var(--green) !important;
+.text-content {
+  position: absolute;
+  z-index: 2;
+  height: auto;
+  width: 100%;
+  top: 23vh;
+  text-align: center;
+  color: var(--green);
+  font-family: "Overpass", sans-serif;
+  font-variant: small-caps;
 }
 
 @media only screen and (max-width: 480px) {

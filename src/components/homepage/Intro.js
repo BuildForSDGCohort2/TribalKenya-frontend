@@ -7,12 +7,13 @@ const Intro = ({ poster, videoSRC }) => {
   return (
         <div className="intro-container">
             <VideoPlayer
-            controls={false}
+            controls={true}
             src={videoSRC}
             poster={poster}
             className="intro-video-player"
             >
             </VideoPlayer>
+            <TextContent heading="Welcome To kenya" />
         </div>
   );
 };

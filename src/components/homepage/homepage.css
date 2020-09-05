@@ -1,9 +1,10 @@
 .intro-container {
-  flex: 1 30%;
+  height: 100%;
 }
 
 .intro-video-player {
   width: 100%;
+  z-index: 1;
 }
 
 .video-js,
@@ -14,4 +15,22 @@
 
 .vjs-poster {
   background-size: cover;
+}
+
+.vjs-poster::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
+.vjs-big-play-button {
+  display: none !important;
 }

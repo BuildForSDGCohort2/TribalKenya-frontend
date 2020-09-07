@@ -45,7 +45,6 @@
 .video-player-custom {
   width: 700px;
   height: 500px;
-  object-fit: contain;
   border: 3px solid var(--white);
   border-radius: 5px;
 }
@@ -70,13 +69,13 @@
   z-index: 7;
 }
 
+.intro-video-btn {
+  z-index: 9;
+  position: absolute;
+}
+
 .vjs-big-play-button {
-  border: none !important;
-  font-size: 5em !important;
-  background-image: var(--green-bg) !important;
-  cursor: pointer;
-  animation: greenshadow 0.7s infinite alternate;
-  z-index: 8;
+  display: none !important;
 }
 
 @keyframes greenshadow {

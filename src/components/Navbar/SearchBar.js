@@ -10,7 +10,7 @@ const SearchBar = (props) => {
   return (
     <div>
       <Modal isOpen={props.search} toggle={props.toggleSearch} className={className}>
-        <ModalHeader toggle={props.toggleSearch} className="green-bg"></ModalHeader>
+        <ModalHeader toggle={props.toggleSearch} className="white-bg"></ModalHeader>
         <ModalBody className="black-bg">
           <div className="search center white-bg">
             <div className="search-input m-1">
@@ -20,6 +20,7 @@ const SearchBar = (props) => {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                autoComplete="off"
               />
             </div>
             <div className="search-icon">

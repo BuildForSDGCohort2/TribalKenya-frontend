@@ -22,12 +22,15 @@ body {
 }
 
 :root {
-  --red-bg: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  --red-bg: linear-gradient(to bottom, black, #dd1818);
   --red: #ff0844;
   --black-bg: linear-gradient(to right, #434343 0%, black 100%);
   --green-bg: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
   --green: #0ba360;
-  --white-bg: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  --white-bg: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  --white: #fdfcfb;
+  --purple-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --purple: #764ba2;
 }
 
 button {
@@ -35,6 +38,16 @@ button {
 }
 
 /* Colors */
+.purple-bg {
+  background: var(--purple);
+  background-image: var(--purple-bg);
+}
+
+.white-bg {
+  background: var(--white);
+  background-image: var(--white-bg);
+}
+
 .green-bg {
   background: var(--green);
   background-image: var(--green-bg);
@@ -45,14 +58,13 @@ button {
   background-image: var(--black-bg);
 }
 
-.white-bg {
-  background: #fff;
-  background-image: var(--white-bg);
-}
-
 .red-bg {
   background: var(--red);
   background-image: var(--red-bg);
+}
+
+.transparent {
+  background: transparent !important;
 }
 
 /* Fonts */
@@ -81,6 +93,69 @@ button {
   grid-template-columns: auto;
 }
 
+.two-sec-grid-cols {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "leftCol rightCol";
+}
+
+.left-col,
+.right-col,
+.slick-slider {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.left-col {
+  grid-area: leftCol;
+}
+
+.right-col {
+  grid-area: rightCol;
+  overflow: hidden;
+}
+
+/* Slider */
+.slider-container {
+  z-index: 99;
+}
+
+.slide h3 {
+  font-family: "Overpass", sans-serif;
+  font-variant: small-caps;
+}
+
+.slide img {
+  height: 30vh;
+  width: 100%;
+}
+
+/* Video Buttons */
+.play-btn-large {
+  border: none;
+  font-size: 5em;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  animation: shadowanime 0.7s infinite alternate;
+}
+
+.play-btn-large:hover {
+  animation: none;
+  box-shadow: 0 0 5px black, 0 0 20px black, 0 0 40px black;
+}
+
+@keyframes shadowanime {
+  from {
+    box-shadow: 0 0 0 transparent;
+  }
+  to {
+    box-shadow: 0 0 5px black, 0 0 20px black, 0 0 40px black;
+  }
+}
+
 /* Common Classes */
 .right {
   display: flex;
@@ -101,20 +176,39 @@ button {
   flex-direction: column;
 }
 
+.active {
+  display: none;
+}
+
+.inactive {
+  opacity: 0;
+}
+
 .text-content {
-  position: absolute;
-  z-index: 2;
   height: auto;
   width: 100%;
-  top: 23vh;
-  text-align: center;
-  color: var(--green);
+  top: 25vh;
+  text-align: left;
+  color: black;
   font-family: "Overpass", sans-serif;
   font-variant: small-caps;
 }
+.text-content p {
+  font-variant: normal;
+}
+
+@media (min-width: 481px) and (max-width: 860px) {
+  .two-sec-grid-cols {
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    grid-template-areas: "rightCol" "leftCol";
+  }
+}
 
 @media only screen and (max-width: 480px) {
-  html {
-    font-size: 100%;
+  .two-sec-grid-cols {
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    grid-template-areas: "rightCol" "leftCol";
   }
 }

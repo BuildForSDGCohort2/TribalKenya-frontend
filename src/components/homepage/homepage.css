@@ -1,7 +1,21 @@
-.intro-container {
-  height: 100%;
+.home-intro {
+  background: var(--white);
+  background-image: var(--white-bg);
 }
 
+/* text Slider */
+.intro-container,
+.intro-container::before {
+  height: auto;
+  min-height: 90vh;
+  width: 100%;
+}
+.intro-container {
+  z-index: 2;
+  background: transparent;
+}
+
+/* Video Player */
 .intro-video-player {
   width: 100%;
   z-index: 1;
@@ -29,6 +43,7 @@
     rgba(0, 0, 0, 0.6),
     rgba(0, 0, 0, 0.2)
   );
+  z-index: 7;
 }
 
 .vjs-big-play-button {

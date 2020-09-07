@@ -6,21 +6,23 @@ import Layout from '../components/layout';
 import Intro from '../components/homepage/Intro';
 import CustomVideoPlayer from '../components/homepage/CustomVideoPlayer';
 
-const IndexPage = ({ showVideo }) => (
+const IndexPage = ({ showVideo, introVideo, introPoster }) => (
   <Layout>
     <SEO title="Home" />
     <header className="home-intro">
       <NavBar extraClasses="transparent" />
       <Intro />
     </header>
-    {showVideo ? <section className="video-wrapper">
-      <CustomVideoPlayer/>
+    {showVideo ? <section className="video-wrapper center">
+      <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
     </section> : null}
   </Layout>
 );
 
 const mapStateToProps = (state) => ({
-  showVideo: state.intro.showVideo
+  showVideo: state.intro.showVideo,
+  introVideo: state.intro.introVideo,
+  introPoster: state.intro.introPoster
 });
 
 export default connect(mapStateToProps)(IndexPage);

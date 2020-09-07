@@ -4,7 +4,7 @@ import './homepage.css';
 
 const CustomVideoPlayer = ({ poster, videoSRC }) => {
   return (
-        <div className="intro-container">
+        <div className="intro-video-container animate__animated animate__zoomIn">
             <VideoPlayer
                     controls={true}
                     src={videoSRC}

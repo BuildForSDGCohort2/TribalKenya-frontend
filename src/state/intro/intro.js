@@ -2,7 +2,7 @@ import video from '../../images/intro.mp4';
 import poster from '../../images/flag2.jpg';
 
 const initialState = {
-  showVideo: true,
+  showVideo: false,
   introVideo: video,
   introPoster: poster
 };
@@ -18,12 +18,3 @@ export default (state = initialState, action) => {
       return state;
   }
 };
-
-// Actions
-export const toggleVideo = (showVideo) => ({
-  type: 'show_video', showVideo
-});
-
-export const addVideo = (addVideo) => ({
-  type: 'add_video', addVideo
-});

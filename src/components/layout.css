@@ -37,7 +37,7 @@ button {
   outline: none !important;
 }
 
-/* Colors */
+/* Colors and Backgrounds */
 .purple-bg {
   background: var(--purple);
   background-image: var(--purple-bg);
@@ -137,7 +137,8 @@ button {
   border: none;
   font-size: 5em;
   border-radius: 50%;
-  background: transparent;
+  background: var(--green);
+  background-image: var(--green-bg);
   cursor: pointer;
   animation: shadowanime 0.7s infinite alternate;
 }
@@ -154,6 +155,20 @@ button {
   to {
     box-shadow: 0 0 5px black, 0 0 20px black, 0 0 40px black;
   }
+}
+
+/* Text conent */
+.text-content {
+  height: auto;
+  width: 100%;
+  top: 25vh;
+  text-align: left;
+  color: black;
+  font-family: "Overpass", sans-serif;
+  font-variant: small-caps;
+}
+.text-content p {
+  font-variant: normal;
 }
 
 /* Common Classes */
@@ -184,17 +199,8 @@ button {
   opacity: 0;
 }
 
-.text-content {
-  height: auto;
-  width: 100%;
-  top: 25vh;
-  text-align: left;
-  color: black;
-  font-family: "Overpass", sans-serif;
-  font-variant: small-caps;
-}
-.text-content p {
-  font-variant: normal;
+.cursor {
+  cursor: pointer;
 }
 
 @media (min-width: 481px) and (max-width: 860px) {

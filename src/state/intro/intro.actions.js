@@ -6,3 +6,7 @@ export const toggleVideo = (showVideo) => ({
 export const addVideo = (addVideo) => ({
   type: 'add_video', addVideo
 });
+
+export const addIntroSlides = (introSlides) => ({
+  type: 'add_intro_slides', introSlides
+});

@@ -7,20 +7,22 @@ import Layout from '../components/layout';
 import Intro from '../components/homepage/Intro';
 import CustomVideoPlayer from '../components/homepage/CustomVideoPlayer';
 import { toggleVideo } from '../state/intro/intro.actions';
+import SightSeeingPrev from '../components/homepage/sightseeing-preview/SightSeeingPrev';
 
 const IndexPage = ({ showVideo, introVideo, introPoster, videoToggle }) => (
   <Layout>
     <SEO title="Home" />
-    <header className="home-intro">
-      <NavBar extraClasses="transparent" />
-      <Intro />
-    </header>
-    {showVideo ? <section className="video-wrapper center">
-      <div className="close-video">
-      <FaRegWindowClose className="cursor" onClick={() => videoToggle(false)} />
-      </div>
-      <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
-    </section> : null}
+      <header className="home-intro">
+        <NavBar extraClasses="transparent" />
+        <Intro />
+      </header>
+      {showVideo ? <section className="video-wrapper center">
+        <div className="close-video">
+        <FaRegWindowClose className="cursor" onClick={() => videoToggle(false)} />
+        </div>
+        <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
+      </section> : null}
+      <SightSeeingPrev/>
   </Layout>
 );
 

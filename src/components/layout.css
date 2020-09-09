@@ -29,6 +29,7 @@ body {
   --green: #0ba360;
   --white-bg: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
   --white: #fdfcfb;
+  --cream: #e2d1c3;
   --purple-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --purple: #764ba2;
 }
@@ -38,6 +39,14 @@ button {
 }
 
 /* Colors and Backgrounds */
+.c-white {
+  color: var(--white) !important;
+}
+
+.c-cream {
+  color: var(--cream);
+}
+
 .purple-bg {
   background: var(--purple);
   background-image: var(--purple-bg);
@@ -125,6 +134,7 @@ button {
 .slide h3 {
   font-family: "Overpass", sans-serif;
   font-variant: small-caps;
+  font-weight: bold;
 }
 
 .slide img {
@@ -163,7 +173,6 @@ button {
   width: 100%;
   top: 25vh;
   text-align: left;
-  color: black;
   font-family: "Overpass", sans-serif;
   font-variant: small-caps;
 }
@@ -216,5 +225,9 @@ button {
     grid-template-rows: auto auto;
     grid-template-columns: auto;
     grid-template-areas: "rightCol" "leftCol";
+  }
+
+  .heading {
+    font-size: 3em;
   }
 }

@@ -4,7 +4,7 @@ const Slide = ({ content, image }) => {
   return (
         <div className="slide text-center" >
             <img src={image} alt="intro"/>
-            <h3>{content}</h3>
+            <h3 className="medium-text">{content}</h3>
         </div>
   );
 };

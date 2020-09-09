@@ -93,6 +93,33 @@
   background-image: var(--green-bg);
 }
 
+/* Sigtseeing Preview gallery */
+.st-prev-sec {
+  min-height: 100vh;
+  background-image: var(--black-bg);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.gallery-item:nth-child(1) {
+  grid-row: 1/1;
+  grid-column: 1/3;
+}
+
+.gallery-item:last-child {
+  grid-row: 2/3;
+  grid-column: 3/5;
+}
+
+.gallery-img {
+  height: 50vh;
+  width: 100%;
+}
+
 @media (min-width: 481px) and (max-width: 860px) {
   .close-video {
     width: 600px;
@@ -101,6 +128,20 @@
   .video-player-custom {
     width: 600px;
     height: 400px;
+  }
+
+  .gallery {
+    grid-template-columns: auto auto;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .gallery-item:last-child {
+    grid-row: auto;
+    grid-column: auto;
   }
 }
 
@@ -112,5 +153,19 @@
   .video-player-custom {
     width: 300px;
     height: 300px;
+  }
+
+  .gallery {
+    grid-template-columns: auto;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .gallery-item:last-child {
+    grid-row: auto;
+    grid-column: auto;
   }
 }

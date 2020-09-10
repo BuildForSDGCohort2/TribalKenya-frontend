@@ -14,8 +14,13 @@ const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
             <TextContent heading="Sightseeing" textColor="c-cream text-center" />
             <div className="gallery">
                 {previewSites.map((key) => (
-                    <div className="gallery-item p-1" key={key.name}>
-                        <img src={key.poster} alt="gallery" className="gallery-img" />
+                    <div className="gallery-item center column animate__animated animate__zoomIn cursor"
+                        key={key.name}
+                        style={{ backgroundImage: `url(${key.poster})` }} >
+                        <div className="gallery-text animate__animated animate__slideInDown">
+                            <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
+                            <p className="small-text animate__animated animate__rotateInUpRight">{key.location}</p>
+                        </div>
                     </div>
                 ))}
             </div>

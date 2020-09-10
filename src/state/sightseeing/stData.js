@@ -9,7 +9,7 @@ export const stPrevData = [
   { name: 'Maasai Mara Game Reeserve', poster: maasaiMara, location: 'Narok' },
   { name: 'Diani Beach', poster: dianiBeach, location: 'Coast' },
   { name: 'Menengai Crater', poster: menengaiCrater, location: 'Nakuru' },
-  { name: 'Lake Nakuru National Park', poster: lakeNakuruNationalPark, location: 'Nakuru' },
   { name: 'Mount Kenya', poster: mountKenya, location: 'Eastern & Central' },
-  { name: 'Mombasa Marine Park', poster: mMarinePark, location: 'Mombasa' }
+  { name: 'Mombasa Marine Park', poster: mMarinePark, location: 'Mombasa' },
+  { name: 'Lake Nakuru National Park', poster: lakeNakuruNationalPark, location: 'Nakuru' }
 ];

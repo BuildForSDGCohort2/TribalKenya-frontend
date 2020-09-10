@@ -1,36 +1,35 @@
-import React from 'react';
-import image from '../../../images/forest.jpg';
-import mountain from '../../../images/mountain.jpg';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import TextContent from '../../TextContent';
+import { addpreviewSites } from '../../../state/sightseeing/sightseeing.actions';
+import { stPrevData } from '../../../state/sightseeing/stData';
 
-const SightSeeingPrev = () => {
+const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
+  useEffect(() => {
+    addpreviewSites(stPrevData);
+  }, [addpreviewSites]);
   return (
       <>
         <section className="st-prev-sec w-100 p-3">
             <TextContent heading="Sightseeing" textColor="c-cream text-center" />
             <div className="gallery">
-            <div className="gallery-item p-1">
-                <img src={image} alt="gallery" className="gallery-img" />
-            </div>
-            <div className="gallery-item p-1">
-                <img src={mountain} alt="gallery" className="gallery-img" />
-            </div>
-            <div className="gallery-item p-1">
-                <img src={image} alt="gallery" className="gallery-img" />
-            </div>
-            <div className="gallery-item p-1">
-                <img src={image} alt="gallery" className="gallery-img" />
-            </div>
-            <div className="gallery-item p-1">
-                <img src={mountain} alt="gallery" className="gallery-img" />
-            </div>
-            <div className="gallery-item p-1">
-                <img src={image} alt="gallery" className="gallery-img" />
-            </div>
+                {previewSites.map((key) => (
+                    <div className="gallery-item p-1" key={key.name}>
+                        <img src={key.poster} alt="gallery" className="gallery-img" />
+                    </div>
+                ))}
             </div>
         </section>
 </>
   );
 };
 
-export default SightSeeingPrev;
+const mapStateToProps = (state) => ({
+  previewSites: state.sightSeeing.previewSites
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addpreviewSites: (previewSites) => dispatch(addpreviewSites(previewSites))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SightSeeingPrev);

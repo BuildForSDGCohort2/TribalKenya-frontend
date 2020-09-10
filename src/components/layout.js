@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'video.js/dist/video';
 import 'video.js/dist/video-js.min.css';
+import 'aos/dist/aos.css';
 
 const Layout = ({ children }) => {
   return (

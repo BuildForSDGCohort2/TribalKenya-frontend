@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import AOS from 'aos';
 import TextContent from '../../TextContent';
 import { addpreviewSites } from '../../../state/sightseeing/sightseeing.actions';
 import { stPrevData } from '../../../state/sightseeing/stData';
@@ -7,6 +8,7 @@ import { stPrevData } from '../../../state/sightseeing/stData';
 const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
   useEffect(() => {
     addpreviewSites(stPrevData);
+    AOS.init({ once: true });
   }, [addpreviewSites]);
   return (
       <>
@@ -14,9 +16,10 @@ const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
             <TextContent heading="Sightseeing" textColor="c-cream text-center" />
             <div className="gallery">
                 {previewSites.map((key) => (
-                    <div className="gallery-item center column animate__animated animate__zoomIn cursor"
+                    <div className="gallery-item cursor"
                         key={key.name}
-                        style={{ backgroundImage: `url(${key.poster})` }} >
+                        style={{ backgroundImage: `url(${key.poster})` }}
+                        data-aos="zoom-in" data-aos-duration="500" >
                         <div className="gallery-text animate__animated animate__slideInDown">
                             <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
                             <p className="small-text animate__animated animate__rotateInUpRight">{key.location}</p>

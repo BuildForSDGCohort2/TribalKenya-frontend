@@ -199,3 +199,15 @@
     grid-column: auto;
   }
 }
+
+@media (hover: hover) {
+  .gallery-text {
+    display: none;
+  }
+}
+
+@media (hover: none) {
+  .gallery-text {
+    display: flex;
+  }
+}

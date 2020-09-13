@@ -11,7 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -19,6 +18,7 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  font-family: "Overpass", sans-serif;
 }
 
 :root {
@@ -150,10 +150,13 @@ button {
   background: var(--green);
   background-image: var(--green-bg);
   cursor: pointer;
+}
+
+.flash {
   animation: shadowanime 0.7s infinite alternate;
 }
 
-.play-btn-large:hover {
+.flash:hover {
   animation: none;
   box-shadow: 0 0 5px black, 0 0 20px black, 0 0 40px black;
 }
@@ -210,6 +213,16 @@ button {
 
 .cursor {
   cursor: pointer;
+}
+
+/* Buttons */
+.large-btn {
+  font-size: 2em;
+  background: black;
+  color: var(--green);
+  border: 1px solid var(--green);
+  font-family: "Overpass", sans-serif;
+  padding: 0 1rem;
 }
 
 @media (min-width: 481px) and (max-width: 860px) {

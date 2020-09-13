@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import AOS from 'aos';
+import { navigate } from '@reach/router';
 import TextContent from '../../TextContent';
 import { addpreviewSites } from '../../../state/sightseeing/sightseeing.actions';
 import { stPrevData } from '../../../state/sightseeing/stData';
+import LargeBtn from '../../LargeBtn';
 
 const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
+  const goToPage = () => navigate('sightseeing');
   useEffect(() => {
     addpreviewSites(stPrevData);
     AOS.init({ once: true });
@@ -27,6 +30,7 @@ const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
                     </div>
                 ))}
             </div>
+            <LargeBtn textContent="Explore" activate={goToPage} extraClass="mt-3" />
         </section>
 </>
   );

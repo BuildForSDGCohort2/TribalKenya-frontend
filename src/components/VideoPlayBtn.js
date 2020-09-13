@@ -9,7 +9,7 @@ const VideoPlayBtn = ({ activate, extraWrapper, extraClass }) => {
   return (
       <div className={`text-center ${extraWrapper}`}>
         <span >
-            <FaPlayCircle className={`play-btn-large ${extraClass}`} onClick={hanldeClick} />
+            <FaPlayCircle className={`play-btn-large flash ${extraClass}`} onClick={hanldeClick} />
         </span>
       </div>
   );

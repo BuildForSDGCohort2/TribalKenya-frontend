@@ -5,6 +5,7 @@ const animateCSS = (element, animation, callBack = () => null, prefix = 'animate
   // eslint-disable-next-line no-unused-vars
   new Promise((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
+    // eslint-disable-next-line init-declarations
     let node;
     if (typeof element === 'object') {
       node = element;

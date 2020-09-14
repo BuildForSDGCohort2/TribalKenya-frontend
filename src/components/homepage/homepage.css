@@ -150,6 +150,90 @@
   font-family: "Overpass", sans-serif;
 }
 
+/* Treks Preview Sec */
+.treks-prev-sec {
+  height: auto;
+  background: var(--green);
+  background-image: var(--green-bg);
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+}
+
+.trek {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "trekleft trekright";
+  column-gap: 0.7rem;
+  cursor: pointer;
+  background: var(--white);
+  background-image: var(--white-bg);
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.trek-left {
+  position: relative;
+  height: auto;
+  width: 100%;
+  grid-area: trekleft;
+}
+
+.trek-left img {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.trek-right {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-area: trekright;
+  padding: 0 0.7rem;
+}
+
+.trek-owner {
+  display: flex;
+  font-family: "Overpass", sans-serif;
+}
+
+.trek-owner img {
+  height: 30px;
+  width: 30px;
+  flex: 1 20%;
+  border-radius: 50%;
+}
+
+.trek-username {
+  flex: 1 80%;
+  margin-left: 0.7rem;
+}
+
+.trek-text-content {
+  font-family: "Overpass", sans-serif;
+  font-weight: bold;
+}
+
+.slide-options {
+  position: relative;
+  width: 100%;
+  align-items: center;
+  font-family: "Overpass", sans-serif;
+}
+
+.prev,
+.next,
+.pause {
+  border: 1px solid var(--white);
+  border-radius: 20px;
+  background: black;
+  color: var(--white);
+}
+
 @media (min-width: 481px) and (max-width: 860px) {
   .close-video {
     width: 600px;
@@ -197,6 +281,12 @@
   .gallery-item:last-child {
     grid-row: auto;
     grid-column: auto;
+  }
+
+  .trek {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "trekleft" "trekright";
   }
 }
 

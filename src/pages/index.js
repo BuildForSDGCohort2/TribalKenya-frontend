@@ -8,6 +8,7 @@ import Intro from '../components/homepage/Intro';
 import CustomVideoPlayer from '../components/homepage/CustomVideoPlayer';
 import { toggleVideo } from '../state/intro/intro.actions';
 import SightSeeingPrev from '../components/homepage/sightseeing-preview/SightSeeingPrev';
+import TreksPrev from '../components/homepage/treks-preview/TreksPrev';
 
 const IndexPage = ({ showVideo, introVideo, introPoster, videoToggle }) => (
   <Layout>
@@ -23,6 +24,7 @@ const IndexPage = ({ showVideo, introVideo, introPoster, videoToggle }) => (
         <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
       </section> : null}
       <SightSeeingPrev/>
+      <TreksPrev />
   </Layout>
 );
 

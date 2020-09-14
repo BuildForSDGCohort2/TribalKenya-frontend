@@ -1,12 +1,13 @@
 import trek1 from '../../images/trek-1.jpg';
+import userImg from '../../images/404.svg';
 
 export const treksData = [
   {
     id: 1,
-    username: 'Trigga Maserati',
+    user: { username: 'Trigga Maserati', profile_pic: userImg },
     trek: [
       {
-        images: [trek1],
+        images: [trek1, userImg, trek1],
         text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
         videos: []
       }
@@ -29,7 +30,7 @@ export const treksData = [
   },
   {
     id: 2,
-    username: 'Trigga Maserati',
+    user: { username: 'Trigga Maserati', profile_pic: userImg },
     trek: [
       {
         images: [trek1],
@@ -55,7 +56,7 @@ export const treksData = [
   },
   {
     id: 3,
-    username: 'Trigga Maserati',
+    user: { username: 'Trigga Maserati', profile_pic: userImg },
     trek: [
       {
         images: [trek1],
@@ -81,7 +82,7 @@ export const treksData = [
   },
   {
     id: 4,
-    username: 'Trigga Maserati',
+    user: { username: 'Trigga Maserati', profile_pic: userImg },
     trek: [
       {
         images: [trek1],
@@ -107,7 +108,7 @@ export const treksData = [
   },
   {
     id: 5,
-    username: 'Trigga Maserati',
+    user: { username: 'Trigga Maserati', profile_pic: userImg },
     trek: [
       {
         images: [trek1],
@@ -133,7 +134,7 @@ export const treksData = [
   },
   {
     id: 6,
-    username: 'Trigga Maserati',
+    user: { username: 'Trigga Maserati', profile_pic: userImg },
     trek: [
       {
         images: [trek1],
@@ -159,7 +160,7 @@ export const treksData = [
   },
   {
     id: 7,
-    username: 'Trigga Maserati',
+    user: { username: 'Trigga Maserati', profile_pic: userImg },
     trek: [
       {
         images: [trek1],
@@ -185,7 +186,7 @@ export const treksData = [
   },
   {
     id: 8,
-    username: 'Trigga Maserati',
+    user: { username: 'Trigga Maserati', profile_pic: userImg },
     trek: [
       {
         images: [trek1],

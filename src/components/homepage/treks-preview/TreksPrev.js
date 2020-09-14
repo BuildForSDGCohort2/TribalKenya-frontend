@@ -1,10 +1,11 @@
-import React from 'react';
-import trek1 from '../../../images/trek-1.jpg';
-import adventure from '../../../images/adventure.svg';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchTreks } from '../../../state/treks/treks.actions';
 import CustomSlider from '../../slider/CustomSlider';
 import TextContent from '../../TextContent';
+import { treksData } from '../../../state/treks/treksData';
 
-const TreksPrev = () => {
+const TreksPrev = ({ treks, fetchTreks }) => {
   const styles = {
     infinite: true,
     slidesToShow: 3,
@@ -12,144 +13,49 @@ const TreksPrev = () => {
     pauseOnHover: false,
     autoplay: true,
     autoplaySpeed: 2000,
-    vertical: true
+    vertical: true,
+    swipe: true
   };
+  useEffect(() => {
+    fetchTreks(treksData);
+  }, [treks, fetchTreks]);
   return (
-        <section className="treks-prev-sec">
-            <TextContent heading="Recent Treks" textColor="c-cream text-center" />
-            <CustomSlider customStyles={styles} nextAndPrev={true} >
-            <article className="p-2">
-                <div className="trek">
-                    <div className="trek-left">
-                        <img src={trek1} alt="trek preview"/>
-                    </div>
-                    <div className="trek-right">
-                        <div className="trek-owner">
-                            <img src={adventure} alt="trek owner"/>
-                            <span className="trek-username">Username</span>
-                        </div>
-                        <div className="trek-text-content pt-2 small-text">
-                            <span className="trek-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!</span>
-                        </div>
-                    </div>
+    <section className="treks-prev-sec">
+      <TextContent heading="Recent Treks" textColor="c-cream text-center" />
+      <CustomSlider customStyles={styles} nextAndPrev={true}>
+        {treks.map((key) => (
+          <article className="p-2" key={key.id}>
+            <div className="trek">
+              <div className="trek-left">
+                <img
+                  src={key.trek[0].images[0]}
+                  alt="trek preview"
+                  className="trek-img"
+                />
+              </div>
+              <div className="trek-right">
+                <div className="trek-owner">
+                  <img src={key.user.profile_pic} alt="trek owner" />
+                  <span className="trek-username">{key.user.username}</span>
                 </div>
-            </article>
-            <article className="p-2">
-                <div className="trek">
-                    <div className="trek-left">
-                        <img src={trek1} alt="trek preview"/>
-                    </div>
-                    <div className="trek-right">
-                        <div className="trek-owner">
-                            <img src={adventure} alt="trek owner"/>
-                            <span className="trek-username">Username</span>
-                        </div>
-                        <div className="trek-text-content pt-2 small-text">
-                            <span className="trek-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!</span>
-                        </div>
-                    </div>
+                <div className="trek-text-content pt-2 small-text">
+                  <span className="trek-text">{key.trek[0].text}</span>
                 </div>
-            </article>
-            <article className="p-2">
-                <div className="trek">
-                    <div className="trek-left">
-                        <img src={trek1} alt="trek preview"/>
-                    </div>
-                    <div className="trek-right">
-                        <div className="trek-owner">
-                            <img src={adventure} alt="trek owner"/>
-                            <span className="trek-username">Username</span>
-                        </div>
-                        <div className="trek-text-content pt-2 small-text">
-                            <span className="trek-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article className="p-2">
-                <div className="trek">
-                    <div className="trek-left">
-                        <img src={trek1} alt="trek preview"/>
-                    </div>
-                    <div className="trek-right">
-                        <div className="trek-owner">
-                            <img src={adventure} alt="trek owner"/>
-                            <span className="trek-username">Username</span>
-                        </div>
-                        <div className="trek-text-content pt-2 small-text">
-                            <span className="trek-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article className="p-2">
-                <div className="trek">
-                    <div className="trek-left">
-                        <img src={trek1} alt="trek preview"/>
-                    </div>
-                    <div className="trek-right">
-                        <div className="trek-owner">
-                            <img src={adventure} alt="trek owner"/>
-                            <span className="trek-username">Username</span>
-                        </div>
-                        <div className="trek-text-content pt-2 small-text">
-                            <span className="trek-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article className="p-2">
-                <div className="trek">
-                    <div className="trek-left">
-                        <img src={trek1} alt="trek preview"/>
-                    </div>
-                    <div className="trek-right">
-                        <div className="trek-owner">
-                            <img src={adventure} alt="trek owner"/>
-                            <span className="trek-username">Username</span>
-                        </div>
-                        <div className="trek-text-content pt-2 small-text">
-                            <span className="trek-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article className="p-2">
-                <div className="trek">
-                    <div className="trek-left">
-                        <img src={trek1} alt="trek preview"/>
-                    </div>
-                    <div className="trek-right">
-                        <div className="trek-owner">
-                            <img src={adventure} alt="trek owner"/>
-                            <span className="trek-username">Username</span>
-                        </div>
-                        <div className="trek-text-content pt-2 small-text">
-                            <span className="trek-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article className="p-2">
-                <div className="trek">
-                    <div className="trek-left">
-                        <img src={trek1} alt="trek preview"/>
-                    </div>
-                    <div className="trek-right">
-                        <div className="trek-owner">
-                            <img src={adventure} alt="trek owner"/>
-                            <span className="trek-username">Username</span>
-                        </div>
-                        <div className="trek-text-content pt-2 small-text">
-                            <span className="trek-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            </CustomSlider>
-
-        </section>
+              </div>
+            </div>
+          </article>
+        ))}
+      </CustomSlider>
+    </section>
   );
 };
 
-export default TreksPrev;
+const mapStateToProps = (state) => ({
+  treks: state.treksStore.treks
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchTreks: (treks) => dispatch(fetchTreks(treks))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TreksPrev);

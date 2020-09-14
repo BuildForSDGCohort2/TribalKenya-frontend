@@ -1,3 +1,3 @@
-export const fetchtreks = (treks) => ({
+export const fetchTreks = (treks) => ({
   type: 'fetch_treks', treks
 });

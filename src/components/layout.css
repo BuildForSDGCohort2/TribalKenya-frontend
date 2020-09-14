@@ -34,7 +34,8 @@ body {
   --purple: #764ba2;
 }
 
-button {
+button,
+article {
   outline: none !important;
 }
 

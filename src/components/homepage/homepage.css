@@ -176,15 +176,16 @@
 .trek-left {
   position: relative;
   height: auto;
+  min-height: 40vh;
   width: 100%;
   grid-area: trekleft;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
 }
 
-.trek-img {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  border-radius: 10px;
+.collection-tag {
+  font-family: "Overpass", sans-serif;
 }
 
 .trek-right {
@@ -192,6 +193,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   grid-area: trekright;
   padding: 0 0.7rem;
 }
@@ -199,6 +202,7 @@
 .trek-owner {
   display: flex;
   font-family: "Overpass", sans-serif;
+  width: 100%;
 }
 
 .trek-owner img {

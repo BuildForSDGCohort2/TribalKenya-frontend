@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { BsFillCollectionFill } from 'react-icons/bs';
 import { fetchTreks } from '../../../state/treks/treks.actions';
 import CustomSlider from '../../slider/CustomSlider';
 import TextContent from '../../TextContent';
@@ -26,12 +27,11 @@ const TreksPrev = ({ treks, fetchTreks }) => {
         {treks.map((key) => (
           <article className="p-2" key={key.id}>
             <div className="trek">
-              <div className="trek-left">
-                <img
-                  src={key.trek[0].images[0]}
-                  alt="trek preview"
-                  className="trek-img"
-                />
+              <div
+                className="trek-left m-1 p-1 c-white"
+                style={{ backgroundImage: `url(${key.trek[0].images[0]})` }}
+              >
+                {key.trek[0].images.length > 1 ? <BsFillCollectionFill /> : null}
               </div>
               <div className="trek-right">
                 <div className="trek-owner">

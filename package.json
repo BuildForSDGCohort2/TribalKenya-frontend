@@ -21,6 +21,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
+    "react-lazyload": "^3.0.0",
     "react-redux": "^7.2.1",
     "react-slick": "^0.27.10",
     "react-video-js-player": "^1.1.1",

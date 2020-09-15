@@ -68,6 +68,11 @@ article {
   background-image: var(--black-bg);
 }
 
+.black {
+  background: black;
+  border: 1px solid var(--white) !important;
+}
+
 .red-bg {
   background: var(--red);
   background-image: var(--red-bg);
@@ -141,6 +146,37 @@ article {
 .slide img {
   height: 30vh;
   width: 100%;
+}
+
+.slick-arrow {
+  display: none !important;
+}
+
+/* Preloader */
+.preloader {
+  height: auto;
+  min-height: 10vh;
+  width: 100%;
+  align-items: center;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid var(--white);
+  border-radius: 50%;
+  animation: spin 1s linear infinite both;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Video Buttons */
@@ -219,9 +255,9 @@ article {
 /* Buttons */
 .large-btn {
   font-size: 2em;
-  background: black;
   color: var(--green);
   border: 1px solid var(--green);
+  border-radius: 5px;
   font-family: "Overpass", sans-serif;
   padding: 0 1rem;
 }

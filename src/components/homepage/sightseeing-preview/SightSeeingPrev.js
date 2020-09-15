@@ -30,7 +30,7 @@ const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
                     </div>
                 ))}
             </div>
-            <LargeBtn textContent="Explore" activate={goToPage} extraClass="mt-3" />
+            <LargeBtn textContent="Explore" activate={goToPage} extraClass="black mt-3" />
         </section>
 </>
   );

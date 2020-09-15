@@ -1,11 +1,19 @@
 import React from 'react';
 import { BsFillCollectionFill } from 'react-icons/bs';
 import LazyLoad from 'react-lazyload';
+import { connect } from 'react-redux';
 import PreLoader from '../pre-loader/PreLoader';
 import TrekInteractions from './TrekInteractions';
 import TimeTrekPosted from './TimeTrekPosted';
+import { showTrekLikes, showTrekReposts, showTrekComments } from '../../state/treks/treks.actions';
+import Treker from './Treker';
+import TrekModal from './TrekModal';
 
-const Trek = ({ trek, treks }) => {
+const Trek = ({ trek, treks, trekLikes, trekComments, trekReposts, showTrekComments, showTrekLikes, showTrekReposts }) => {
+  const toggleLikes = () => showTrekLikes(!trekLikes);
+  const toggleReposts = () => showTrekReposts(!trekReposts);
+  const toggleComments = () => showTrekComments(!trekComments);
+
   return (
     <>
       {treks.indexOf(trek) < 4 ? (
@@ -27,15 +35,21 @@ const Trek = ({ trek, treks }) => {
                 ) : null}
               </div>
               <div className="trek-right">
-                <div className="trek-owner">
-                  <img src={trek.user.profile_pic} alt="trek owner" />
-                  <span className="trek-username">{trek.user.username}</span>
-                </div>
+                <Treker trek={trek} />
                 <div className="trek-text-content pt-2 small-text">
                   <span className="trek-text">{trek.trek[0].text}</span>
                 </div>
-                <TrekInteractions trek={trek} />
+                <TrekInteractions trek={trek} showLikes={toggleLikes} showComments={toggleComments} showReposts={toggleReposts} />
                 <TimeTrekPosted timePosted={trek.date_posted} />
+                {trekLikes ? (
+                  <TrekModal people={trek.likes} openModal={trekLikes} toggleModal={toggleLikes} title="Liked by" />
+                ) : null}
+                {trekComments ? (
+                  <TrekModal comments={trek.comments} openModal={trekComments} toggleModal={toggleComments} title="Comments" />
+                ) : null}
+                {trekReposts ? (
+                  <TrekModal people={trek.reposts} openModal={trekReposts} toggleModal={toggleReposts} title="Reposted by" />
+                ) : null}
               </div>
             </div>
           </article>
@@ -45,4 +59,16 @@ const Trek = ({ trek, treks }) => {
   );
 };
 
-export default Trek;
+const mapStateToProps = (state) => ({
+  trekLikes: state.treksStore.trekLikes,
+  trekComments: state.treksStore.trekComments,
+  trekReposts: state.treksStore.trekReposts
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  showTrekLikes: (trekLikes) => dispatch(showTrekLikes(trekLikes)),
+  showTrekComments: (trekComments) => dispatch(showTrekComments(trekComments)),
+  showTrekReposts: (trekReposts) => dispatch(showTrekReposts(trekReposts))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Trek);

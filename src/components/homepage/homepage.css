@@ -13,6 +13,22 @@
 .intro-container {
   z-index: 2;
   background: transparent;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.left-col-flex,
+.right-col-flex {
+  align-items: center;
+}
+
+.left-col-flex {
+  flex: 1 40%;
+}
+
+.right-col-flex {
+  flex: 1 40%;
+  overflow: hidden;
 }
 
 /* Video Player */
@@ -207,8 +223,7 @@
 
 .trek-owner img {
   height: 30px;
-  width: 30px;
-  flex: 1 20%;
+  width: auto;
   border-radius: 50%;
 }
 
@@ -225,6 +240,15 @@
 .interaction {
   flex: 1 20%;
   justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.tag {
+  color: var(--green);
+  text-decoration: underline;
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  font-size: 0.9em;
   cursor: pointer;
 }
 
@@ -261,6 +285,14 @@
 }
 
 @media only screen and (max-width: 480px) {
+  .left-col-flex {
+    flex: 1 100%;
+  }
+
+  .right-col-flex {
+    flex: 1 100%;
+  }
+
   .close-video {
     width: 300px;
   }

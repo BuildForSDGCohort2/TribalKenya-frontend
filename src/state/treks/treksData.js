@@ -1,5 +1,5 @@
 import trek1 from '../../images/trek-1.jpg';
-import userImg from '../../images/404.svg';
+import userImg from '../../images/user.png';
 
 export const treksData = [
   {
@@ -17,14 +17,14 @@ export const treksData = [
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
-      { postId: 1, username: 'Mary', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Eliza', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Trekstar', comment: 'Wow looking good', reports: [] }
+      { id: 10, postId: 1, username: 'Mary', profile_pic: userImg, comment: 'Wow looking good', reports: [] },
+      { id: 11, postId: 1, username: 'Eliza', profile_pic: trek1, comment: 'Wow looking good', reports: [] },
+      { id: 12, postId: 1, username: 'Trekstar', profile_pic: userImg, comment: 'Wow looking good', reports: [] }
     ],
     likes: [
-      { username: 'Mary' },
-      { username: 'Eliza' },
-      { username: 'Trekstar' }
+      { id: 50, username: 'Mary', profile_pic: userImg },
+      { id: 51, username: 'Eliza', profile_pic: userImg },
+      { id: 52, username: 'Trekstar', profile_pic: userImg }
     ],
     reports: [],
     reposts: [],
@@ -45,14 +45,14 @@ export const treksData = [
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
-      { postId: 1, username: 'Mary', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Eliza', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Trekstar', comment: 'Wow looking good', reports: [] }
+      { id: 13, postId: 1, username: 'Mary', profile_pic: userImg, comment: 'Wow looking good', reports: [] },
+      { id: 14, postId: 1, username: 'Eliza', profile_pic: trek1, comment: 'Wow looking good', reports: [] },
+      { id: 15, postId: 1, username: 'Trekstar', profile_pic: userImg, comment: 'Wow looking good', reports: [] }
     ],
     likes: [
-      { username: 'Mary' },
-      { username: 'Eliza' },
-      { username: 'Trekstar' }
+      { id: 53, username: 'Mary', profile_pic: userImg },
+      { id: 54, username: 'Eliza', profile_pic: userImg },
+      { id: 55, username: 'Trekstar', profile_pic: userImg }
     ],
     reports: [],
     reposts: [],
@@ -73,14 +73,14 @@ export const treksData = [
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
-      { postId: 1, username: 'Mary', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Eliza', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Trekstar', comment: 'Wow looking good', reports: [] }
+      { id: 16, postId: 1, username: 'Mary', profile_pic: userImg, comment: 'Wow looking good', reports: [] },
+      { id: 17, postId: 1, username: 'Eliza', profile_pic: trek1, comment: 'Wow looking good', reports: [] },
+      { id: 18, postId: 1, username: 'Trekstar', profile_pic: userImg, comment: 'Wow looking good', reports: [] }
     ],
     likes: [
-      { username: 'Mary' },
-      { username: 'Eliza' },
-      { username: 'Trekstar' }
+      { id: 56, username: 'Mary', profile_pic: userImg },
+      { id: 57, username: 'Eliza', profile_pic: userImg },
+      { id: 58, username: 'Trekstar', profile_pic: userImg }
     ],
     reports: [],
     reposts: [],
@@ -101,14 +101,14 @@ export const treksData = [
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
-      { postId: 1, username: 'Mary', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Eliza', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Trekstar', comment: 'Wow looking good', reports: [] }
+      { id: 19, postId: 1, username: 'Mary', profile_pic: userImg, comment: 'Wow looking good', reports: [] },
+      { id: 20, postId: 1, username: 'Eliza', profile_pic: trek1, comment: 'Wow looking good', reports: [] },
+      { id: 21, postId: 1, username: 'Trekstar', profile_pic: userImg, comment: 'Wow looking good', reports: [] }
     ],
     likes: [
-      { username: 'Mary' },
-      { username: 'Eliza' },
-      { username: 'Trekstar' }
+      { id: 59, username: 'Mary', profile_pic: userImg },
+      { id: 60, username: 'Eliza', profile_pic: userImg },
+      { id: 61, username: 'Trekstar', profile_pic: userImg }
     ],
     reports: [],
     reposts: [],
@@ -129,14 +129,14 @@ export const treksData = [
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
-      { postId: 1, username: 'Mary', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Eliza', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Trekstar', comment: 'Wow looking good', reports: [] }
+      { id: 22, postId: 1, username: 'Mary', profile_pic: userImg, comment: 'Wow looking good', reports: [] },
+      { id: 23, postId: 1, username: 'Eliza', profile_pic: trek1, comment: 'Wow looking good', reports: [] },
+      { id: 24, postId: 1, username: 'Trekstar', profile_pic: userImg, comment: 'Wow looking good', reports: [] }
     ],
     likes: [
-      { username: 'Mary' },
-      { username: 'Eliza' },
-      { username: 'Trekstar' }
+      { id: 62, username: 'Mary', profile_pic: userImg },
+      { id: 62, username: 'Eliza', profile_pic: userImg },
+      { id: 63, username: 'Trekstar', profile_pic: userImg }
     ],
     reports: [],
     reposts: [],
@@ -157,14 +157,14 @@ export const treksData = [
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
-      { postId: 1, username: 'Mary', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Eliza', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Trekstar', comment: 'Wow looking good', reports: [] }
+      { id: 25, postId: 1, username: 'Mary', profile_pic: userImg, comment: 'Wow looking good', reports: [] },
+      { id: 26, postId: 1, username: 'Eliza', profile_pic: trek1, comment: 'Wow looking good', reports: [] },
+      { id: 27, postId: 1, username: 'Trekstar', profile_pic: userImg, comment: 'Wow looking good', reports: [] }
     ],
     likes: [
-      { username: 'Mary' },
-      { username: 'Eliza' },
-      { username: 'Trekstar' }
+      { id: 64, username: 'Mary', profile_pic: userImg },
+      { id: 65, username: 'Eliza', profile_pic: userImg },
+      { id: 66, username: 'Trekstar', profile_pic: userImg }
     ],
     reports: [],
     reposts: [],
@@ -185,14 +185,14 @@ export const treksData = [
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
-      { postId: 1, username: 'Mary', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Eliza', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Trekstar', comment: 'Wow looking good', reports: [] }
+      { id: 28, postId: 1, username: 'Mary', profile_pic: userImg, comment: 'Wow looking good', reports: [] },
+      { id: 29, postId: 1, username: 'Eliza', profile_pic: trek1, comment: 'Wow looking good', reports: [] },
+      { id: 30, postId: 1, username: 'Trekstar', profile_pic: userImg, comment: 'Wow looking good', reports: [] }
     ],
     likes: [
-      { username: 'Mary' },
-      { username: 'Eliza' },
-      { username: 'Trekstar' }
+      { id: 67, username: 'Mary', profile_pic: userImg },
+      { id: 68, username: 'Eliza', profile_pic: userImg },
+      { id: 69, username: 'Trekstar', profile_pic: userImg }
     ],
     reports: [],
     reposts: [],
@@ -213,14 +213,14 @@ export const treksData = [
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
-      { postId: 1, username: 'Mary', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Eliza', comment: 'Wow looking good', reports: [] },
-      { postId: 1, username: 'Trekstar', comment: 'Wow looking good', reports: [] }
+      { id: 31, postId: 1, username: 'Mary', profile_pic: userImg, comment: 'Wow looking good', reports: [] },
+      { id: 32, postId: 1, username: 'Eliza', profile_pic: trek1, comment: 'Wow looking good', reports: [] },
+      { id: 33, postId: 1, username: 'Trekstar', profile_pic: userImg, comment: 'Wow looking good', reports: [] }
     ],
     likes: [
-      { username: 'Mary' },
-      { username: 'Eliza' },
-      { username: 'Trekstar' }
+      { id: 70, username: 'Mary', profile_pic: userImg },
+      { id: 71, username: 'Eliza', profile_pic: userImg },
+      { id: 72, username: 'Trekstar', profile_pic: userImg }
     ],
     reports: [],
     reposts: [],

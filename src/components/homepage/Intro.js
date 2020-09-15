@@ -21,13 +21,13 @@ const Intro = ({ videoToggle, introSlides }) => {
   };
 
   return (
-        <div className="intro-container two-sec-grid-cols">
-          <div className="left-col center">
+        <div className="intro-container center">
+          <div className="left-col-flex center">
             <TextContent heading="Tribal Kenya" text={texts} >
               <VideoPlayBtn activate={showVideo} />
             </TextContent>
           </div>
-          <div className="right-col center">
+          <div className="right-col-flex center">
             <CustomSlider customStyles={style} >
                 {introSlides.map((key) => (
                   <Slide key={key} image={key.image} content={key.content} />

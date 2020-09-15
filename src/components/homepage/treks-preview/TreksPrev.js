@@ -8,12 +8,6 @@ import Trek from '../../trek/Trek';
 import LargeBtn from '../../LargeBtn';
 
 const TreksPrev = ({ treks, fetchTreks }) => {
-  let recentTreks = [];
-  treksData.forEach((key) => {
-    if (treksData.indexOf(key) <= 6) {
-      recentTreks = [...recentTreks, key];
-    }
-  });
   const goToTreks = () => navigate('treks');
   useEffect(() => {
     fetchTreks(treksData);

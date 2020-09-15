@@ -18,7 +18,6 @@ const TimeTrekPosted = ({ timePosted }) => {
   };
   useEffect(() => {
     updateTime();
-    console.log(date);
   }, [timePosted]);
   return (
         <div className="time-trek-posted mt-2 left">

@@ -12,8 +12,8 @@ export const treksData = [
         videos: []
       }
     ],
-    tags: '#wildlife',
-    category: 'Wildlife',
+    tags: ['#wildlife'],
+    category: ['Wildlife'],
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
@@ -26,7 +26,9 @@ export const treksData = [
       { username: 'Eliza' },
       { username: 'Trekstar' }
     ],
-    reports: []
+    reports: [],
+    reposts: [],
+    date_posted: Date.now()
   },
   {
     id: 2,
@@ -38,7 +40,7 @@ export const treksData = [
         videos: []
       }
     ],
-    tags: '#wildlife',
+    tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
     privacy: 'Public',
@@ -52,7 +54,9 @@ export const treksData = [
       { username: 'Eliza' },
       { username: 'Trekstar' }
     ],
-    reports: []
+    reports: [],
+    reposts: [],
+    date_posted: Date.now()
   },
   {
     id: 3,
@@ -64,7 +68,7 @@ export const treksData = [
         videos: []
       }
     ],
-    tags: '#wildlife',
+    tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
     privacy: 'Public',
@@ -78,7 +82,9 @@ export const treksData = [
       { username: 'Eliza' },
       { username: 'Trekstar' }
     ],
-    reports: []
+    reports: [],
+    reposts: [],
+    date_posted: Date.now()
   },
   {
     id: 4,
@@ -90,7 +96,7 @@ export const treksData = [
         videos: []
       }
     ],
-    tags: '#wildlife',
+    tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
     privacy: 'Public',
@@ -104,7 +110,9 @@ export const treksData = [
       { username: 'Eliza' },
       { username: 'Trekstar' }
     ],
-    reports: []
+    reports: [],
+    reposts: [],
+    date_posted: Date.now()
   },
   {
     id: 5,
@@ -116,7 +124,7 @@ export const treksData = [
         videos: []
       }
     ],
-    tags: '#wildlife',
+    tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
     privacy: 'Public',
@@ -130,7 +138,9 @@ export const treksData = [
       { username: 'Eliza' },
       { username: 'Trekstar' }
     ],
-    reports: []
+    reports: [],
+    reposts: [],
+    date_posted: Date.now()
   },
   {
     id: 6,
@@ -142,7 +152,7 @@ export const treksData = [
         videos: []
       }
     ],
-    tags: '#wildlife',
+    tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
     privacy: 'Public',
@@ -156,7 +166,9 @@ export const treksData = [
       { username: 'Eliza' },
       { username: 'Trekstar' }
     ],
-    reports: []
+    reports: [],
+    reposts: [],
+    date_posted: Date.now()
   },
   {
     id: 7,
@@ -168,7 +180,7 @@ export const treksData = [
         videos: []
       }
     ],
-    tags: '#wildlife',
+    tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
     privacy: 'Public',
@@ -182,7 +194,9 @@ export const treksData = [
       { username: 'Eliza' },
       { username: 'Trekstar' }
     ],
-    reports: []
+    reports: [],
+    reposts: [],
+    date_posted: Date.now()
   },
   {
     id: 8,
@@ -194,7 +208,7 @@ export const treksData = [
         videos: []
       }
     ],
-    tags: '#wildlife',
+    tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
     privacy: 'Public',
@@ -208,6 +222,8 @@ export const treksData = [
       { username: 'Eliza' },
       { username: 'Trekstar' }
     ],
-    reports: []
+    reports: [],
+    reposts: [],
+    date_posted: Date.now()
   }
 ];

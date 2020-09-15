@@ -152,6 +152,22 @@ article {
   display: none !important;
 }
 
+.slide-options {
+  position: relative;
+  width: 100%;
+  align-items: center;
+  font-family: "Overpass", sans-serif;
+}
+
+.prev,
+.next,
+.pause {
+  border: 1px solid var(--white);
+  border-radius: 20px;
+  background: black;
+  color: var(--white);
+}
+
 /* Preloader */
 .preloader {
   height: auto;

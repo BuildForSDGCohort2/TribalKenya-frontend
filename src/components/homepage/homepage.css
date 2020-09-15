@@ -166,7 +166,6 @@
   grid-template-rows: auto;
   grid-template-areas: "trekleft trekright";
   column-gap: 0.7rem;
-  cursor: pointer;
   background: var(--white);
   background-image: var(--white-bg);
   border: 1px solid black;
@@ -182,6 +181,7 @@
   background-size: cover;
   background-position: center center;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .collection-tag {
@@ -222,20 +222,17 @@
   font-weight: bold;
 }
 
-.slide-options {
-  position: relative;
-  width: 100%;
-  align-items: center;
-  font-family: "Overpass", sans-serif;
+.interaction {
+  flex: 1 20%;
+  justify-content: space-evenly;
+  cursor: pointer;
 }
 
-.prev,
-.next,
-.pause {
-  border: 1px solid var(--white);
-  border-radius: 20px;
-  background: black;
-  color: var(--white);
+.time-trek-posted {
+  width: 100%;
+  text-align: left;
+  font-family: "Overpass", sans-serif;
+  font-size: 0.8em;
 }
 
 @media (min-width: 481px) and (max-width: 860px) {

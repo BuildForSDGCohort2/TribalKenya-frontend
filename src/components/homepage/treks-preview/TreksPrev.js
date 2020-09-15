@@ -4,7 +4,7 @@ import { navigate } from '@reach/router';
 import { fetchTreks } from '../../../state/treks/treks.actions';
 import TextContent from '../../TextContent';
 import { treksData } from '../../../state/treks/treksData';
-import Trek from '../../Trek';
+import Trek from '../../trek/Trek';
 import LargeBtn from '../../LargeBtn';
 
 const TreksPrev = ({ treks, fetchTreks }) => {

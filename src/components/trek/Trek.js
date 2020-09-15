@@ -1,7 +1,9 @@
 import React from 'react';
 import { BsFillCollectionFill } from 'react-icons/bs';
 import LazyLoad from 'react-lazyload';
-import PreLoader from './pre-loader/PreLoader';
+import PreLoader from '../pre-loader/PreLoader';
+import TrekInteractions from './TrekInteractions';
+import TimeTrekPosted from './TimeTrekPosted';
 
 const Trek = ({ trek, treks }) => {
   return (
@@ -32,6 +34,8 @@ const Trek = ({ trek, treks }) => {
                 <div className="trek-text-content pt-2 small-text">
                   <span className="trek-text">{trek.trek[0].text}</span>
                 </div>
+                <TrekInteractions trek={trek} />
+                <TimeTrekPosted timePosted={trek.date_posted} />
               </div>
             </div>
           </article>

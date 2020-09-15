@@ -215,21 +215,36 @@
   padding: 0 0.7rem;
 }
 
+.comment {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.comment-text {
+  flex: 1 50%;
+}
+
 .trek-owner {
   display: flex;
   font-family: "Overpass", sans-serif;
   width: 100%;
+  cursor: pointer;
+  flex: 1 10%;
 }
 
 .trek-owner img {
   height: 30px;
-  width: auto;
+  width: 27px;
   border-radius: 50%;
 }
 
 .trek-username {
   flex: 1 80%;
   margin-left: 0.7rem;
+}
+
+.trek-username:hover {
+  color: var(--green);
 }
 
 .trek-text-content {

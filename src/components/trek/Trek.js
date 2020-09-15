@@ -1,30 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsFillCollectionFill } from 'react-icons/bs';
 import LazyLoad from 'react-lazyload';
-import { connect } from 'react-redux';
 import PreLoader from '../pre-loader/PreLoader';
 import TrekInteractions from './TrekInteractions';
 import TimeTrekPosted from './TimeTrekPosted';
-import { showTrekLikes, showTrekReposts, showTrekComments } from '../../state/treks/treks.actions';
 import Treker from './Treker';
 import TrekModal from './TrekModal';
 
-const Trek = ({ trek, treks, trekLikes, trekComments, trekReposts, showTrekComments, showTrekLikes, showTrekReposts }) => {
-  const toggleLikes = () => showTrekLikes(!trekLikes);
-  const toggleReposts = () => showTrekReposts(!trekReposts);
-  const toggleComments = () => showTrekComments(!trekComments);
+const Trek = ({ trek, treks }) => {
+  const [trekLikes, showTrekLikes] = useState(false);
+  const [trekComments, showTrekComments] = useState(false);
+  const [trekReposts, showTrekReposts] = useState(false);
+  const toggleLikes = (trekId) => {
+    console.log(trekId);
+    if (trek.id === trekId) {
+      showTrekLikes(!trekLikes);
+    }
+  };
+  const toggleReposts = (trekId) => {
+    if (trek.id === trekId) {
+      showTrekReposts(!trekReposts);
+    }
+  };
+  const toggleComments = (trekId) => {
+    if (trek.id === trekId) {
+      showTrekComments(!trekComments);
+    }
+  };
 
   return (
     <>
       {treks.indexOf(trek) < 4 ? (
         <LazyLoad
-          key={trek.id}
           debounce={100}
           height={200}
           offset={100}
           placeholder={<PreLoader />}
         >
-          <article className="p-2" key={trek.id}>
+          <article className="p-2">
             <div className="trek">
               <div
                 className="trek-left m-1 p-1 c-white"
@@ -39,16 +52,16 @@ const Trek = ({ trek, treks, trekLikes, trekComments, trekReposts, showTrekComme
                 <div className="trek-text-content pt-2 small-text">
                   <span className="trek-text">{trek.trek[0].text}</span>
                 </div>
-                <TrekInteractions trek={trek} showLikes={toggleLikes} showComments={toggleComments} showReposts={toggleReposts} />
+                <TrekInteractions trek={trek} showLikes={() => toggleLikes(trek.id)} showComments={() => toggleComments(trek.id)} showReposts={() => toggleReposts(trek.id)} />
                 <TimeTrekPosted timePosted={trek.date_posted} />
                 {trekLikes ? (
-                  <TrekModal people={trek.likes} openModal={trekLikes} toggleModal={toggleLikes} title="Liked by" />
+                  <TrekModal people={trek.likes} openModal={trekLikes} toggleModal={() => toggleLikes(trek.id)} title="Liked by" postId={trek.id} />
                 ) : null}
                 {trekComments ? (
-                  <TrekModal comments={trek.comments} openModal={trekComments} toggleModal={toggleComments} title="Comments" />
+                  <TrekModal comments={trek.comments} openModal={trekComments} toggleModal={() => toggleComments(trek.id)} title="Comments" postId={trek.id} />
                 ) : null}
                 {trekReposts ? (
-                  <TrekModal people={trek.reposts} openModal={trekReposts} toggleModal={toggleReposts} title="Reposted by" />
+                  <TrekModal people={trek.reposts} openModal={trekReposts} toggleModal={() => toggleReposts(trek.id)} title="Reposted by" postId={trek.id} />
                 ) : null}
               </div>
             </div>
@@ -59,16 +72,4 @@ const Trek = ({ trek, treks, trekLikes, trekComments, trekReposts, showTrekComme
   );
 };
 
-const mapStateToProps = (state) => ({
-  trekLikes: state.treksStore.trekLikes,
-  trekComments: state.treksStore.trekComments,
-  trekReposts: state.treksStore.trekReposts
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  showTrekLikes: (trekLikes) => dispatch(showTrekLikes(trekLikes)),
-  showTrekComments: (trekComments) => dispatch(showTrekComments(trekComments)),
-  showTrekReposts: (trekReposts) => dispatch(showTrekReposts(trekReposts))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Trek);
+export default Trek;

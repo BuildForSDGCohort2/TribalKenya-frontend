@@ -7,6 +7,7 @@ import Intro from '../components/homepage/Intro';
 import CustomVideoPlayer from '../components/homepage/CustomVideoPlayer';
 import SightSeeingPrev from '../components/homepage/sightseeing-preview/SightSeeingPrev';
 import TreksPrev from '../components/homepage/treks-preview/TreksPrev';
+import Footer from '../components/footer/Footer';
 
 const IndexPage = ({ showVideo, introVideo, introPoster }) => (
   <Layout>
@@ -20,6 +21,7 @@ const IndexPage = ({ showVideo, introVideo, introPoster }) => (
         : null}
       <SightSeeingPrev/>
       <TreksPrev />
+      <Footer />
   </Layout>
 );
 

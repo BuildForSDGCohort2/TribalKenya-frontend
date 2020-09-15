@@ -262,6 +262,11 @@ article {
   padding: 0 1rem;
 }
 
+/* Footer */
+footer {
+  font-family: "Overpass", sans-serif;
+}
+
 @media (min-width: 481px) and (max-width: 860px) {
   .two-sec-grid-cols {
     grid-template-rows: auto auto;

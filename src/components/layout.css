@@ -39,6 +39,10 @@ article {
   outline: none !important;
 }
 
+main {
+  min-height: 100vh;
+}
+
 /* Colors and Backgrounds */
 .c-white {
   color: var(--white) !important;
@@ -250,6 +254,7 @@ article {
 .center {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .column {

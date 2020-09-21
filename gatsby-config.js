@@ -42,6 +42,21 @@ module.exports = {
         display: 'minimal-ui',
         icon: 'src/images/flag1.png' // This path is relative to the root of the site.
       }
+    },
+    {
+      resolve: 'gatsby-plugin-firebase',
+      options: {
+        credentials: {
+          apiKey: 'AIzaSyCQc0KombCHi0hZBKSF0vT_ZhWV1BiOoKo',
+          authDomain: 'tribalkenya-ff470.firebaseapp.com',
+          databaseURL: 'https://tribalkenya-ff470.firebaseio.com',
+          projectId: 'tribalkenya-ff470',
+          storageBucket: 'tribalkenya-ff470.appspot.com',
+          messagingSenderId: '812549061912',
+          appId: '1:812549061912:web:a2fd9c25d99b4ebef7f26d',
+          measurementId: 'G-L2VF3SHGJ0'
+        }
+      }
     }
   ]
 };

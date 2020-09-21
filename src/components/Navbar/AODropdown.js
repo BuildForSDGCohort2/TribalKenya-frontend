@@ -13,7 +13,7 @@ const AODropdown = () => {
       <a
         href="/"
         className="account-option small-text"
-        onClick={handleClick}
+        onClick={(ev) => handleClick(ev)}
       >
         Profile <CgUserList />
       </a>

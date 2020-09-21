@@ -46,7 +46,7 @@ const NavBar = () => {
         <div className="center pt-1">
           <span className="brand-name medium-text">Tribal Kenya</span>
         </div>
-        <div className="center">
+        <div className="right">
           <Account />
         </div>
       </div>

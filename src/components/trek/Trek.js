@@ -12,7 +12,6 @@ const Trek = ({ trek, treks }) => {
   const [trekComments, showTrekComments] = useState(false);
   const [trekReposts, showTrekReposts] = useState(false);
   const toggleLikes = (trekId) => {
-    console.log(trekId);
     if (trek.id === trekId) {
       showTrekLikes(!trekLikes);
     }

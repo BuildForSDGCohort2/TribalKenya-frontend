@@ -14,3 +14,6 @@ TribalKenya app basically is a platform where tourists can meet and chat with ot
 
 Even though Tourism in Kenya is a billion dollar industry, it has been picking up on e-tourism very slowly and so the main goal of this app is to enhance E-tourism in my country(atleast for now, only Kenya). I aim to increase tourism across my country by developing new ways of communication whereby managers and marketers of tourist attraction sites can easily chat with Tourists and tourists can chat and share their experiences with other tourists. This is meant to boost tourism in the country and in turn, boost the economy of the country which is currently one of the fastest growing economies in Sub-Saharan Africa.
 
+## Authors
+
+Abdulwadud Mahamad - [art-abdulwadud](https://github.com/art-abdulwadud) - Full Stack Web Developer

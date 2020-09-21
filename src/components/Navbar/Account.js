@@ -5,7 +5,7 @@ import AccountOption from './AccountOption';
 const Account = ({ user }) => {
   const [loggedIn, setloggedIn] = useState(false);
   useEffect(() => {
-    if (user) {
+    if (user.id) {
       setloggedIn(true);
     }
   }, [user]);

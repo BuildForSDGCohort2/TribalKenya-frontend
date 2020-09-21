@@ -15,7 +15,9 @@ const Login = ({ addMessage, user }) => {
     }
   };
   useEffect(() => {
-    console.log(user);
+    if (user.id) {
+      navigate('/');
+    }
   }, [user]);
   return (
     <>

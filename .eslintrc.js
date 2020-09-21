@@ -43,6 +43,8 @@ module.exports = {
     'import/no-named-as-default': 0,
     'import/no-extraneous-dependencies': 0,
     'no-shadow': 0,
+    'default-param-last': 0,
+    'import/prefer-default-export': 0,
     'array-element-newline': 0,
     'multiline-ternary': 0,
     'no-magic-numbers': 0,

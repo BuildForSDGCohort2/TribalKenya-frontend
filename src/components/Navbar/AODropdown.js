@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { CgUserList } from 'react-icons/cg';
 import AODropdownOptions from './AODropdownOptions';
 
-const AODropdown = () => {
+const AODropdown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = (event) => {
     event.preventDefault();
@@ -13,13 +14,17 @@ const AODropdown = () => {
       <a
         href="/"
         className="account-option small-text"
-        onClick={handleClick}
+        onClick={(ev) => handleClick(ev)}
       >
-        Profile <CgUserList />
+        {user.email ? user.email.replace(/@.*$/u, '') : null } <CgUserList />
       </a>
       {isOpen ? <AODropdownOptions /> : null}
     </div>
   );
 };
 
-export default AODropdown;
+const mapStateToProps = (state) => ({
+  user: state.auth.user
+});
+
+export default connect(mapStateToProps)(AODropdown);

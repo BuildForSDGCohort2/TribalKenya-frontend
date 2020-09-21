@@ -1,0 +1,352 @@
+.home-intro {
+  background: var(--white);
+  background-image: var(--white-bg);
+}
+
+/* text Slider */
+.intro-container,
+.intro-container::before {
+  height: auto;
+  min-height: 90vh;
+  width: 100%;
+}
+.intro-container {
+  z-index: 2;
+  background: transparent;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.left-col-flex,
+.right-col-flex {
+  align-items: center;
+}
+
+.left-col-flex {
+  flex: 1 40%;
+}
+
+.right-col-flex {
+  flex: 1 40%;
+  overflow: hidden;
+}
+
+/* Video Player */
+.video-wrapper {
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 99;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.close-video {
+  width: 700px;
+  font-size: 2em;
+  text-align: right;
+  color: var(--white);
+}
+
+.intro-video-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-player-custom {
+  width: 700px;
+  height: 500px;
+  border: 3px solid var(--white);
+  border-radius: 5px;
+}
+
+.video-js,
+.vjs-tech,
+.vjs-poster {
+  outline: none;
+}
+
+.vjs-poster {
+  background-size: cover;
+}
+
+.vjs-poster::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 7;
+}
+
+.intro-video-btn {
+  z-index: 9;
+  position: absolute;
+}
+
+.vjs-big-play-button {
+  display: none !important;
+}
+
+@keyframes greenshadow {
+  from {
+    box-shadow: 0 0 0 transparent;
+  }
+  to {
+    box-shadow: 0 0 5px var(--white), 0 0 20px var(--white),
+      0 0 40px var(--white);
+  }
+}
+
+.vjs-control-bar {
+  background: var(--green);
+  background-image: var(--green-bg);
+}
+
+/* Sigtseeing Preview gallery */
+.st-prev-sec {
+  min-height: 100vh;
+  background-image: var(--black-bg);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+  height: 40vh;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  transition: 1s;
+}
+
+.gallery-item:nth-child(1) {
+  grid-row: 1/1;
+  grid-column: 1/3;
+}
+
+.gallery-item:last-child {
+  grid-row: 2/3;
+  grid-column: 3/5;
+}
+
+.gallery-text {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(11, 163, 96, 0.9),
+    rgba(0, 0, 0, 0.6)
+  );
+  color: var(--white);
+}
+
+.gallery-item:hover .gallery-text {
+  display: flex;
+}
+
+.gallery-text h1,
+.gallery-text p {
+  animation-duration: 1.5s;
+  font-family: "Overpass", sans-serif;
+}
+
+/* Treks Preview Sec */
+.treks-prev-sec {
+  height: auto;
+  background: var(--green);
+  background-image: var(--green-bg);
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+}
+
+.trek {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "trekleft trekright";
+  column-gap: 0.7rem;
+  background: var(--white);
+  background-image: var(--white-bg);
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.trek-left {
+  position: relative;
+  height: auto;
+  min-height: 40vh;
+  width: 100%;
+  grid-area: trekleft;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.collection-tag {
+  font-family: "Overpass", sans-serif;
+}
+
+.trek-right {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: trekright;
+  padding: 0 0.7rem;
+}
+
+.comment {
+  display: flex;
+  flex-flow: wrap;
+  border-bottom: 1px solid var(--white);
+}
+
+.comment-text {
+  flex: 1 50%;
+}
+
+.trek-owner {
+  display: flex;
+  font-family: "Overpass", sans-serif;
+  width: 100%;
+  cursor: pointer;
+  flex: 1 10%;
+}
+
+.trek-owner img {
+  height: 30px;
+  width: 27px;
+  border-radius: 50%;
+}
+
+.trek-username {
+  flex: 1 80%;
+  margin-left: 0.7rem;
+}
+
+.trek-username:hover {
+  color: var(--green);
+}
+
+.trek-text-content {
+  font-family: "Overpass", sans-serif;
+  font-weight: bold;
+}
+
+.interaction {
+  flex: 1 20%;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.tag {
+  color: var(--green);
+  text-decoration: underline;
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.time-trek-posted {
+  width: 100%;
+  text-align: left;
+  font-family: "Overpass", sans-serif;
+  font-size: 0.8em;
+}
+
+@media (min-width: 481px) and (max-width: 860px) {
+  .close-video {
+    width: 600px;
+  }
+
+  .video-player-custom {
+    width: 600px;
+    height: 400px;
+  }
+
+  .gallery {
+    grid-template-columns: auto auto;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .gallery-item:last-child {
+    grid-row: auto;
+    grid-column: auto;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .left-col-flex {
+    flex: 1 100%;
+  }
+
+  .right-col-flex {
+    flex: 1 100%;
+  }
+
+  .close-video {
+    width: 300px;
+  }
+
+  .video-player-custom {
+    width: 300px;
+    height: 300px;
+  }
+
+  .gallery {
+    grid-template-columns: auto;
+  }
+
+  .gallery-item:nth-child(1) {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .gallery-item:last-child {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .trek {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "trekleft" "trekright";
+  }
+}
+
+@media (hover: hover) {
+  .gallery-text {
+    display: none;
+  }
+}
+
+@media (hover: none) {
+  .gallery-text {
+    display: flex;
+  }
+}

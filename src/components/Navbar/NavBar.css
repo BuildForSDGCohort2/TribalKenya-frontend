@@ -1,12 +1,13 @@
 .my-navbar {
   width: 100%;
   height: auto;
+  z-index: 99;
 }
 
 /* Top section */
 .top-nav {
-  background: black;
-  background-image: var(--black-bg);
+  background: var(--white);
+  background-image: var(--white-bg);
 }
 
 .brand {
@@ -23,8 +24,8 @@
 .bar3 {
   height: 4px;
   width: 35px;
-  background: var(--green);
-  background-image: var(--green-bg);
+  background: #fff;
+  border-radius: 10px;
   margin: 7px;
   transition: 0.3s;
 }
@@ -57,8 +58,9 @@
 
 .nav-link {
   font-family: "Overpass", sans-serif;
+  font-variant: small-caps;
   text-decoration: none;
-  color: white;
+  color: var(--black);
   margin: 0 3px;
   font-weight: bold;
   transition: 0.3s;
@@ -68,10 +70,33 @@
   color: var(--green);
 }
 
+.search {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.search-input {
+  flex: 1 80%;
+}
+
+#search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+}
+
+.search-icon {
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
 /* Bottom section */
 .bottom-nav {
-  background: var(--green);
-  background-image: var(--green-bg);
+  background: #fff;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
@@ -79,18 +104,20 @@
 
 .brand-name {
   font-family: "Kaushan Script", cursive;
+  color: var(--black);
+  cursor: pointer;
 }
 
 .account-option {
   font-family: "Overpass", sans-serif;
-  color: black;
+  color: var(--black);
   padding: 10px;
   font-weight: 800;
 }
 
 .account-option:hover {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--green);
 }
 
 .ao-dropdown-options {

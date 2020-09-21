@@ -9,6 +9,9 @@ import Brand from './Brand';
 const NavBar = () => {
   const [isNavOpen, setisNavOpen] = useState(false);
   const [search, setsearch] = useState(false);
+  const toggleSearch = () => {
+    setsearch(!search);
+  };
   useEffect(() => {
     if (isNavOpen) {
       animateCSS('.drop-navlist', 'fadeInDown');
@@ -17,6 +20,7 @@ const NavBar = () => {
     }
   }, [isNavOpen]);
   return (
+    <>
     <nav className="my-navbar">
       <div className="top-nav">
         <div className="brand">
@@ -35,19 +39,20 @@ const NavBar = () => {
             </div>
         </div>
         <div className={isNavOpen ? 'center animate__animated animate__fadeInDown' : 'center'}>
-          <Navlist isNavOpen={isNavOpen} />
-          {search ? <SearchBar setsearch={setsearch} /> : null}
+          <Navlist isNavOpen={isNavOpen} toggleSearch={toggleSearch} />
         </div>
       </div>
       <div className="bottom-nav">
         <div className="center pt-1">
           <span className="brand-name medium-text">Tribal Kenya</span>
         </div>
-        <div className="center">
+        <div className="right">
           <Account />
         </div>
       </div>
     </nav>
+    {search ? <SearchBar toggleSearch={toggleSearch} search={search} /> : null}
+    </>
   );
 };
 

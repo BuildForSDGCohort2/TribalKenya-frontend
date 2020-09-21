@@ -17,3 +17,7 @@ Even though Tourism in Kenya is a billion dollar industry, it has been picking u
 ## Authors
 
 Abdulwadud Mahamad - [art-abdulwadud](https://github.com/art-abdulwadud) - Full Stack Web Developer
+
+## License
+
+MIT

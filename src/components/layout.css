@@ -34,6 +34,12 @@ body {
   --purple: #764ba2;
 }
 
+*:focus,
+*:hover {
+  -webkit-appearance: none;
+  box-shadow: none;
+}
+
 button,
 article {
   outline: none !important;
@@ -43,6 +49,11 @@ main {
   min-height: 100vh;
 }
 
+a,
+a:hover {
+  text-decoration: none;
+}
+
 /* Colors and Backgrounds */
 .c-white {
   color: var(--white) !important;
@@ -50,6 +61,10 @@ main {
 
 .c-cream {
   color: var(--cream);
+}
+
+.c-green {
+  color: var(--green);
 }
 
 .purple-bg {
@@ -97,6 +112,10 @@ main {
 
 .small-text {
   font-size: 0.9em;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /* Homepage */
@@ -271,6 +290,11 @@ main {
 
 .cursor {
   cursor: pointer;
+}
+
+.h-100vh {
+  height: auto;
+  min-height: 100vh;
 }
 
 /* Buttons */

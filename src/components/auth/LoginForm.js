@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Form, Label, Input, InputGroup, InputGroupAddon } from 'reactstrap';
+import { Button, Form } from 'reactstrap';
 import { Link } from 'gatsby';
-import { FiUser } from 'react-icons/fi';
-import { RiLockPasswordLine, RiLoginCircleLine } from 'react-icons/ri';
+import { RiLoginCircleLine } from 'react-icons/ri';
 import Alert from './Alert';
+import EmailInput from './EmailInput';
+import PasswordInput from './PasswordInput';
 
 const LoginForm = ({ login }) => {
   const [email, setemail] = useState('');
@@ -17,36 +18,8 @@ const LoginForm = ({ login }) => {
       <h2 className="medium-text">Login</h2>
       <Alert />
       <Form onSubmit={handleSubmit}>
-        <InputGroup className="mb-3 group-input">
-          <Label for="exampleEmail" hidden>
-            Email
-          </Label>
-          <InputGroupAddon addonType="prepend">
-            <FiUser/>
-          </InputGroupAddon>
-          <Input
-            type="email"
-            name="email"
-            id="login-email"
-            placeholder="Email"
-            onChange={(ev) => setemail(ev.target.value)}
-          />
-        </InputGroup>{' '}
-        <InputGroup className="mb-3 group-input">
-          <Label for="examplePassword" hidden>
-            Password
-          </Label>
-          <InputGroupAddon addonType="prepend">
-            <RiLockPasswordLine />
-          </InputGroupAddon>
-          <Input
-            type="password"
-            name="password"
-            id="login-password"
-            placeholder="Password"
-            onChange={(ev) => setpassword(ev.target.value)}
-          />
-        </InputGroup>{' '}
+        <EmailInput getEmail={(email) => setemail(email)} inputId="login-email" />
+        <PasswordInput getPassword={(passw) => setpassword(passw)} inputId="login-password" />
         <Button type="submit" className="green-bg">
           <RiLoginCircleLine /> Login
         </Button>

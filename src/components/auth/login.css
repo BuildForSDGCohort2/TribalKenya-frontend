@@ -4,8 +4,8 @@
 }
 
 .form-text:hover {
-  text-decoration: none !important;
-  color: white !important;
+  text-decoration: none;
+  color: white;
 }
 
 .group-input {
@@ -17,10 +17,10 @@
 }
 
 #login-email,
-#login-password,
-#login-email:focus {
+#login-password {
   border: none;
   background: transparent;
   outline: none;
   color: var(--white);
+  box-shadow: none;
 }

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { BsFillCollectionFill } from 'react-icons/bs';
-import LazyLoad from 'react-lazyload';
-import PreLoader from '../pre-loader/PreLoader';
 import TrekInteractions from './TrekInteractions';
 import TimeTrekPosted from './TimeTrekPosted';
 import Treker from './Treker';
@@ -30,12 +28,6 @@ const Trek = ({ trek, treks }) => {
   return (
     <>
       {treks.indexOf(trek) < 4 ? (
-        <LazyLoad
-          debounce={100}
-          height={200}
-          offset={100}
-          placeholder={<PreLoader />}
-        >
           <article className="p-2">
             <div className="trek">
               <div
@@ -65,7 +57,7 @@ const Trek = ({ trek, treks }) => {
               </div>
             </div>
           </article>
-        </LazyLoad>
+
       ) : null}
     </>
   );

@@ -16,8 +16,7 @@
   color: var(--green);
 }
 
-#login-email,
-#login-password {
+.auth-input {
   border: none;
   background: transparent;
   outline: none;

@@ -5,7 +5,7 @@ import { RiLockPasswordLine } from 'react-icons/ri';
 const PasswordInput = ({ getPassword, inputId }) => {
   return (
         <InputGroup className="mb-3 group-input">
-          <Label for="examplePassword" hidden>
+          <Label for={inputId} hidden>
             Password
           </Label>
           <InputGroupAddon addonType="prepend">
@@ -13,9 +13,10 @@ const PasswordInput = ({ getPassword, inputId }) => {
           </InputGroupAddon>
           <Input
             type="password"
-            name="password"
+            name={inputId}
             id={inputId}
             placeholder="Password"
+            className="auth-input"
             onChange={(ev) => getPassword(ev.target.value)}
           />
         </InputGroup>

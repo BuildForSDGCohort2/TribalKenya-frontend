@@ -51,7 +51,7 @@ main {
 
 a,
 a:hover {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 /* Colors and Backgrounds */

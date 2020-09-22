@@ -1,0 +1,26 @@
+.form-container {
+  border-radius: 20px;
+  font-family: "Overpass", sans-serif;
+}
+
+.form-text:hover {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.group-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid white;
+  color: var(--green);
+}
+
+#login-email,
+#login-password,
+#login-email:focus {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--white);
+}

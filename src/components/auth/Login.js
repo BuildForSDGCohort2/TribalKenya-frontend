@@ -4,6 +4,7 @@ import { navigate } from '@reach/router';
 import firebase from 'gatsby-plugin-firebase';
 import { addMessage, printMe } from '../../state/auth/auth.actions';
 import LoginForm from './LoginForm';
+import './login.css';
 
 const Login = ({ addMessage, user }) => {
   const login = async (email, password) => {
@@ -20,9 +21,9 @@ const Login = ({ addMessage, user }) => {
     }
   }, [user]);
   return (
-    <>
-    <LoginForm login={login} />
-    </>
+    <div className="h-100vh w-100 center black-bg">
+        <LoginForm login={login} />
+    </div>
   );
 };
 

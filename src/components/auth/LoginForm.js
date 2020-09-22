@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'reactstrap';
+import { Form } from 'reactstrap';
 import { Link } from 'gatsby';
-import { RiLoginCircleLine } from 'react-icons/ri';
 import Alert from './Alert';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
+import SubmitBtn from './SubmitBtn';
 
 const LoginForm = ({ login }) => {
   const [email, setemail] = useState('');
@@ -20,9 +20,7 @@ const LoginForm = ({ login }) => {
       <Form onSubmit={handleSubmit}>
         <EmailInput getEmail={(email) => setemail(email)} inputId="login-email" />
         <PasswordInput getPassword={(passw) => setpassword(passw)} inputId="login-password" />
-        <Button type="submit" className="green-bg">
-          <RiLoginCircleLine /> Login
-        </Button>
+        <SubmitBtn text="Login" />
         <Link to="/signup"><small className="form-text c-green bold">Don&apos;t have an account yet? Sign up</small></Link>
       </Form>
     </div>

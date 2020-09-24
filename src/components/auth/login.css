@@ -16,11 +16,19 @@
   color: var(--green);
 }
 
-#login-email,
-#login-password {
+.auth-input,
+.auth-input:focus {
   border: none;
   background: transparent;
   outline: none;
   color: var(--white);
   box-shadow: none;
+}
+
+#country-code {
+  width: 80px;
+}
+
+#phone-number {
+  width: 180px;
 }

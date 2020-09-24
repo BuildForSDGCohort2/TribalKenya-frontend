@@ -13,7 +13,7 @@ const TextInput = ({ inputId, ph, getText }) => {
         name={inputId}
         placeholder={ph}
         id={inputId}
-        className="auth-input"
+        className="auth-input ml-2"
         onChange={(ev) => getText(ev.target.value)}
       />
     </InputGroup>

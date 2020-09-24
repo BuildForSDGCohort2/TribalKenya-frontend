@@ -16,7 +16,7 @@ const PasswordInput = ({ getPassword, inputId }) => {
             name={inputId}
             id={inputId}
             placeholder="Password"
-            className="auth-input"
+            className="auth-input ml-2"
             onChange={(ev) => getPassword(ev.target.value)}
           />
         </InputGroup>

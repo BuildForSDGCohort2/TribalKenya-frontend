@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { CgUserList } from 'react-icons/cg';
 import AODropdownOptions from './AODropdownOptions';
 
-const AODropdown = ({ user }) => {
+const AODropdown = ({ user, profile }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = (event) => {
     event.preventDefault();
@@ -16,7 +16,7 @@ const AODropdown = ({ user }) => {
         className="account-option small-text"
         onClick={(ev) => handleClick(ev)}
       >
-        {user.email ? user.email.replace(/@.*$/u, '') : null } <CgUserList />
+        {user.email ? profile.username : null } <CgUserList />
       </a>
       {isOpen ? <AODropdownOptions /> : null}
     </div>
@@ -24,7 +24,8 @@ const AODropdown = ({ user }) => {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.auth.user
+  user: state.auth.user,
+  profile: state.auth.profile
 });
 
 export default connect(mapStateToProps)(AODropdown);

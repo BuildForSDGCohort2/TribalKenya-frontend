@@ -16,8 +16,9 @@ const EmailInput = ({ getEmail, inputId }) => {
             name={inputId}
             id={inputId}
             placeholder="Email"
-            className="auth-input"
+            className="auth-input ml-2"
             onChange={(ev) => getEmail(ev.target.value)}
+            autoComplete="false"
           />
         </InputGroup>
   );

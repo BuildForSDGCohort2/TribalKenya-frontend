@@ -1,7 +1,8 @@
 const initialState = {
   user: {},
   message: '',
-  success: false
+  success: false,
+  profile: {}
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,11 @@ export default (state = initialState, action) => {
         ...state,
         message: action.message,
         success: action.success
+      };
+    case 'profile':
+      return {
+        ...state,
+        profile: action.profile
       };
     default:
       return state;

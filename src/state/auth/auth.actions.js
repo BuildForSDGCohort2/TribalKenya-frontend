@@ -6,6 +6,6 @@ export const addMessage = (message, success) => ({
   type: 'message', message, success
 });
 
-export const printMe = (me) => {
-  console.log(me);
-};
+export const addProfile = (profile) => ({
+  type: 'profile', profile
+});

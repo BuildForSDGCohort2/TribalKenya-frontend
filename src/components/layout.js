@@ -12,13 +12,27 @@ import 'video.js/dist/video-js.min.css';
 import 'aos/dist/aos.css';
 import { connect } from 'react-redux';
 import firebase from 'gatsby-plugin-firebase';
-import { addMessage, checkUser } from '../state/auth/auth.actions';
+import { addMessage, checkUser, addProfile } from '../state/auth/auth.actions';
 
-const Layout = ({ children, checkUser }) => {
+const Layout = ({ children, checkUser, addProfile }) => {
+  const getProfile = async (userId) => {
+    try {
+      const profiles = await firebase.firestore().collection('profile').get();
+      profiles.forEach((profile) => {
+        if (userId === profile.id) {
+          const data = profile.data();
+          addProfile(data);
+        }
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         checkUser({ id: user.uid, email: user.email });
+        getProfile(user.uid);
       }
     });
   }, []);
@@ -35,7 +49,8 @@ Layout.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   addMessage: (message, success) => dispatch(addMessage(message, success)),
-  checkUser: (user) => dispatch(checkUser(user))
+  checkUser: (user) => dispatch(checkUser(user)),
+  addProfile: (profile) => dispatch(addProfile(profile))
 });
 
 export default connect(null, mapDispatchToProps)(Layout);

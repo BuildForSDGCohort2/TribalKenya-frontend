@@ -6,25 +6,36 @@ import TextInput from './TextInput';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import SubmitBtn from './SubmitBtn';
+import PreLoader from '../pre-loader/PreLoader';
+import PhoneInput from './PhoneInput';
 
-const SignUpForm = () => {
+const SignUpForm = ({ loading, signUp }) => {
   const [username, setusername] = useState('');
   const [email, setemail] = useState('');
+  const [phone, setphone] = useState('');
+  const [countryCode, setCountryCode] = useState('');
   const [password, setpassword] = useState('');
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    console.log(username, email, password);
+    const userData = {
+      email: email,
+      username: username,
+      phone: `${countryCode}${phone}`
+    };
+    signUp(userData, password);
   };
   return (
         <div className="form-container c-white text-center">
             <h2 className="medium-text">Sign Up</h2>
+            {loading ? <PreLoader /> : null}
             <Alert />
             <Form onSubmit={handleSubmit} >
-                <TextInput inputId="username" getText={(text) => setusername(text)} ph="Username" />
+                <TextInput inputId="username" getText={(username) => setusername(username)} ph="Username" />
                 <EmailInput inputId="signup-email" getEmail={(email) => setemail(email)} />
+                <PhoneInput getCC={(cc) => setCountryCode(cc)} getPhone={(phone) => setphone(phone)} />
                 <PasswordInput inputId="signup-password" getPassword={(password) => setpassword(password)} />
                 <SubmitBtn text="Sign Up" />
-                <Link to="/login"><small className="form-text c-green bold">Already have an account? Log In</small></Link>
+                <Link to="/login"><small className="form-text c-green bold mt-2">Already have an account? Log In</small></Link>
             </Form>
         </div>
   );

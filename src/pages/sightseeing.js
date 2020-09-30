@@ -2,12 +2,16 @@ import React from 'react';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import NavBar from '../components/Navbar/NavBar';
+import Sightseeing from '../components/sightseeing/Sightseeing';
 
-const SecondPage = () => (
+const SightseeingPage = () => (
   <Layout>
-    <SEO title="About" />
-    <NavBar />
+    <SEO title="Sightseeing" />
+    <main>
+      <NavBar />
+      <Sightseeing />
+    </main>
   </Layout>
 );
 
-export default SecondPage;
+export default SightseeingPage;

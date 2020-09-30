@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'video.js/dist/video';
 import 'video.js/dist/video-js.min.css';
 import 'aos/dist/aos.css';
+import 'intl-tel-input/build/css/intlTelInput.css';
 import { connect } from 'react-redux';
 import firebase from 'gatsby-plugin-firebase';
 import { addMessage, checkUser, addProfile } from '../state/auth/auth.actions';
@@ -33,6 +34,8 @@ const Layout = ({ children, checkUser, addProfile }) => {
       if (user) {
         checkUser({ id: user.uid, email: user.email });
         getProfile(user.uid);
+      } else {
+        checkUser({});
       }
     });
   }, []);

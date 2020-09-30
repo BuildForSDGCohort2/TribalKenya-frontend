@@ -1,5 +1,6 @@
 const initialState = {
-  previewSites: []
+  previewSites: [],
+  siteCategories: []
 };
 
 export default (state = initialState, action) => {
@@ -8,6 +9,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         previewSites: action.previewSites
+      };
+    case 'add_categories':
+      return {
+        ...state,
+        siteCategories: action.siteCategories
       };
     default:
       return state;

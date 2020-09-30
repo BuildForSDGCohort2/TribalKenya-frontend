@@ -1,0 +1,65 @@
+.ss-wrapper {
+  height: auto;
+  min-height: 100vh;
+  background: #e2d1c3;
+}
+
+.categories {
+  padding: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-card {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: #fdfcfb;
+  height: auto;
+  min-height: 50vh;
+  border-radius: 49px;
+  background: #e2d1c3;
+  box-shadow: 30px 30px 48px #cebeb1, -20px -20px 38px #f6e4d5;
+  flex: 1 40%;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.custom-card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.custom-card-body {
+  height: auto;
+  font-family: "Overpass", sans-serif;
+  font-variant: small-caps;
+}
+
+.category-poster {
+  width: auto;
+  min-width: 300px;
+  height: 30vh;
+}
+
+.category-link {
+  border: 1px solid var(--white);
+  color: var(--cream);
+}
+
+.category-link:hover {
+  background: var(--white);
+  color: black;
+}
+
+@media (min-width: 481px) and (max-width: 860px) {
+  .custom-card {
+    min-height: 80vh;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .categories {
+    padding: 1rem;
+  }
+}

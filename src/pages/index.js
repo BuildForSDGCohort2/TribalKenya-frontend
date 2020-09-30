@@ -12,16 +12,18 @@ import Footer from '../components/footer/Footer';
 const IndexPage = ({ showVideo, introVideo, introPoster }) => (
   <Layout>
     <SEO title="Home" />
+    <main>
       <header className="home-intro">
         <NavBar extraClasses="transparent" />
         <Intro />
       </header>
-      {showVideo
-        ? <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
-        : null}
-      <SightSeeingPrev/>
+      {showVideo ? (
+        <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
+      ) : null}
+      <SightSeeingPrev />
       <TreksPrev />
       <Footer />
+    </main>
   </Layout>
 );
 

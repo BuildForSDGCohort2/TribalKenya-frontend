@@ -1,6 +1,7 @@
 const initialState = {
   previewSites: [],
-  siteCategories: []
+  siteCategories: [],
+  loading: false
 };
 
 export default (state = initialState, action) => {
@@ -14,6 +15,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         siteCategories: action.siteCategories
+      };
+    case 'loading':
+      return {
+        ...state,
+        loading: action.loading
       };
     default:
       return state;

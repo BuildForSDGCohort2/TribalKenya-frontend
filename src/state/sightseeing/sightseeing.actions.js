@@ -5,3 +5,7 @@ export const addpreviewSites = (previewSites) => ({
 export const addCategories = (siteCategories) => ({
   type: 'add_categories', siteCategories
 });
+
+export const checkLoading = (loading) => ({
+  type: 'loading', loading
+});

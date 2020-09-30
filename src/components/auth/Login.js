@@ -16,6 +16,7 @@ const Login = ({ addMessage, user }) => {
       setTimeout(() => navigate('/'), 1000);
     } catch (error) {
       addMessage(error.message, false);
+      setloading(false);
     }
   };
   useEffect(() => {

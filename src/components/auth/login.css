@@ -24,11 +24,3 @@
   color: var(--white);
   box-shadow: none;
 }
-
-#country-code {
-  width: 80px;
-}
-
-#phone-number {
-  width: 180px;
-}

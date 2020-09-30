@@ -1,32 +1,42 @@
-import React from 'react';
-import { InputGroupAddon, Input, InputGroup } from 'reactstrap';
+import React, { useEffect } from 'react';
+import { InputGroupAddon, InputGroup } from 'reactstrap';
 import { FaPhoneAlt } from 'react-icons/fa';
+import intlTelInputJs from 'intl-tel-input/build/js/utils';
+import IntlTelInput from 'intl-tel-input';
 
-const PhoneInput = ({ getPhone, getCC }) => {
+const PhoneInput = ({ getCC }) => {
+  const countryCodeDisplay = () => {
+    const input = document.querySelector('#country-code');
+    IntlTelInput(input, {
+      autoPlaceholder: 'polite',
+      utilsScript: intlTelInputJs,
+      separateDialCode: true
+    });
+  };
+
+  const handleChange = (ev) => {
+    ev.preventDefault();
+    const iti = document.querySelector('.iti__selected-dial-code');
+    getCC(`${iti.innerHTML}${ev.target.value}`);
+  };
+
+  useEffect(() => {
+    countryCodeDisplay();
+  }, []);
   return (
     <InputGroup className="mb-3 group-input">
       <InputGroupAddon addonType="prepend">
         <FaPhoneAlt />
       </InputGroupAddon>
       <InputGroupAddon addonType="prepend">
-      <Input
-        type="text"
+      <input
+        type="tel"
         name="country-code"
-        placeholder="+254"
         id="country-code"
         className="auth-input ml-2"
-        onChange={(ev) => getCC(ev.target.value)}
+        onChange={handleChange}
       />
       </InputGroupAddon>
-      {' | '}
-      <Input
-        type="text"
-        name="phone-number"
-        placeholder="712345678"
-        id="phone-number"
-        className="auth-input ml-2"
-        onChange={(ev) => getPhone(ev.target.value)}
-      />
     </InputGroup>
   );
 };

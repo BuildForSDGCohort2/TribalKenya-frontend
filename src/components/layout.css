@@ -67,6 +67,10 @@ a:hover {
   color: var(--green);
 }
 
+.c-black {
+  color: black;
+}
+
 .purple-bg {
   background: var(--purple);
   background-image: var(--purple-bg);
@@ -305,6 +309,18 @@ a:hover {
   border-radius: 5px;
   font-family: "Overpass", sans-serif;
   padding: 0 1rem;
+}
+
+/* Page Intro */
+.page-intro {
+  height: auto;
+  background: transparent;
+  font-family: "Overpass", sans-serif;
+}
+
+.page-intro h2 {
+  font-weight: bold;
+  font-variant: small-caps;
 }
 
 /* Footer */

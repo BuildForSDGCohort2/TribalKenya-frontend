@@ -9,6 +9,10 @@ import LargeBtn from '../../LargeBtn';
 
 const SightSeeingPrev = ({ siteCategories, getCategories }) => {
   const goToPage = () => navigate('sightseeing');
+  const goToCategoryPage = (category) => {
+    localStorage.setItem('category', JSON.stringify(category));
+    navigate('category');
+  };
   useEffect(() => {
     getCategories(stPrevData);
     AOS.init({ once: true });
@@ -22,6 +26,7 @@ const SightSeeingPrev = ({ siteCategories, getCategories }) => {
                     <div className="gallery-item cursor"
                         key={key.name}
                         style={{ backgroundImage: `url(${key.poster})` }}
+                        onClick={() => goToCategoryPage(key)}
                         data-aos="zoom-in" data-aos-duration="500" >
                         <div className="gallery-text animate__animated animate__slideInDown">
                             <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>

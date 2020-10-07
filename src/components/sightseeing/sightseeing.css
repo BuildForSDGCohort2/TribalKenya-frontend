@@ -37,7 +37,7 @@
 }
 
 .category-poster {
-  width: 100%;
+  width: 300px;
   height: 30vh;
   border-radius: 20px;
 }
@@ -56,10 +56,6 @@
   .custom-card {
     min-height: 80vh;
     flex: 1 50%;
-  }
-
-  .category-poster {
-    width: 300px;
   }
 }
 

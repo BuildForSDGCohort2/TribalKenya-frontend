@@ -6,8 +6,9 @@ import TextContent from '../../TextContent';
 import { getCategories } from '../../../state/sightseeing/sightseeing.actions';
 import { stPrevData } from '../../../state/sightseeing/stData';
 import LargeBtn from '../../LargeBtn';
+import PreLoader from '../../pre-loader/PreLoader';
 
-const SightSeeingPrev = ({ siteCategories, getCategories }) => {
+const SightSeeingPrev = ({ siteCategories, getCategories, loading }) => {
   const goToPage = () => navigate('sightseeing');
   const goToCategoryPage = (category) => {
     localStorage.setItem('category', JSON.stringify(category));
@@ -21,19 +22,21 @@ const SightSeeingPrev = ({ siteCategories, getCategories }) => {
       <>
         <section className="st-prev-sec w-100 p-3">
             <TextContent heading="Sightseeing" textColor="c-cream text-center" />
-            <div className="gallery">
-                {siteCategories.map((key) => (
-                    <div className="gallery-item cursor"
-                        key={key.name}
-                        style={{ backgroundImage: `url(${key.poster})` }}
-                        onClick={() => goToCategoryPage(key)}
-                        data-aos="zoom-in" data-aos-duration="500" >
-                        <div className="gallery-text animate__animated animate__slideInDown">
-                            <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
-                        </div>
-                    </div>
-                ))}
-            </div>
+                {loading ? (<PreLoader />) : (
+                  <div className="gallery">
+                    {siteCategories.map((key) => (
+                      <div className="gallery-item cursor"
+                          key={key.name}
+                          style={{ backgroundImage: `url(${key.poster})` }}
+                          onClick={() => goToCategoryPage(key)}
+                          data-aos="zoom-in" data-aos-duration="500" >
+                          <div className="gallery-text animate__animated animate__slideInDown">
+                              <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
+                          </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
             <LargeBtn textContent="Explore" activate={goToPage} extraClass="black mt-3" />
         </section>
 </>
@@ -41,7 +44,8 @@ const SightSeeingPrev = ({ siteCategories, getCategories }) => {
 };
 
 const mapStateToProps = (state) => ({
-  siteCategories: state.sightSeeing.siteCategories
+  siteCategories: state.sightSeeing.siteCategories,
+  loading: state.sightSeeing.loading
 });
 
 const mapDispatchToProps = (dispatch) => ({

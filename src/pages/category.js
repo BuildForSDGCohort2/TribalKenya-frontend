@@ -2,13 +2,14 @@ import React from 'react';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import NavBar from '../components/Navbar/NavBar';
+import CategoryPage from '../components/category-page/CategoryPage';
 
-const CategoryPage = () => (
+const SingleCategoryPage = () => (
   <Layout>
     <SEO title="Category" />
     <NavBar />
-    {console.log(JSON.parse(localStorage.getItem('category')))}
+    <CategoryPage />
   </Layout>
 );
 
-export default CategoryPage;
+export default SingleCategoryPage;

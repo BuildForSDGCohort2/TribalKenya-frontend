@@ -7,8 +7,10 @@ import CategoryPage from '../components/category-page/CategoryPage';
 const SingleCategoryPage = () => (
   <Layout>
     <SEO title="Category" />
-    <NavBar />
-    <CategoryPage />
+    <main className="black-bg">
+      <NavBar bg="c-white" />
+      <CategoryPage />
+    </main>
   </Layout>
 );
 

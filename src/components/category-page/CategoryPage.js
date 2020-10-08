@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import PageIntro from '../PageIntro';
 import PreLoader from '../pre-loader/PreLoader';
 import Place from './Place';
+import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
 
-const CategoryPage = ({ loading }) => {
+const CategoryPage = ({ loading, checkLoading }) => {
   const [category, setCategory] = useState({});
   const [places, setPlaces] = useState([]);
   const addToLocalStorage = () => {
     setCategory(JSON.parse(localStorage.getItem('category')));
     setPlaces(JSON.parse(localStorage.getItem('places')));
+    checkLoading(false);
   };
 
   useEffect(() => {
@@ -40,4 +42,8 @@ const mapStateToProps = (state) => ({
   loading: state.sightSeeing.loading
 });
 
-export default connect(mapStateToProps)(CategoryPage);
+const mapDispatchToProps = (dispatch) => ({
+  checkLoading: (loading) => dispatch(checkLoading(loading))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryPage);

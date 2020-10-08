@@ -17,7 +17,6 @@ const SightSeeingPrev = ({ siteCategories, getCategories, loading, checkLoading 
       const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/places/${category.id}`);
       const results = await response.json();
       localStorage.setItem('places', JSON.stringify(results));
-      checkLoading(false);
       navigate('/category');
     } catch (error) {
       console.log(error.message);

@@ -10,7 +10,7 @@ const Account = ({ user }) => {
     }
   }, [user]);
   return (
-        <div className="p-1">
+        <div>
             {loggedIn ? <>
             <AccountOption dropdown={true} />
             </>

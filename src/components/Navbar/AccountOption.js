@@ -9,7 +9,7 @@ const AccountOption = ({ dropdown, link }) => {
   };
   return (
         <>
-        {link ? <a href="/" className="account-option small-text" onClick={handleClick} >{link}</a> : null}
+        {link ? <a href="/" className="account-option medium-text" onClick={handleClick} >{link}</a> : null}
         {dropdown ? <AODropdown/> : null}
         </>
   );

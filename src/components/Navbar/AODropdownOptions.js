@@ -21,7 +21,7 @@ const AODropdownOptions = ({ checkUser }) => {
     }
   };
   return (
-    <ul className="ao-dropdown-options p-1 mt-1">
+    <ul className="ao-dropdown-options p-1 mt-1 ml-1">
         <li>View Profile</li>
         <li>Settings</li>
         <li onClick={(ev) => handleClick(ev, ev.target.innerHTML)}>Log Out</li>

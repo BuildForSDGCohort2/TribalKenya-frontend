@@ -5,7 +5,7 @@ import Navlist from './Navlist';
 import './NavBar.css';
 import Brand from './Brand';
 
-const NavBar = () => {
+const NavBar = ({ bg }) => {
   const [isNavOpen, setisNavOpen] = useState(false);
   const [search, setsearch] = useState(false);
   const toggleSearch = () => {
@@ -20,7 +20,7 @@ const NavBar = () => {
   }, [isNavOpen]);
   return (
     <>
-    <nav className="my-navbar m-1">
+    <nav className={`my-navbar ${bg || ''}`}>
       <div className="top-nav">
         <div className="brand">
           <Brand/>

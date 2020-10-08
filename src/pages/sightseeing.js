@@ -7,8 +7,8 @@ import Sightseeing from '../components/sightseeing/Sightseeing';
 const SightseeingPage = () => (
   <Layout>
     <SEO title="Sightseeing" />
-    <main>
-      <NavBar />
+    <main className="black-bg">
+      <NavBar bg="c-white" />
       <Sightseeing />
     </main>
   </Layout>

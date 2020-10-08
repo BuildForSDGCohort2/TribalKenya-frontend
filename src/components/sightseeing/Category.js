@@ -17,10 +17,10 @@ const Category = ({ siteCategory }) => {
   };
   return (
         <div className="custom-card m-2 center">
-            <div className="custom-card-body text-center p-2">
+            <div className="custom-card-body text-center p-2 c-cream">
                 <img src={siteCategory.poster} alt="" className="category-poster mt-2" />
                 <h1>{siteCategory.name}</h1>
-                <LargeBtn textContent="Explore" extraClass="black-bg category-link" activate={() => goToCategoryPage(siteCategory)} />
+                <LargeBtn textContent="Explore" extraClass="black" activate={() => goToCategoryPage(siteCategory)} />
             </div>
         </div>
   );

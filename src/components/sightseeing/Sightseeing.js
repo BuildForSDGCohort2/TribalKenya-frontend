@@ -14,7 +14,7 @@ const Sightseeing = ({ getCategories, siteCategories, loading }) => {
   }, []);
   return (
       <div className="ss-wrapper">
-        <PageIntro title="Sightseeing" text="Exlpore Kenya like never before" color="c-black" />
+        <PageIntro title="Sightseeing" text="Exlpore Kenya like never before" color="c-cream" />
         {loading ? (
           <Preloader />
         ) : (

@@ -8,6 +8,7 @@ const Place = ({ place, checkLoading }) => {
   const goToPlace = (selectedPlace) => {
     checkLoading(true);
     localStorage.setItem('place', JSON.stringify(selectedPlace));
+    localStorage.setItem('placeImages', JSON.stringify(selectedPlace.images));
     navigate('/place');
   };
   return (

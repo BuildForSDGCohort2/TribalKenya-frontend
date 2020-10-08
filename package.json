@@ -27,7 +27,7 @@
     "react-icons": "^3.11.0",
     "react-lazyload": "^3.0.0",
     "react-redux": "^7.2.1",
-    "react-slick": "^0.27.10",
+    "react-slick": "^0.27.11",
     "react-video-js-player": "^1.1.1",
     "reactstrap": "^8.5.1",
     "redux": "^4.0.5",

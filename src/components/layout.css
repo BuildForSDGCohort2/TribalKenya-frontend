@@ -334,6 +334,12 @@ a:hover {
   background-position: center center;
 }
 
+.place-image {
+  width: 100%;
+  min-height: 20rem;
+  border-radius: 10px;
+}
+
 /* Footer */
 footer {
   font-family: "Overpass", sans-serif;

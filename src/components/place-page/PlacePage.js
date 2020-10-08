@@ -5,12 +5,25 @@ import NavBar from '../Navbar/NavBar';
 import PageIntro from '../PageIntro';
 import PreLoader from '../pre-loader/PreLoader';
 import PlaceImage from './PlaceImage';
+import CustomSlider from '../slider/CustomSlider';
 
 const PlacePage = ({ checkLoading, loading }) => {
   const [place, setPlace] = useState({});
+  const [images, setImages] = useState([]);
   const loadPage = () => {
     setPlace(JSON.parse(localStorage.getItem('place')));
+    setImages(JSON.parse(localStorage.getItem('placeImages')));
     checkLoading(false);
+  };
+  const sliderFor = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplaySpeed: 2000,
+    autoplay: true,
+    pauseOnHover: false
   };
 
   useEffect(() => {
@@ -25,9 +38,15 @@ const PlacePage = ({ checkLoading, loading }) => {
                 <PageIntro title={place.name} color="c-white mt-2" />
             </header>
             <div className="container-fluid">
-                {place.images.map((key) => (
-                    <PlaceImage image={key} key={key} />
-                ))}
+                {images === [] ? null : (
+                    <>
+                    <CustomSlider customStyles={sliderFor} nextAndPrev="true">
+                        {images.map((key) => (
+                            <PlaceImage image={key} key={key} />
+                        ))}
+                    </CustomSlider>
+                    </>
+                )}
             </div>
             </>
         )}

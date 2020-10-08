@@ -8,7 +8,9 @@ import Category from './Category';
 
 const Sightseeing = ({ getCategories, siteCategories, loading }) => {
   useEffect(() => {
-    getCategories();
+    if (siteCategories.length < 1) {
+      getCategories();
+    }
   }, []);
   return (
       <div className="ss-wrapper">

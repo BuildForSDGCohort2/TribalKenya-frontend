@@ -96,6 +96,10 @@ a:hover {
   border: 1px solid var(--white) !important;
 }
 
+.fade-black {
+  background-image: linear-gradient(to bottom, black 10%, transparent 90%);
+}
+
 .red-bg {
   background: var(--red);
   background-image: var(--red-bg);
@@ -321,6 +325,13 @@ a:hover {
 .page-intro h2 {
   font-weight: bold;
   font-variant: small-caps;
+}
+
+/* Single Place */
+.place-page-header {
+  min-height: 30vh;
+  background-size: cover;
+  background-position: center center;
 }
 
 /* Footer */

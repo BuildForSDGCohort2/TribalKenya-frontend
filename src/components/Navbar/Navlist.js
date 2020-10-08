@@ -13,9 +13,9 @@ const Navlist = ({ isNavOpen }) => {
         <ul className={isNavOpen ? 'nav-list drop-navlist' : 'nav-list'}>
             <Navitem icon={<Brand/>} classname="nav-logo" handleIconClick={goHome} />
             <Navitem link="/" title="Home" />
-            <Navitem link="sightseeing" title="Sightseeing" />
-            <Navitem link="treks" title="Treks" />
-            <Navitem link="live-tv" title="Live TV" />
+            <Navitem link="/sightseeing" title="Sightseeing" />
+            <Navitem link="/treks" title="Treks" />
+            <Navitem link="/live-tv" title="Live TV" />
             <Navitem><Account /></Navitem>
         </ul>
   );

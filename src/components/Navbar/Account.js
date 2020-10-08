@@ -10,13 +10,13 @@ const Account = ({ user }) => {
     }
   }, [user]);
   return (
-        <div>
+        <div className="center">
             {loggedIn ? <>
             <AccountOption dropdown={true} />
             </>
               : <>
-            <AccountOption link="login" />
-            <AccountOption link="signup" />
+            <AccountOption link="/login" text="Login" />
+            <AccountOption link="/signup" text="Signup" />
             </>}
         </div>
   );

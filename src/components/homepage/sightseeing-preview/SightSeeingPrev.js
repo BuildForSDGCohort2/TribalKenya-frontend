@@ -3,20 +3,22 @@ import { connect } from 'react-redux';
 import AOS from 'aos';
 import { navigate } from '@reach/router';
 import TextContent from '../../TextContent';
-import { getCategories } from '../../../state/sightseeing/sightseeing.actions';
+import { getCategories, checkLoading } from '../../../state/sightseeing/sightseeing.actions';
 import LargeBtn from '../../LargeBtn';
 import PreLoader from '../../pre-loader/PreLoader';
 
-const SightSeeingPrev = ({ siteCategories, getCategories, loading }) => {
+const SightSeeingPrev = ({ siteCategories, getCategories, loading, checkLoading }) => {
   const goToPage = () => navigate('sightseeing');
   const goToCategoryPage = async (category) => {
     try {
+      checkLoading(true);
       localStorage.setItem('category', JSON.stringify(category));
-      navigate('/category');
       // Fetch all site/places related to selected category
       const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/places/${category.id}`);
       const results = await response.json();
       localStorage.setItem('places', JSON.stringify(results));
+      checkLoading(false);
+      navigate('/category');
     } catch (error) {
       console.log(error.message);
     }
@@ -58,7 +60,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCategories: (siteCategories) => dispatch(getCategories(siteCategories))
+  getCategories: (siteCategories) => dispatch(getCategories(siteCategories)),
+  checkLoading: (loading) => dispatch(checkLoading(loading))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SightSeeingPrev);

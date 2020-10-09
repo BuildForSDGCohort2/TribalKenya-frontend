@@ -109,7 +109,11 @@ a:hover {
   background: transparent !important;
 }
 
-/* Fonts */
+/* Font families and sizes */
+.overpass {
+  font-family: "Overpass", sans-serif;
+}
+
 .heading {
   font-size: 4em;
 }
@@ -336,7 +340,8 @@ a:hover {
 
 .place-image {
   width: 100%;
-  min-height: 20rem;
+  min-height: 30rem;
+  max-height: 30rem;
   border-radius: 10px;
 }
 
@@ -351,6 +356,11 @@ footer {
     grid-template-columns: auto;
     grid-template-areas: "rightCol" "leftCol";
   }
+
+  .place-image {
+    min-height: 17rem;
+    max-height: 17rem;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -362,5 +372,10 @@ footer {
 
   .heading {
     font-size: 3em;
+  }
+
+  .place-image {
+    min-height: 15rem;
+    max-height: 15rem;
   }
 }

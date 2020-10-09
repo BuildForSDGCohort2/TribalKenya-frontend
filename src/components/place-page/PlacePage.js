@@ -6,6 +6,8 @@ import PageIntro from '../PageIntro';
 import PreLoader from '../pre-loader/PreLoader';
 import PlaceImage from './PlaceImage';
 import CustomSlider from '../slider/CustomSlider';
+import PlaceDetails from './PlaceDetails';
+import PlaceMap from './PlaceMap';
 
 const PlacePage = ({ checkLoading, loading }) => {
   const [place, setPlace] = useState({});
@@ -47,6 +49,14 @@ const PlacePage = ({ checkLoading, loading }) => {
                     </CustomSlider>
                     </>
                 )}
+            </div>
+            <div className="two-sec-grid-cols">
+                <div className="left-col p-2">
+                    <PlaceMap place={place} />
+                </div>
+                <div className="right-col p-2">
+                    <PlaceDetails place={place} />
+                </div>
             </div>
             </>
         )}

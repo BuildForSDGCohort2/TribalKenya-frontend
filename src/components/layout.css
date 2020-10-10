@@ -71,6 +71,10 @@ a:hover {
   color: black;
 }
 
+.h-green:hover {
+  color: var(--green);
+}
+
 .purple-bg {
   background: var(--purple);
   background-image: var(--purple-bg);
@@ -112,6 +116,9 @@ a:hover {
 /* Font families and sizes */
 .overpass {
   font-family: "Overpass", sans-serif;
+}
+.small-caps {
+  font-variant: small-caps;
 }
 
 .heading {
@@ -352,6 +359,14 @@ a:hover {
 
 .sm-icon:hover {
   color: rgba(11, 163, 96, 0.6);
+}
+
+#user-review,
+#user-review:focus {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: none;
 }
 
 /* Footer */

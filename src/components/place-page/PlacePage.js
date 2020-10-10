@@ -9,6 +9,8 @@ import PlaceDetails from './PlaceDetails';
 import PlaceMap from './PlaceMap';
 import SocilaMediaIcon from './SocilaMediaIcon';
 import PlaceImagesSlider from './PlaceImagesSlider';
+import PlaceReviews from './PlaceReviews';
+import PlaceReviewsForm from './PlaceReviewsForm';
 
 const PlacePage = ({ checkLoading, loading }) => {
   const [place, setPlace] = useState({});
@@ -42,6 +44,11 @@ const PlacePage = ({ checkLoading, loading }) => {
                       {place.instagram === '' ? null : <SocilaMediaIcon icon={<FaInstagramSquare />} link={place.instagram} />}
                     </div>
                 </div>
+            </div>
+            <div className="reviews-rw white-bg p-1">
+              <h1 className="heading text-center overpass m-0 small-caps">Reviews</h1>
+              <PlaceReviews />
+              <PlaceReviewsForm />
             </div>
             </>
         )}

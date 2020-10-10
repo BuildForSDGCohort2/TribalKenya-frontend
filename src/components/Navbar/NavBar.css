@@ -157,6 +157,7 @@
     text-align: center;
     width: 100%;
     list-style: none;
+    transition: 1s;
   }
 
   .nav-logo {

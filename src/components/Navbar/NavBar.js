@@ -37,7 +37,7 @@ const NavBar = ({ bg }) => {
               <div className="bar3"></div>
             </div>
         </div>
-        <div className={isNavOpen ? 'center animate__animated animate__fadeInDown' : 'center'}>
+        <div className="center">
           <Navlist isNavOpen={isNavOpen} toggleSearch={toggleSearch} />
         </div>
       </div>

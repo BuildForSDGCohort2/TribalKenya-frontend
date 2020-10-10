@@ -345,6 +345,15 @@ a:hover {
   border-radius: 10px;
 }
 
+.sm-icon {
+  font-size: 2em;
+  transition: 0.4s;
+}
+
+.sm-icon:hover {
+  color: rgba(11, 163, 96, 0.6);
+}
+
 /* Footer */
 footer {
   font-family: "Overpass", sans-serif;

@@ -8,7 +8,7 @@ const PlaceDetails = ({ place }) => {
             <p className="small-text">{place.description}</p>
             {place.number === '' ? null
               : <p className="small-text">
-                    <span className="bold"><BiPhone className="c-green medium-text" /> </span>{place.phone}
+                    <span><BiPhone className="c-green medium-text" /> </span>{place.phone}
                 </p> }
         </article>
   );

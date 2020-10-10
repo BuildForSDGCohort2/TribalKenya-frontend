@@ -23,9 +23,11 @@ const PlacePage = ({ checkLoading, loading }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     autoplay: true,
-    pauseOnHover: false
+    pauseOnHover: false,
+    lazyLoad: 'ondemand',
+    centerMode: true
   };
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './homepage.css';
 import CustomSlider from '../slider/CustomSlider';
@@ -6,8 +6,9 @@ import TextContent from '../TextContent';
 import VideoPlayBtn from '../VideoPlayBtn';
 import { toggleVideo } from '../../state/intro/intro.actions';
 import Slide from '../slider/Slide';
+import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
 
-const Intro = ({ videoToggle, introSlides }) => {
+const Intro = ({ videoToggle, introSlides, checkLoading }) => {
   const texts = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, maiores veniam? Soluta recusandae quod accusamus ipsa, similique consequatur vero error?';
   const showVideo = () => videoToggle(true);
   const style = {
@@ -19,7 +20,9 @@ const Intro = ({ videoToggle, introSlides }) => {
     fade: true,
     pauseOnHover: false
   };
-
+  useEffect(() => {
+    checkLoading(false);
+  }, []);
   return (
         <div className="intro-container center">
           <div className="left-col-flex center">
@@ -44,7 +47,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  videoToggle: (isVideoShown) => dispatch(toggleVideo(isVideoShown))
+  videoToggle: (isVideoShown) => dispatch(toggleVideo(isVideoShown)),
+  checkLoading: (loading) => dispatch(checkLoading(loading))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Intro);

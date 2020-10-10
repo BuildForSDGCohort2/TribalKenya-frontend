@@ -1,9 +1,12 @@
 import React from 'react';
 import { navigate } from '@reach/router';
+import { connect } from 'react-redux';
+import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
 
-const Navitem = ({ link, title, icon, classname, handleIconClick, children }) => {
+const Navitem = ({ link, title, icon, classname, handleIconClick, children, checkLoading }) => {
   const handleClick = (event) => {
     event.preventDefault();
+    checkLoading(true);
     navigate(link);
   };
   const iconClick = (event) => {
@@ -20,4 +23,8 @@ const Navitem = ({ link, title, icon, classname, handleIconClick, children }) =>
   );
 };
 
-export default Navitem;
+const mapDispatchToProps = (dispatch) => ({
+  checkLoading: (loading) => dispatch(checkLoading(loading))
+});
+
+export default connect(null, mapDispatchToProps)(Navitem);

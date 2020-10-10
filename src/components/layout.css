@@ -45,10 +45,6 @@ article {
   outline: none !important;
 }
 
-main {
-  min-height: 100vh;
-}
-
 a,
 a:hover {
   text-decoration: none;
@@ -216,13 +212,14 @@ a:hover {
   min-height: 10vh;
   width: 100%;
   align-items: center;
+  z-index: 99;
 }
 
 .spinner {
   width: 2rem;
   height: 2rem;
   border: 5px solid rgba(255, 255, 255, 0.3);
-  border-top: 5px solid var(--white);
+  border-top: 5px solid black;
   border-radius: 50%;
   animation: spin 1s linear infinite both;
 }

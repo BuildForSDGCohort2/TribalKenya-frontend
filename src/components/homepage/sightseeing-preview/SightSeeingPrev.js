@@ -5,9 +5,8 @@ import { navigate } from '@reach/router';
 import TextContent from '../../TextContent';
 import { getCategories, checkLoading } from '../../../state/sightseeing/sightseeing.actions';
 import LargeBtn from '../../LargeBtn';
-import PreLoader from '../../pre-loader/PreLoader';
 
-const SightSeeingPrev = ({ siteCategories, getCategories, loading, checkLoading }) => {
+const SightSeeingPrev = ({ siteCategories, getCategories, checkLoading }) => {
   const goToPage = () => navigate('sightseeing');
   const goToCategoryPage = async (category) => {
     try {
@@ -32,21 +31,19 @@ const SightSeeingPrev = ({ siteCategories, getCategories, loading, checkLoading 
       <>
         <section className="st-prev-sec w-100 p-3">
             <TextContent heading="Sightseeing" textColor="c-cream text-center" />
-                {loading ? (<PreLoader />) : (
-                  <div className="gallery">
-                    {siteCategories.map((key) => (
-                      <div className="gallery-item cursor"
-                          key={key.name}
-                          style={{ backgroundImage: `url(${key.poster})` }}
-                          onClick={() => goToCategoryPage(key)}
-                          data-aos="zoom-in" data-aos-duration="500" >
-                          <div className="gallery-text animate__animated animate__slideInDown">
-                              <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
-                          </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+            <div className="gallery">
+              {siteCategories.map((key) => (
+                <div className="gallery-item cursor"
+                    key={key.name}
+                    style={{ backgroundImage: `url(${key.poster})` }}
+                    onClick={() => goToCategoryPage(key)}
+                    data-aos="zoom-in" data-aos-duration="500" >
+                    <div className="gallery-text animate__animated animate__slideInDown">
+                        <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
+                    </div>
+                </div>
+              ))}
+            </div>
             <LargeBtn textContent="Explore" activate={goToPage} extraClass="black mt-3" />
         </section>
 </>

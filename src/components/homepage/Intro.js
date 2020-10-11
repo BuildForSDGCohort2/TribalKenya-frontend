@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import './homepage.css';
 import CustomSlider from '../slider/CustomSlider';
@@ -6,10 +6,9 @@ import TextContent from '../TextContent';
 import VideoPlayBtn from '../VideoPlayBtn';
 import { toggleVideo } from '../../state/intro/intro.actions';
 import Slide from '../slider/Slide';
-import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
 
-const Intro = ({ videoToggle, introSlides, checkLoading }) => {
-  const texts = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, maiores veniam? Soluta recusandae quod accusamus ipsa, similique consequatur vero error?';
+const Intro = ({ videoToggle, introSlides }) => {
+  const texts = 'A platform where tourists can meet and chat with other tourists, share their own experiences with others and also find out amazing places to go to and things to do in their tours. Also, managars/marketers of tourist attraction sites can easily interact with potentioal tourists and market their services';
   const showVideo = () => videoToggle(true);
   const style = {
     infinite: true,
@@ -20,9 +19,6 @@ const Intro = ({ videoToggle, introSlides, checkLoading }) => {
     fade: true,
     pauseOnHover: false
   };
-  useEffect(() => {
-    checkLoading(false);
-  }, []);
   return (
         <div className="intro-container center">
           <div className="left-col-flex center">
@@ -47,8 +43,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  videoToggle: (isVideoShown) => dispatch(toggleVideo(isVideoShown)),
-  checkLoading: (loading) => dispatch(checkLoading(loading))
+  videoToggle: (isVideoShown) => dispatch(toggleVideo(isVideoShown))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Intro);

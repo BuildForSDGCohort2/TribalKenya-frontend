@@ -27,7 +27,6 @@ const PlacePage = ({ checkLoading, loading }) => {
         <>
         {loading ? <PreLoader /> : (
             <>
-            {console.log(place)}
             <header className="place-page-header" style={{ backgroundImage: `url(${place.poster})` }}>
                 <NavBar bg="fade-black c-white" />
                 <PageIntro title={place.name} color="c-white mt-2" />

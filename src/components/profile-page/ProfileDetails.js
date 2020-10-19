@@ -3,7 +3,7 @@ import React from 'react';
 const ProfileDetails = ({ profile }) => {
   return (
         <div className="mt-3">
-            <h1 className="heading text-left overpass">Profile Info</h1>
+            <h1 className="heading text-left overpass">My Profile</h1>
             <hr/>
             <dl className="profile-details overpass">
                 <dt><small>Username</small>{profile.username}</dt>

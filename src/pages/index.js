@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import SEO from '../components/seo';
 import NavBar from '../components/Navbar/NavBar';
@@ -9,19 +9,15 @@ import SightSeeingPrev from '../components/homepage/sightseeing-preview/SightSee
 import TreksPrev from '../components/homepage/treks-preview/TreksPrev';
 import Footer from '../components/footer/Footer';
 import PreLoader from '../components/pre-loader/PreLoader';
-import { checkLoading } from '../state/sightseeing/sightseeing.actions';
 
-const IndexPage = ({ showVideo, introVideo, introPoster, loading, checkLoading }) => {
-  useEffect(() => {
-    checkLoading(false);
-  }, []);
+const IndexPage = ({ showVideo, introVideo, introPoster, loading }) => {
   return (
     <Layout>
     <SEO title="Home" />
     {loading ? <PreLoader /> : (
       <>
       <header className="home-intro">
-        <NavBar extraClasses="transparent" />
+        <NavBar extraClasses="transparent" barColor="black" />
         <Intro />
       </header>
       {showVideo ? (
@@ -43,8 +39,4 @@ const mapStateToProps = (state) => ({
   loading: state.sightSeeing.loading
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  checkLoading: (loading) => dispatch(checkLoading(loading))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
+export default connect(mapStateToProps)(IndexPage);

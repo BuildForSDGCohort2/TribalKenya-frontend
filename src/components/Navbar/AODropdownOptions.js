@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'gatsby-plugin-firebase';
 import { connect } from 'react-redux';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import { checkUser } from '../../state/auth/auth.actions';
 
 const AODropdownOptions = ({ checkUser }) => {
@@ -23,7 +23,7 @@ const AODropdownOptions = ({ checkUser }) => {
   return (
     <ul className="ao-dropdown-options p-1 mt-1 ml-1">
         <li onClick={() => navigate('/profile')}>View Profile</li>
-        <li>Settings</li>
+        <li onClick={() => navigate('/settings')}>Settings</li>
         <li onClick={(ev) => handleClick(ev, ev.target.innerHTML)}>Log Out</li>
     </ul>
   );

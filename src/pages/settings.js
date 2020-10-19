@@ -1,17 +1,17 @@
 import React from 'react';
 import SEO from '../components/seo';
 import NavBar from '../components/Navbar/NavBar';
-import Profile from '../components/profile-page/Profile';
 import Layout from '../components/layout';
+import Settings from '../components/settings-page/Settings';
 
-const ProfilePage = () => (
+const SettingsPage = () => (
   <Layout>
     <NavBar bg="c-black" barColor="black" />
-    <SEO title="Profile" />
+    <SEO title="Settings" />
     <main>
-        <Profile />
+        <Settings />
     </main>
   </Layout>
 );
 
-export default ProfilePage;
+export default SettingsPage;

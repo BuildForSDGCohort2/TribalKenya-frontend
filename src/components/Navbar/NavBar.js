@@ -5,7 +5,7 @@ import Navlist from './Navlist';
 import './NavBar.css';
 import Brand from './Brand';
 
-const NavBar = ({ bg }) => {
+const NavBar = ({ bg, barColor }) => {
   const [isNavOpen, setisNavOpen] = useState(false);
   const [search, setsearch] = useState(false);
   const toggleSearch = () => {
@@ -32,9 +32,9 @@ const NavBar = ({ bg }) => {
               }
               onClick={() => setisNavOpen(!isNavOpen)}
             >
-              <div className="bar1"></div>
-              <div className="bar2"></div>
-              <div className="bar3"></div>
+              <div className={`bar1 ${barColor || ''}`}></div>
+              <div className={`bar2 ${barColor || ''}`}></div>
+              <div className={`bar3 ${barColor || ''}`}></div>
             </div>
         </div>
         <div className="center">

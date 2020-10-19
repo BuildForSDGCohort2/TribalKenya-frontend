@@ -3,10 +3,9 @@ import animateCSS from '../animate';
 import SearchBar from './SearchBar';
 import Navlist from './Navlist';
 import './NavBar.css';
-import Account from './Account';
 import Brand from './Brand';
 
-const NavBar = () => {
+const NavBar = ({ bg }) => {
   const [isNavOpen, setisNavOpen] = useState(false);
   const [search, setsearch] = useState(false);
   const toggleSearch = () => {
@@ -21,7 +20,7 @@ const NavBar = () => {
   }, [isNavOpen]);
   return (
     <>
-    <nav className="my-navbar">
+    <nav className={`my-navbar ${bg || ''}`}>
       <div className="top-nav">
         <div className="brand">
           <Brand/>
@@ -38,16 +37,8 @@ const NavBar = () => {
               <div className="bar3"></div>
             </div>
         </div>
-        <div className={isNavOpen ? 'center animate__animated animate__fadeInDown' : 'center'}>
+        <div className="center">
           <Navlist isNavOpen={isNavOpen} toggleSearch={toggleSearch} />
-        </div>
-      </div>
-      <div className="bottom-nav">
-        <div className="center pt-1">
-          <span className="brand-name medium-text">Tribal Kenya</span>
-        </div>
-        <div className="right">
-          <Account />
         </div>
       </div>
     </nav>

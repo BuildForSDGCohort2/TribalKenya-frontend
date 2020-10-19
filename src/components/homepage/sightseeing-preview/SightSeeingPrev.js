@@ -3,32 +3,46 @@ import { connect } from 'react-redux';
 import AOS from 'aos';
 import { navigate } from '@reach/router';
 import TextContent from '../../TextContent';
-import { addpreviewSites } from '../../../state/sightseeing/sightseeing.actions';
-import { stPrevData } from '../../../state/sightseeing/stData';
+import { getCategories, checkLoading } from '../../../state/sightseeing/sightseeing.actions';
 import LargeBtn from '../../LargeBtn';
 
-const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
+const SightSeeingPrev = ({ siteCategories, getCategories, checkLoading }) => {
   const goToPage = () => navigate('sightseeing');
+  const goToCategoryPage = async (category) => {
+    try {
+      checkLoading(true);
+      localStorage.setItem('category', JSON.stringify(category));
+      // Fetch all site/places related to selected category
+      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/places/${category.id}`);
+      const results = await response.json();
+      localStorage.setItem('places', JSON.stringify(results));
+      navigate('/category');
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   useEffect(() => {
-    addpreviewSites(stPrevData);
+    if (siteCategories.length < 1) {
+      getCategories();
+    }
     AOS.init({ once: true });
-  }, [addpreviewSites]);
+  }, [getCategories]);
   return (
       <>
         <section className="st-prev-sec w-100 p-3">
             <TextContent heading="Sightseeing" textColor="c-cream text-center" />
             <div className="gallery">
-                {previewSites.map((key) => (
-                    <div className="gallery-item cursor"
-                        key={key.name}
-                        style={{ backgroundImage: `url(${key.poster})` }}
-                        data-aos="zoom-in" data-aos-duration="500" >
-                        <div className="gallery-text animate__animated animate__slideInDown">
-                            <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
-                            <p className="small-text animate__animated animate__rotateInUpRight">{key.location}</p>
-                        </div>
+              {siteCategories.map((key) => (
+                <div className="gallery-item cursor"
+                    key={key.name}
+                    style={{ backgroundImage: `url(${key.poster})` }}
+                    onClick={() => goToCategoryPage(key)}
+                    data-aos="zoom-in" data-aos-duration="500" >
+                    <div className="gallery-text animate__animated animate__slideInDown">
+                        <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
                     </div>
-                ))}
+                </div>
+              ))}
             </div>
             <LargeBtn textContent="Explore" activate={goToPage} extraClass="black mt-3" />
         </section>
@@ -37,11 +51,13 @@ const SightSeeingPrev = ({ previewSites, addpreviewSites }) => {
 };
 
 const mapStateToProps = (state) => ({
-  previewSites: state.sightSeeing.previewSites
+  siteCategories: state.sightSeeing.siteCategories,
+  loading: state.sightSeeing.loading
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addpreviewSites: (previewSites) => dispatch(addpreviewSites(previewSites))
+  getCategories: (siteCategories) => dispatch(getCategories(siteCategories)),
+  checkLoading: (loading) => dispatch(checkLoading(loading))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SightSeeingPrev);

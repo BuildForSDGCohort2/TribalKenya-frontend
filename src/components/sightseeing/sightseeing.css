@@ -1,7 +1,7 @@
 .ss-wrapper {
   height: auto;
   min-height: 100vh;
-  background: #e2d1c3;
+  background: transparent;
 }
 
 .categories {
@@ -18,9 +18,9 @@
   background: #fdfcfb;
   height: auto;
   min-height: 50vh;
-  border-radius: 49px;
-  background: #e2d1c3;
-  box-shadow: 30px 30px 48px #cebeb1, -20px -20px 38px #f6e4d5;
+  border-radius: 50px;
+  background: #434343;
+  box-shadow: 10px 10px 40px #393939, -10px -10px 40px #4d4d4d;
   flex: 1 40%;
   cursor: pointer;
   transition: 0.5s;
@@ -37,7 +37,7 @@
 }
 
 .category-poster {
-  width: 100%;
+  width: 300px;
   height: 30vh;
   border-radius: 20px;
 }
@@ -56,10 +56,6 @@
   .custom-card {
     min-height: 80vh;
     flex: 1 50%;
-  }
-
-  .category-poster {
-    width: 300px;
   }
 }
 

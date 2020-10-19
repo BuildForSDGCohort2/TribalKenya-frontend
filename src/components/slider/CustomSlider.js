@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import { connect } from 'react-redux';
-import { FiPause } from 'react-icons/fi';
+import { FiPause, FiPlay } from 'react-icons/fi';
 
-const CustomSlider = ({ children, customStyles, nextAndPrev }) => {
+const CustomSlider = ({ children, customStyles, nextAndPrev, extraClass }) => {
   // eslint-disable-next-line init-declarations
+  const [paused, setPaused] = useState(false);
   const slider = useRef();
   const prev = (event) => {
     event.preventDefault();
@@ -16,16 +17,22 @@ const CustomSlider = ({ children, customStyles, nextAndPrev }) => {
   };
   const pause = (event) => {
     event.preventDefault();
-    slider.current.slickPause();
+    if (paused) {
+      slider.current.slickPlay();
+      setPaused(false);
+    } else {
+      slider.current.slickPause();
+      setPaused(true);
+    }
   };
   return (
       <div className="slider-container w-100">
-        <Slider ref={slider} {...customStyles} >
+        <Slider ref={slider} {...customStyles} className={`${extraClass || ''}`} >
                 {children}
         </Slider>
-        {nextAndPrev ? (<div className="slide-options center mt-2 mb-2">
+        {nextAndPrev ? (<div className="slide-options center mt-2 pb-2">
           <button className="prev mr-2 pl-2 pr-2" onClick={prev}>Prev</button>
-          <span className="pause cursor pl-2 pr-2 pb-1" onClick={pause}> <FiPause /> </span>
+          <span className="pause cursor pl-2 pr-2 pb-1" onClick={pause}> {paused ? <FiPlay /> : <FiPause /> } </span>
           <button className="next ml-2 pl-2 pr-2" onClick={next}>Next</button>
         </div>) : null}
     </div>

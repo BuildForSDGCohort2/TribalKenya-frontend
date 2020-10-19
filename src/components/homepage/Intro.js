@@ -8,7 +8,7 @@ import { toggleVideo } from '../../state/intro/intro.actions';
 import Slide from '../slider/Slide';
 
 const Intro = ({ videoToggle, introSlides }) => {
-  const texts = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, maiores veniam? Soluta recusandae quod accusamus ipsa, similique consequatur vero error?';
+  const texts = 'A platform where tourists can meet and chat with other tourists, share their own experiences with others and also find out amazing places to go to and things to do in their tours. Also, managars/marketers of tourist attraction sites can easily interact with potentioal tourists and market their services';
   const showVideo = () => videoToggle(true);
   const style = {
     infinite: true,
@@ -19,7 +19,6 @@ const Intro = ({ videoToggle, introSlides }) => {
     fade: true,
     pauseOnHover: false
   };
-
   return (
         <div className="intro-container center">
           <div className="left-col-flex center">

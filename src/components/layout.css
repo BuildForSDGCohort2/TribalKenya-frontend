@@ -45,10 +45,6 @@ article {
   outline: none !important;
 }
 
-main {
-  min-height: 100vh;
-}
-
 a,
 a:hover {
   text-decoration: none;
@@ -69,6 +65,10 @@ a:hover {
 
 .c-black {
   color: black;
+}
+
+.h-green:hover {
+  color: var(--green);
 }
 
 .purple-bg {
@@ -96,6 +96,10 @@ a:hover {
   border: 1px solid var(--white) !important;
 }
 
+.fade-black {
+  background-image: linear-gradient(to bottom, black 10%, transparent 90%);
+}
+
 .red-bg {
   background: var(--red);
   background-image: var(--red-bg);
@@ -105,7 +109,14 @@ a:hover {
   background: transparent !important;
 }
 
-/* Fonts */
+/* Font families and sizes */
+.overpass {
+  font-family: "Overpass", sans-serif;
+}
+.small-caps {
+  font-variant: small-caps;
+}
+
 .heading {
   font-size: 4em;
 }
@@ -201,13 +212,14 @@ a:hover {
   min-height: 10vh;
   width: 100%;
   align-items: center;
+  z-index: 99;
 }
 
 .spinner {
   width: 2rem;
   height: 2rem;
   border: 5px solid rgba(255, 255, 255, 0.3);
-  border-top: 5px solid var(--white);
+  border-top: 5px solid black;
   border-radius: 50%;
   animation: spin 1s linear infinite both;
 }
@@ -323,6 +335,37 @@ a:hover {
   font-variant: small-caps;
 }
 
+/* Single Place */
+.place-page-header {
+  min-height: 30vh;
+  background-size: cover;
+  background-position: center center;
+}
+
+.place-image {
+  width: 100%;
+  min-height: 30rem;
+  max-height: 30rem;
+  border-radius: 10px;
+}
+
+.sm-icon {
+  font-size: 2em;
+  transition: 0.4s;
+}
+
+.sm-icon:hover {
+  color: rgba(11, 163, 96, 0.6);
+}
+
+#user-review,
+#user-review:focus {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: none;
+}
+
 /* Footer */
 footer {
   font-family: "Overpass", sans-serif;
@@ -333,6 +376,11 @@ footer {
     grid-template-rows: auto auto;
     grid-template-columns: auto;
     grid-template-areas: "rightCol" "leftCol";
+  }
+
+  .place-image {
+    min-height: 17rem;
+    max-height: 17rem;
   }
 }
 
@@ -345,5 +393,10 @@ footer {
 
   .heading {
     font-size: 3em;
+  }
+
+  .place-image {
+    min-height: 15rem;
+    max-height: 15rem;
   }
 }

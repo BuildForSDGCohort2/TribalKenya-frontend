@@ -313,6 +313,10 @@ a:hover {
   min-height: 100vh;
 }
 
+.round {
+  border-radius: 50%;
+}
+
 /* Buttons */
 .large-btn {
   font-size: 2em;

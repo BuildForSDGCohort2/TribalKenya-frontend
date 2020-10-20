@@ -4,19 +4,9 @@ import { connect } from 'react-redux';
 import LargeBtn from '../LargeBtn';
 import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
 
-const Category = ({ siteCategory, checkLoading }) => {
-  const goToCategoryPage = async (category) => {
-    try {
-      checkLoading(true);
-      localStorage.setItem('category', JSON.stringify(category));
-      // Fetch all site/places related to selected category
-      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/places/${category.id}`);
-      const results = await response.json();
-      localStorage.setItem('places', JSON.stringify(results));
-      navigate('/category');
-    } catch (error) {
-      console.log(error.message);
-    }
+const Category = ({ siteCategory }) => {
+  const goToCategoryPage = (category) => {
+    navigate('/category', { state: { category: category } });
   };
   return (
         <div className="custom-card m-2 center">

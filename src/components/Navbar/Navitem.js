@@ -1,13 +1,15 @@
 import React from 'react';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 
-const Navitem = ({ link, title, icon, classname, handleIconClick, children }) => {
+const Navitem = ({ link, title, icon, classname, handleIconClick, children, close }) => {
   const handleClick = (event) => {
     event.preventDefault();
+    close();
     navigate(link);
   };
   const iconClick = (event) => {
     if (handleIconClick) {
+      close();
       handleIconClick(event);
     }
   };

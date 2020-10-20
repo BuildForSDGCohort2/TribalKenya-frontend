@@ -32,13 +32,13 @@ const NavBar = ({ bg, barColor }) => {
               }
               onClick={() => setisNavOpen(!isNavOpen)}
             >
-              <div className={`bar1 ${barColor || ''}`}></div>
-              <div className={`bar2 ${barColor || ''}`}></div>
-              <div className={`bar3 ${barColor || ''}`}></div>
+              <div className={`bar1 ${barColor}`}></div>
+              <div className={`bar2 ${barColor}`}></div>
+              <div className={`bar3 ${barColor}`}></div>
             </div>
         </div>
         <div className="center">
-          <Navlist isNavOpen={isNavOpen} toggleSearch={toggleSearch} />
+          <Navlist isNavOpen={isNavOpen} toggleSearch={toggleSearch} closeNav={() => setisNavOpen(false)} />
         </div>
       </div>
     </nav>

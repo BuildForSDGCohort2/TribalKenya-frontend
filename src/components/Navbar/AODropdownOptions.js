@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import { navigate } from '@reach/router';
 import { checkUser } from '../../state/auth/auth.actions';
 
-const AODropdownOptions = ({ checkUser }) => {
+const AODropdownOptions = ({ checkUser, close }) => {
   const logOut = async () => {
     try {
       await firebase.auth().signOut();
       checkUser({});
+      close();
       navigate('/login');
     } catch (error) {
       console.log(error.message);
@@ -16,14 +17,21 @@ const AODropdownOptions = ({ checkUser }) => {
   };
   const handleClick = (ev, value) => {
     ev.preventDefault();
+    close();
     if (value === 'Log Out') {
       logOut();
     }
   };
   return (
     <ul className="ao-dropdown-options p-1 mt-1 ml-1">
-        <li onClick={() => navigate('/profile')}>View Profile</li>
-        <li onClick={() => navigate('/settings')}>Settings</li>
+        <li onClick={() => {
+          close();
+          navigate('/profile');
+        }}>View Profile</li>
+        <li onClick={() => {
+          close();
+          navigate('/settings');
+        }}>Settings</li>
         <li onClick={(ev) => handleClick(ev, ev.target.innerHTML)}>Log Out</li>
     </ul>
   );

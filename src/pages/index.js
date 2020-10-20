@@ -18,7 +18,7 @@ const IndexPage = ({ showVideo, introVideo, introPoster }) => {
     {loading ? <PreLoader /> : (
       <>
       <header className="home-intro">
-        <NavBar extraClasses="transparent" barColor="black" />
+        <NavBar extraClasses="bg" barColor="black" />
         <Intro />
       </header>
       {showVideo ? (

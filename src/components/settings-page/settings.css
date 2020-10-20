@@ -1,3 +1,9 @@
 #profile-pic-change {
   visibility: hidden;
 }
+
+.tp-input {
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+}

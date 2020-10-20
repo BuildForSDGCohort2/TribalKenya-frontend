@@ -5,7 +5,7 @@ export const checkUser = (user) => ({
 });
 
 export const addMessage = (message, success) => ({
-  type: 'message', message, success
+  type: 'message', message: message, success: success
 });
 
 export const addProfile = (profile) => ({
@@ -22,6 +22,20 @@ export const addImageToStorage = (folder, image) => {
       return imageUrl;
     } catch (error) {
       return error.message;
+    }
+  };
+};
+
+export const updateProfile = (updates, userId) => {
+  return async () => {
+    try {
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      const options = { method: 'PUT', headers, body: JSON.stringify(updates) };
+      const request = new Request(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/profile-details/update/${userId}`, options);
+      await fetch(request);
+    } catch (error) {
+      console.log(error.message);
     }
   };
 };

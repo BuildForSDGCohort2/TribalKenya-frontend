@@ -9,7 +9,7 @@ const AODropdownOptions = ({ checkUser }) => {
     try {
       await firebase.auth().signOut();
       checkUser({});
-      navigate('login');
+      navigate('/login');
     } catch (error) {
       console.log(error.message);
     }

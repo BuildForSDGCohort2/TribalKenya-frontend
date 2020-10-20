@@ -8,7 +8,7 @@ const login = () => {
   return (
         <Layout>
             <SEO title="Login" />
-            <NavBar />
+            <NavBar barColor="black" />
             <main className="center">
                 <div className="w-100 h-100 center">
                     <Login/>

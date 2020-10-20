@@ -25,3 +25,19 @@ export const getCategories = () => {
     }
   };
 };
+
+export const addToLocalStorage = (category, load, stopLoad) => {
+  return async () => {
+    try {
+      load();
+      localStorage.setItem('category', JSON.stringify(category));
+      // Fetch all site/places related to selected category
+      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/places/${category.id}`);
+      const results = await response.json();
+      localStorage.setItem('places', JSON.stringify(results));
+      stopLoad();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};

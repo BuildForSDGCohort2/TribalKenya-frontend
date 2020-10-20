@@ -1,11 +1,14 @@
 import React from 'react';
 import { navigate } from 'gatsby';
+import { connect } from 'react-redux';
+import { checkPageLoading } from '../../state/auth/auth.actions';
 
-const Navitem = ({ link, title, icon, classname, handleIconClick, children, close }) => {
+const Navitem = ({ link, title, icon, classname, handleIconClick, children, close, checkPageLoading }) => {
   const handleClick = (event) => {
     event.preventDefault();
     close();
     navigate(link);
+    checkPageLoading(true);
   };
   const iconClick = (event) => {
     if (handleIconClick) {
@@ -22,4 +25,8 @@ const Navitem = ({ link, title, icon, classname, handleIconClick, children, clos
   );
 };
 
-export default Navitem;
+const mapDispatchToProps = (dispatch) => ({
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
+});
+
+export default connect(null, mapDispatchToProps)(Navitem);

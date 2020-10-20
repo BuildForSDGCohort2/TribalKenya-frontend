@@ -11,7 +11,7 @@ const SightseeingPage = () => {
     <Layout>
     <SEO title="Sightseeing" />
     <main className="black-bg">
-      <NavBar bg="c-white" barColor="white" />
+      <NavBar bg="c-white" barColor="white-bg" />
       <Sightseeing toggleLoading={toggleLoading} loading={loading} />
     </main>
   </Layout>

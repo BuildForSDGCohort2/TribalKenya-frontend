@@ -1,43 +1,52 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import NavBar from '../components/Navbar/NavBar';
 import CategoryPage from '../components/category-page/CategoryPage';
 import PreLoader from '../components/pre-loader/PreLoader';
+import { checkPageLoading } from '../state/auth/auth.actions';
+import { addToLocalStorage } from '../state/sightseeing/sightseeing.actions';
 
-const SingleCategoryPage = ({ location }) => {
+const SingleCategoryPage = ({ location, pageLoading, checkPageLoading, addToLocalStorage }) => {
   const [loading, setloading] = useState(false);
-  const addToLocalStorage = async (category) => {
+  const onMount = async () => {
     try {
-      setloading(true);
-      localStorage.setItem('category', JSON.stringify(category));
-      // Fetch all site/places related to selected category
-      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/places/${category.id}`);
-      const results = await response.json();
-      localStorage.setItem('places', JSON.stringify(results));
-      setloading(false);
+      checkPageLoading(false);
+      if (location.state.category) {
+        await addToLocalStorage(location.state.category, () => setloading(true), () => setloading(false));
+      }
     } catch (error) {
       console.log(error.message);
     }
   };
   useEffect(() => {
-    if (location.state.category) {
-      addToLocalStorage(location.state.category);
-    }
+    onMount();
   }, []);
   return (
   <Layout>
     <SEO title="Category" />
-    <div className="black-bg">
-      {loading ? <PreLoader /> : (
-        <>
-        <NavBar bg="c-white" />
-        <CategoryPage />
-        </>
-      )}
-    </div>
+    {pageLoading ? <PreLoader /> : (
+      <div className="black-bg">
+        {loading ? <PreLoader /> : (
+          <>
+          <NavBar bg="c-white" barColor="white-bg" />
+          <CategoryPage />
+          </>
+        )}
+      </div>
+    )}
   </Layout>
   );
 };
 
-export default SingleCategoryPage;
+const mapStateToProps = (state) => ({
+  pageLoading: state.auth.pageLoading
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading)),
+  addToLocalStorage: (category, load, stopLoad) => dispatch(addToLocalStorage(category, load, stopLoad))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleCategoryPage);

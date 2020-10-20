@@ -9,7 +9,6 @@ const Settings = ({ profile, updateProfile, addMessage, addProfile }) => {
   const [loading, setloading] = useState(false);
   const update = async (updateDetails) => {
     try {
-      console.log(updateDetails, profile.id);
       setloading(true);
       addProfile({ ...profile, ...updateDetails });
       addMessage('Profile updated', true);

@@ -12,6 +12,10 @@ export const addProfile = (profile) => ({
   type: 'profile', profile
 });
 
+export const checkPageLoading = (pageLoading) => ({
+  type: 'page_loading', pageLoading
+});
+
 export const addImageToStorage = (folder, image) => {
   return async () => {
     try {

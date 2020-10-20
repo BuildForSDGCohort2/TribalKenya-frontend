@@ -24,7 +24,7 @@ const IndexPage = ({ showVideo, introVideo, introPoster }) => {
       {showVideo ? (
         <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
       ) : null}
-      <SightSeeingPrev loading={loading} setloading={(state) => setloading(state)} />
+      <SightSeeingPrev setloading={(state) => setloading(state)} />
       <TreksPrev />
       <Footer />
       </>

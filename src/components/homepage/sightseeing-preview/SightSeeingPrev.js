@@ -6,14 +6,16 @@ import TextContent from '../../TextContent';
 import { getCategories } from '../../../state/sightseeing/sightseeing.actions';
 import LargeBtn from '../../LargeBtn';
 
-const SightSeeingPrev = ({ siteCategories, getCategories }) => {
+const SightSeeingPrev = ({ siteCategories, getCategories, setloading }) => {
   const goToPage = () => navigate('sightseeing');
   const goToCategoryPage = (category) => {
     navigate('/category', { state: { category: category } });
   };
   useEffect(() => {
     if (siteCategories.length < 1) {
+      setloading(true);
       getCategories();
+      setloading(false);
     }
     AOS.init({ once: true });
   }, [getCategories]);

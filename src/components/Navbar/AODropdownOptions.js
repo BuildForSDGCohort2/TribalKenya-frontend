@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'gatsby-plugin-firebase';
 import { connect } from 'react-redux';
-import { navigate } from 'gatsby';
+import { navigate } from '@reach/router';
 import { checkUser } from '../../state/auth/auth.actions';
 
 const AODropdownOptions = ({ checkUser }) => {

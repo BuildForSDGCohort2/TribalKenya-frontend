@@ -1,5 +1,5 @@
 import React from 'react';
-import { navigate } from 'gatsby';
+import { navigate } from '@reach/router';
 import AODropdown from './AODropdown';
 
 const AccountOption = ({ dropdown, link, text }) => {

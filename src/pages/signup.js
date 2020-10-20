@@ -8,7 +8,7 @@ const signup = () => {
   return (
     <Layout>
         <SEO title="Sign Up" />
-        <NavBar barColor="black" />
+        <NavBar bg="black-bg c-white" barColor="white" />
         <SignUp />
     </Layout>
   );

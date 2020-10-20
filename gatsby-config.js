@@ -34,8 +34,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'tribal-kenya',
+        short_name: 'tribalkenya',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',

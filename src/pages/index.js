@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import SEO from '../components/seo';
 import NavBar from '../components/Navbar/NavBar';
@@ -10,7 +10,8 @@ import TreksPrev from '../components/homepage/treks-preview/TreksPrev';
 import Footer from '../components/footer/Footer';
 import PreLoader from '../components/pre-loader/PreLoader';
 
-const IndexPage = ({ showVideo, introVideo, introPoster, loading }) => {
+const IndexPage = ({ showVideo, introVideo, introPoster }) => {
+  const [loading, setloading] = useState(false);
   return (
     <Layout>
     <SEO title="Home" />
@@ -23,7 +24,7 @@ const IndexPage = ({ showVideo, introVideo, introPoster, loading }) => {
       {showVideo ? (
         <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
       ) : null}
-      <SightSeeingPrev />
+      <SightSeeingPrev loading={loading} setloading={(state) => setloading(state)} />
       <TreksPrev />
       <Footer />
       </>
@@ -35,8 +36,7 @@ const IndexPage = ({ showVideo, introVideo, introPoster, loading }) => {
 const mapStateToProps = (state) => ({
   showVideo: state.intro.showVideo,
   introVideo: state.intro.introVideo,
-  introPoster: state.intro.introPoster,
-  loading: state.sightSeeing.loading
+  introPoster: state.intro.introPoster
 });
 
 export default connect(mapStateToProps)(IndexPage);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { navigate } from 'gatsby';
+import { navigate } from '@reach/router';
 import ProfilePic from './ProfilePic';
 import ProfileDetails from './ProfileDetails';
 import './profile.css';

@@ -54,7 +54,8 @@ module.exports = {
           storageBucket: 'tribalkenya-ff470.appspot.com',
           messagingSenderId: '812549061912',
           appId: '1:812549061912:web:a2fd9c25d99b4ebef7f26d',
-          measurementId: 'G-L2VF3SHGJ0'
+          measurementId: 'G-L2VF3SHGJ0',
+          analytics: true
         }
       }
     }

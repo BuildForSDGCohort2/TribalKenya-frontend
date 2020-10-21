@@ -8,7 +8,10 @@ import LargeBtn from '../../LargeBtn';
 import { checkPageLoading } from '../../../state/auth/auth.actions';
 
 const SightSeeingPrev = ({ siteCategories, getCategories, setloading, checkPageLoading }) => {
-  const goToPage = () => navigate('sightseeing');
+  const goToPage = () => {
+    checkPageLoading(true);
+    navigate('sightseeing');
+  };
   const goToCategoryPage = (category) => {
     checkPageLoading(true);
     navigate('/category', { state: { category: category } });

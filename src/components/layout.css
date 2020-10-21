@@ -379,7 +379,11 @@ a:hover {
 /* Treks page */
 .treks-navlist {
   list-style: none;
-  min-width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  position: fixed;
+  bottom: 0;
 }
 
 .trek-nav-icon {
@@ -389,6 +393,7 @@ a:hover {
 .trek-nav-type {
   font-size: 0.7em;
   text-transform: capitalize;
+  font-weight: bold;
 }
 
 /* Footer */
@@ -423,10 +428,5 @@ footer {
   .place-image {
     min-height: 10rem;
     max-height: 10rem;
-  }
-
-  .treks-navlist {
-    list-style: none;
-    min-width: 280px;
   }
 }

@@ -6,9 +6,13 @@ import TextContent from '../../TextContent';
 import { treksData } from '../../../state/treks/treksData';
 import Trek from '../../trek/Trek';
 import LargeBtn from '../../LargeBtn';
+import { checkPageLoading } from '../../../state/auth/auth.actions';
 
-const TreksPrev = ({ treks, fetchTreks }) => {
-  const goToTreks = () => navigate('treks');
+const TreksPrev = ({ treks, fetchTreks, checkPageLoading }) => {
+  const goToTreks = () => {
+    checkPageLoading(true);
+    navigate('treks');
+  };
   useEffect(() => {
     fetchTreks(treksData);
   }, [treks, fetchTreks]);
@@ -30,7 +34,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTreks: (treks) => dispatch(fetchTreks(treks))
+  fetchTreks: (treks) => dispatch(fetchTreks(treks)),
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TreksPrev);

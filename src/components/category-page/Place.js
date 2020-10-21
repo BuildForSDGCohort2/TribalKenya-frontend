@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { navigate } from 'gatsby';
 import LargeBtn from '../LargeBtn';
 import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
+import { checkPageLoading } from '../../state/auth/auth.actions';
 
-const Place = ({ place, checkLoading }) => {
+const Place = ({ place, checkLoading, checkPageLoading }) => {
   const goToPlace = (selectedPlace) => {
     checkLoading(true);
     localStorage.setItem('place', JSON.stringify(selectedPlace));
     localStorage.setItem('placeImages', JSON.stringify(selectedPlace.images));
+    checkPageLoading(true);
     navigate('/place');
   };
   return (
@@ -23,7 +25,8 @@ const Place = ({ place, checkLoading }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  checkLoading: (loading) => dispatch(checkLoading(loading))
+  checkLoading: (loading) => dispatch(checkLoading(loading)),
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
 });
 
 export default connect(null, mapDispatchToProps)(Place);

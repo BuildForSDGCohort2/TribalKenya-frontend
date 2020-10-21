@@ -3,9 +3,11 @@ import { navigate } from 'gatsby';
 import { connect } from 'react-redux';
 import LargeBtn from '../LargeBtn';
 import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
+import { checkPageLoading } from '../../state/auth/auth.actions';
 
-const Category = ({ siteCategory }) => {
+const Category = ({ siteCategory, checkPageLoading }) => {
   const goToCategoryPage = (category) => {
+    checkPageLoading(true);
     navigate('/category', { state: { category: category } });
   };
   return (
@@ -20,7 +22,8 @@ const Category = ({ siteCategory }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  checkLoading: (loading) => dispatch(checkLoading(loading))
+  checkLoading: (loading) => dispatch(checkLoading(loading)),
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
 });
 
 export default connect(null, mapDispatchToProps)(Category);

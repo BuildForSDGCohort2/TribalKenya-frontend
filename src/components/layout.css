@@ -376,6 +376,21 @@ a:hover {
   box-shadow: none;
 }
 
+/* Treks page */
+.treks-navlist {
+  list-style: none;
+  min-width: 400px;
+}
+
+.trek-nav-icon {
+  font-size: 2em;
+}
+
+.trek-nav-type {
+  font-size: 0.7em;
+  text-transform: capitalize;
+}
+
 /* Footer */
 footer {
   font-family: "Overpass", sans-serif;
@@ -408,5 +423,10 @@ footer {
   .place-image {
     min-height: 10rem;
     max-height: 10rem;
+  }
+
+  .treks-navlist {
+    list-style: none;
+    min-width: 280px;
   }
 }

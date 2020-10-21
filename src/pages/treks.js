@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import NavBar from '../components/Navbar/NavBar';
 import { checkPageLoading } from '../state/auth/auth.actions';
 import PreLoader from '../components/pre-loader/PreLoader';
+import Treks from '../components/treks/Treks';
 
 const TreksPage = ({ pageLoading, checkPageLoading }) => {
   useEffect(() => {
@@ -14,12 +15,10 @@ const TreksPage = ({ pageLoading, checkPageLoading }) => {
     <Layout>
       <SEO title="About" />
       {pageLoading ? <PreLoader /> : (
-        <>
-          <NavBar bg="c-black" barColor="black" />
-          <main className="center">
-            <h1 className="heading overpass small-caps">Treks</h1>
-          </main>
-        </>
+        <div className="black-bg h-100vh">
+          <NavBar bg="c-white" barColor="white-bg" />
+          <Treks />
+        </div>
       )}
     </Layout>
   );

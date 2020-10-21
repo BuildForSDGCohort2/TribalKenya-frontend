@@ -12,7 +12,7 @@ const TreksNavbar = ({ changeDes, sortDes }) => {
         <>
             <ul className="treks-navlist white-bg w-100 pl-0 mb-0">
                 {sorts.map((key) => (
-                    <TreksNavItem key={key} navitem={key} changeDes={changeDes} des={sortDes} />
+                    <TreksNavItem key={key.type} navitem={key} changeDes={changeDes} des={sortDes} />
                 ))}
             </ul>
 

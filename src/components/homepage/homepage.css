@@ -186,6 +186,7 @@
   background-image: var(--white-bg);
   border: 1px solid black;
   border-radius: 10px;
+  max-width: 600px;
 }
 
 .trek-left {

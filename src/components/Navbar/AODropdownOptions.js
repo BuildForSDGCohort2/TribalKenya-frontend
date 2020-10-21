@@ -1,10 +1,12 @@
 import React from 'react';
+import { useLocation } from '@reach/router';
 import firebase from 'gatsby-plugin-firebase';
 import { connect } from 'react-redux';
 import { navigate } from 'gatsby';
 import { checkUser, checkPageLoading } from '../../state/auth/auth.actions';
 
 const AODropdownOptions = ({ checkUser, close, checkPageLoading }) => {
+  const location = useLocation();
   const logOut = async () => {
     try {
       checkPageLoading(true);
@@ -25,13 +27,17 @@ const AODropdownOptions = ({ checkUser, close, checkPageLoading }) => {
     <ul className="ao-dropdown-options p-1 mt-1 ml-1">
         <li onClick={() => {
           close();
-          checkPageLoading(true);
-          navigate('/profile');
+          if (location.pathname !== '/profile') {
+            checkPageLoading(true);
+            navigate('/profile');
+          }
         }}>View Profile</li>
         <li onClick={() => {
           close();
-          checkPageLoading(true);
-          navigate('/settings');
+          if (location.pathname !== '/settings') {
+            checkPageLoading(true);
+            navigate('/settings');
+          }
         }}>Settings</li>
         <li onClick={(ev) => handleClick(ev)}>Log Out</li>
     </ul>

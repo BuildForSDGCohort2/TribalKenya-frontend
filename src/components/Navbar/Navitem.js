@@ -1,14 +1,18 @@
 import React from 'react';
+import { useLocation } from '@reach/router';
 import { navigate } from 'gatsby';
 import { connect } from 'react-redux';
 import { checkPageLoading } from '../../state/auth/auth.actions';
 
 const Navitem = ({ link, title, icon, classname, handleIconClick, children, close, checkPageLoading }) => {
+  const location = useLocation();
   const handleClick = (event) => {
     event.preventDefault();
     close();
-    navigate(link);
-    checkPageLoading(true);
+    if (location.pathname !== link) {
+      navigate(link);
+      checkPageLoading(true);
+    }
   };
   const iconClick = (event) => {
     if (handleIconClick) {

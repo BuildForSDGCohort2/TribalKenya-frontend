@@ -384,6 +384,7 @@ a:hover {
   grid-template-rows: auto;
   position: fixed;
   bottom: 0;
+  z-index: 99;
 }
 
 .trek-nav-icon {
@@ -394,6 +395,10 @@ a:hover {
   font-size: 0.7em;
   text-transform: capitalize;
   font-weight: bold;
+}
+
+.treks {
+  padding-bottom: 5rem;
 }
 
 /* Footer */

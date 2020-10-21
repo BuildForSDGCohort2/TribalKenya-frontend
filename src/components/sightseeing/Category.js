@@ -1,5 +1,5 @@
 import React from 'react';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import { connect } from 'react-redux';
 import LargeBtn from '../LargeBtn';
 import { checkLoading } from '../../state/sightseeing/sightseeing.actions';

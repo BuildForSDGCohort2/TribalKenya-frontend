@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import firebase from 'gatsby-plugin-firebase';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import SignUpForm from './SignUpForm';
 import { addMessage } from '../../state/auth/auth.actions';
 

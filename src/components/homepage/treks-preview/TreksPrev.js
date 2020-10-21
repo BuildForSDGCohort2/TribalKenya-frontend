@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import { fetchTreks } from '../../../state/treks/treks.actions';
 import TextContent from '../../TextContent';
 import { treksData } from '../../../state/treks/treksData';

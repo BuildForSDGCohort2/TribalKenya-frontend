@@ -16,7 +16,7 @@ const SignupPage = ({ pageLoading, checkPageLoading }) => {
         <SEO title="Sign Up" />
         {pageLoading ? <PreLoader /> : (
           <>
-            <NavBar bg="black-bg c-white" barColor="white" />
+            <NavBar bg="black-bg c-white" barColor="white-bg" />
             <SignUp />
           </>
         )}

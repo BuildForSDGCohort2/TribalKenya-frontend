@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import AOS from 'aos';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import TextContent from '../../TextContent';
 import { getCategories } from '../../../state/sightseeing/sightseeing.actions';
 import LargeBtn from '../../LargeBtn';

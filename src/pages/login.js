@@ -16,7 +16,7 @@ const login = ({ pageLoading, checkPageLoading }) => {
             <SEO title="Login" />
             {pageLoading ? <PreLoader /> : (
                 <>
-                    <NavBar bg="black-bg c-white" barColor="white" />
+                    <NavBar bg="black-bg c-white" barColor="white-bg" />
                     <div className="center">
                         <div className="w-100 h-100 center">
                             <Login/>

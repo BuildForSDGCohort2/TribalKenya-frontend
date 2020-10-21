@@ -5,10 +5,12 @@ import { navigate } from 'gatsby';
 import TextContent from '../../TextContent';
 import { getCategories } from '../../../state/sightseeing/sightseeing.actions';
 import LargeBtn from '../../LargeBtn';
+import { checkPageLoading } from '../../../state/auth/auth.actions';
 
-const SightSeeingPrev = ({ siteCategories, getCategories, setloading }) => {
+const SightSeeingPrev = ({ siteCategories, getCategories, setloading, checkPageLoading }) => {
   const goToPage = () => navigate('sightseeing');
   const goToCategoryPage = (category) => {
+    checkPageLoading(true);
     navigate('/category', { state: { category: category } });
   };
   useEffect(() => {
@@ -47,7 +49,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCategories: (siteCategories) => dispatch(getCategories(siteCategories))
+  getCategories: (siteCategories) => dispatch(getCategories(siteCategories)),
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SightSeeingPrev);

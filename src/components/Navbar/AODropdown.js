@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { CgUserList } from 'react-icons/cg';
 import AODropdownOptions from './AODropdownOptions';
 
-const AODropdown = () => {
+const AODropdown = ({ close }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = (event) => {
     event.preventDefault();
@@ -18,7 +18,7 @@ const AODropdown = () => {
       >
         Profile <CgUserList />
       </a>
-      {isOpen ? <AODropdownOptions /> : null}
+      {isOpen ? <AODropdownOptions close={close} /> : null}
     </div>
   );
 };

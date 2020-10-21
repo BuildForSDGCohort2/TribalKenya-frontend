@@ -1,16 +1,18 @@
 import React from 'react';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import { connect } from 'react-redux';
-import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
+import { checkPageLoading } from '../../state/auth/auth.actions';
 
-const Navitem = ({ link, title, icon, classname, handleIconClick, children, checkLoading }) => {
+const Navitem = ({ link, title, icon, classname, handleIconClick, children, close, checkPageLoading }) => {
   const handleClick = (event) => {
     event.preventDefault();
-    checkLoading(true);
+    close();
     navigate(link);
+    checkPageLoading(true);
   };
   const iconClick = (event) => {
     if (handleIconClick) {
+      close();
       handleIconClick(event);
     }
   };
@@ -24,7 +26,7 @@ const Navitem = ({ link, title, icon, classname, handleIconClick, children, chec
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  checkLoading: (loading) => dispatch(checkLoading(loading))
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
 });
 
 export default connect(null, mapDispatchToProps)(Navitem);

@@ -21,7 +21,7 @@ const CustomVideoPlayer = ({ poster, videoSRC, videoToggle }) => {
     const videoPlayer = videojs(videoRef);
     videoToggle(false);
     videoPlayer.ready(() => {
-      videoPlayer.pause();
+      videoPlayer.dispose();
     });
   };
   useEffect(() => {

@@ -1,22 +1,14 @@
 import React from 'react';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import { connect } from 'react-redux';
 import LargeBtn from '../LargeBtn';
 import { checkLoading } from '../../state/sightseeing/sightseeing.actions';
+import { checkPageLoading } from '../../state/auth/auth.actions';
 
-const Category = ({ siteCategory, checkLoading }) => {
-  const goToCategoryPage = async (category) => {
-    try {
-      checkLoading(true);
-      localStorage.setItem('category', JSON.stringify(category));
-      // Fetch all site/places related to selected category
-      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/places/${category.id}`);
-      const results = await response.json();
-      localStorage.setItem('places', JSON.stringify(results));
-      navigate('/category');
-    } catch (error) {
-      console.log(error.message);
-    }
+const Category = ({ siteCategory, checkPageLoading }) => {
+  const goToCategoryPage = (category) => {
+    checkPageLoading(true);
+    navigate('/category', { state: { category: category } });
   };
   return (
         <div className="custom-card m-2 center">
@@ -30,7 +22,8 @@ const Category = ({ siteCategory, checkLoading }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  checkLoading: (loading) => dispatch(checkLoading(loading))
+  checkLoading: (loading) => dispatch(checkLoading(loading)),
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
 });
 
 export default connect(null, mapDispatchToProps)(Category);

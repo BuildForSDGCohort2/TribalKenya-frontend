@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import firebase from 'gatsby-plugin-firebase';
 import { addMessage } from '../../state/auth/auth.actions';
 import LoginForm from './LoginForm';

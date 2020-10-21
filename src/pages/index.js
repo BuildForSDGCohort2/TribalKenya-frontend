@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import SEO from '../components/seo';
 import NavBar from '../components/Navbar/NavBar';
@@ -9,27 +9,32 @@ import SightSeeingPrev from '../components/homepage/sightseeing-preview/SightSee
 import TreksPrev from '../components/homepage/treks-preview/TreksPrev';
 import Footer from '../components/footer/Footer';
 import PreLoader from '../components/pre-loader/PreLoader';
-import { checkLoading } from '../state/sightseeing/sightseeing.actions';
+import { checkPageLoading } from '../state/auth/auth.actions';
 
-const IndexPage = ({ showVideo, introVideo, introPoster, loading, checkLoading }) => {
+const IndexPage = ({ showVideo, introVideo, introPoster, pageLoading, checkPageLoading }) => {
+  const [loading, setloading] = useState(false);
   useEffect(() => {
-    checkLoading(false);
+    checkPageLoading(false);
   }, []);
   return (
     <Layout>
     <SEO title="Home" />
-    {loading ? <PreLoader /> : (
+    {pageLoading ? <PreLoader /> : (
       <>
-      <header className="home-intro">
-        <NavBar extraClasses="transparent" />
-        <Intro />
-      </header>
-      {showVideo ? (
-        <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
-      ) : null}
-      <SightSeeingPrev />
-      <TreksPrev />
-      <Footer />
+        {loading ? <PreLoader /> : (
+        <>
+          <header className="home-intro">
+            <NavBar bg="transparent" barColor="black" />
+            <Intro />
+          </header>
+          {showVideo ? (
+            <CustomVideoPlayer videoSRC={introVideo} poster={introPoster} />
+          ) : null}
+          <SightSeeingPrev setloading={(state) => setloading(state)} />
+          <TreksPrev />
+          <Footer />
+        </>
+        )}
       </>
     )}
   </Layout>
@@ -40,11 +45,11 @@ const mapStateToProps = (state) => ({
   showVideo: state.intro.showVideo,
   introVideo: state.intro.introVideo,
   introPoster: state.intro.introPoster,
-  loading: state.sightSeeing.loading
+  pageLoading: state.auth.pageLoading
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  checkLoading: (loading) => dispatch(checkLoading(loading))
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);

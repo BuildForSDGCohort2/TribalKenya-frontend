@@ -18,13 +18,9 @@ import { addMessage, checkUser, addProfile } from '../state/auth/auth.actions';
 const Layout = ({ children, checkUser, addProfile }) => {
   const getProfile = async (userId) => {
     try {
-      const profiles = await firebase.firestore().collection('profile').get();
-      profiles.forEach((profile) => {
-        if (userId === profile.id) {
-          const data = profile.data();
-          addProfile(data);
-        }
-      });
+      const profile = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/profile/${userId}`);
+      const result = await profile.json();
+      addProfile(result);
     } catch (error) {
       console.log(error.message);
     }

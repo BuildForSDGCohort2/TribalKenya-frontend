@@ -327,6 +327,12 @@ a:hover {
   padding: 0 1rem;
 }
 
+.small-btn {
+  border-radius: 5px;
+  font-family: "Overpass", sans-serif;
+  padding: 0 1rem;
+}
+
 /* Page Intro */
 .page-intro {
   height: auto;
@@ -400,7 +406,7 @@ footer {
   }
 
   .place-image {
-    min-height: 15rem;
-    max-height: 15rem;
+    min-height: 10rem;
+    max-height: 10rem;
   }
 }

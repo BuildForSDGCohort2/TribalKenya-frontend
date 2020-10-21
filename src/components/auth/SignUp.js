@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import firebase from 'gatsby-plugin-firebase';
-import { navigate } from '@reach/router';
+import { navigate } from 'gatsby';
 import SignUpForm from './SignUpForm';
 import { addMessage } from '../../state/auth/auth.actions';
 
@@ -36,17 +36,33 @@ const SignUp = ({ addMessage }) => {
       addMessage(error.message, false);
     }
   };
+  // Confirm if username already exists during sign up
+  const confirmIfUserExists = async (username) => {
+    try {
+      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/confirm-username/${username}`);
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      return error.message;
+    }
+  };
   // register new user
   const signUp = async (data, password) => {
     try {
       setloading(true);
-      const imageUrl = await getProfPic();
-      const userData = { ...data, profile_pic: imageUrl };
-      const newUser = await firebase.auth().createUserWithEmailAndPassword(userData.email, password);
-      await createProfile({ ...userData, id: newUser.user.uid });
-      setloading(false);
-      addMessage(`Welcome ${userData.username}`, true);
-      setTimeout(() => navigate('/'), 2000);
+      const userExists = await confirmIfUserExists(data.username);
+      if (userExists) {
+        addMessage('Username already exists', false);
+        setloading(false);
+      } else {
+        const imageUrl = await getProfPic();
+        const userData = { ...data, profile_pic: imageUrl };
+        const newUser = await firebase.auth().createUserWithEmailAndPassword(userData.email, password);
+        await createProfile({ ...userData, id: newUser.user.uid });
+        setloading(false);
+        addMessage(`Welcome ${userData.username}`, true);
+        setTimeout(() => navigate('/'), 2000);
+      }
     } catch (error) {
       addMessage(error.message, false);
       setloading(false);

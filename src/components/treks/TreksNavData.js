@@ -11,3 +11,18 @@ export const treksNavData = [
   { type: 'category', icon: <MdSort/>, des: 'Treks related to a Category' },
   { type: 'tags', icon: <IoIosPricetags/>, des: 'Treks related to a Tag' }
 ];
+
+export const privacyOptions = [
+  { option: 'public', des: 'Everyone will be able to see my Trek' },
+  { option: 'private', des: 'Only I will be able to see my Trek' },
+  { option: 'peers only', des: 'Only my peers will be able to see my Trek' }
+];
+
+export const categoryOptions = [
+  { option: 'popular sites' },
+  { option: 'Wildlife' },
+  { option: 'Sports' },
+  { option: 'Coast' },
+  { option: 'Lakes' },
+  { option: 'Cities' }
+];

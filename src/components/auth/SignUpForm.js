@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'reactstrap';
 import { Link } from 'gatsby';
+import { FiUser } from 'react-icons/fi';
 import Alert from './Alert';
 import TextInput from './TextInput';
 import EmailInput from './EmailInput';
@@ -29,7 +30,7 @@ const SignUpForm = ({ loading, signUp }) => {
             {loading ? <PreLoader /> : null}
             <Alert />
             <Form onSubmit={handleSubmit} >
-                <TextInput inputId="username" getText={(username) => setusername(username)} ph="Username" />
+                <TextInput inputId="username" getText={(username) => setusername(username)} icon={<FiUser />} ph="Username" />
                 <EmailInput inputId="signup-email" getEmail={(email) => setemail(email)} />
                 <PhoneInput getCC={(phoneNumber) => setphone(phoneNumber)} />
                 <PasswordInput inputId="signup-password" getPassword={(password) => setpassword(password)} />

@@ -27,7 +27,7 @@ const UploadPic = ({ profile, addImageToStorage }) => {
         <>
             <ProfilePic photoURL={photoUrl} />
             <label htmlFor="profile-pic-change" className="small-btn white-bg cursor">Change Profile Pic</label>
-            <input type="file" accept="image/*" name="profile-pic-change" id="profile-pic-change" className="small-btn white-bg mt-3" onChange={handleChange} />
+            <input type="file" accept="image/*" name="profile-pic-change" id="profile-pic-change" className="small-btn white-bg mt-3 hidden" onChange={handleChange} />
         </>
   );
 };

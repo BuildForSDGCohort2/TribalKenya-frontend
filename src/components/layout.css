@@ -317,6 +317,10 @@ a:hover {
   border-radius: 50%;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /* Buttons */
 .large-btn {
   font-size: 2em;
@@ -399,6 +403,24 @@ a:hover {
 
 .treks {
   padding-bottom: 5rem;
+}
+
+.image-upload-icon {
+  font-size: 4em;
+}
+
+.add-trek-form {
+  max-width: 300px;
+}
+
+.select-input,
+.select-input:focus,
+.select-input:hover,
+.select-input:active {
+  width: 150px;
+  height: 30px;
+  text-transform: capitalize;
+  outline: none;
 }
 
 /* Footer */

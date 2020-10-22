@@ -13,7 +13,7 @@ const TreksPage = ({ pageLoading, checkPageLoading }) => {
   }, []);
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO title="Treks" />
       {pageLoading ? <PreLoader /> : (
         <div className="black-bg h-100vh">
           <NavBar bg="c-white" barColor="white-bg" />

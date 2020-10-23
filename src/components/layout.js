@@ -11,6 +11,8 @@ import 'video.js/dist/video';
 import 'video.js/dist/video-js.min.css';
 import 'aos/dist/aos.css';
 import 'intl-tel-input/build/css/intlTelInput.css';
+import 'uikit/dist/css/uikit.css';
+import 'uikit/dist/js/uikit';
 import { connect } from 'react-redux';
 import firebase from 'gatsby-plugin-firebase';
 import { addMessage, checkUser, addProfile } from '../state/auth/auth.actions';

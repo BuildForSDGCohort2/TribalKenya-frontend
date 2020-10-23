@@ -14,11 +14,11 @@ body {
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
-  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-  font-feature-settings: "kern", "liga", "clig", "calt";
-  font-family: "Overpass", sans-serif;
+  -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  font-family: 'Overpass', sans-serif;
 }
 
 :root {
@@ -111,7 +111,7 @@ a:hover {
 
 /* Font families and sizes */
 .overpass {
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 .small-caps {
   font-variant: small-caps;
@@ -150,7 +150,7 @@ a:hover {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "leftCol rightCol";
+  grid-template-areas: 'leftCol rightCol';
 }
 
 .left-col,
@@ -176,7 +176,7 @@ a:hover {
 }
 
 .slide h3 {
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   font-variant: small-caps;
   font-weight: bold;
 }
@@ -194,7 +194,7 @@ a:hover {
   position: relative;
   width: 100%;
   align-items: center;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 .prev,
@@ -268,7 +268,7 @@ a:hover {
   width: 100%;
   top: 25vh;
   text-align: left;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   font-variant: small-caps;
 }
 .text-content p {
@@ -327,13 +327,13 @@ a:hover {
   color: var(--green);
   border: 1px solid var(--green);
   border-radius: 5px;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
 }
 
 .small-btn {
   border-radius: 5px;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
 }
 
@@ -341,7 +341,7 @@ a:hover {
 .page-intro {
   height: auto;
   background: transparent;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 .page-intro h2 {
@@ -410,7 +410,13 @@ a:hover {
 }
 
 .add-trek-form {
+  padding-bottom: 5rem;
   max-width: 300px;
+}
+
+.form-preview-media {
+  width: 300px;
+  height: auto;
 }
 
 .select-input,
@@ -425,14 +431,14 @@ a:hover {
 
 /* Footer */
 footer {
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 @media (min-width: 481px) and (max-width: 860px) {
   .two-sec-grid-cols {
     grid-template-rows: auto auto;
     grid-template-columns: auto;
-    grid-template-areas: "rightCol" "leftCol";
+    grid-template-areas: 'rightCol' 'leftCol';
   }
 
   .place-image {
@@ -445,7 +451,7 @@ footer {
   .two-sec-grid-cols {
     grid-template-rows: auto auto;
     grid-template-columns: auto;
-    grid-template-areas: "rightCol" "leftCol";
+    grid-template-areas: 'rightCol' 'leftCol';
   }
 
   .heading {

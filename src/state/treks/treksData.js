@@ -12,6 +12,7 @@ export const treksData = [
         videos: []
       }
     ],
+    caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: ['Wildlife'],
     location: 'Nairobi National Park',
@@ -28,7 +29,7 @@ export const treksData = [
     ],
     reports: [],
     reposts: [],
-    date_posted: Date.now()
+    date_posted: new Date(2018, 11, 24, 10, 33, 30, 0)
   },
   {
     id: 2,
@@ -40,6 +41,7 @@ export const treksData = [
         videos: []
       }
     ],
+    caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
@@ -56,7 +58,7 @@ export const treksData = [
     ],
     reports: [],
     reposts: [],
-    date_posted: Date.now()
+    date_posted: new Date(2018, 7, 24, 10, 33, 30, 0)
   },
   {
     id: 3,
@@ -68,6 +70,7 @@ export const treksData = [
         videos: []
       }
     ],
+    caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
@@ -84,7 +87,7 @@ export const treksData = [
     ],
     reports: [],
     reposts: [],
-    date_posted: Date.now()
+    date_posted: new Date(2019, 11, 24, 10, 33, 30, 0)
   },
   {
     id: 4,
@@ -96,6 +99,7 @@ export const treksData = [
         videos: []
       }
     ],
+    caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
@@ -112,7 +116,7 @@ export const treksData = [
     ],
     reports: [],
     reposts: [],
-    date_posted: Date.now()
+    date_posted: new Date(2019, 11, 21, 10, 33, 30, 0)
   },
   {
     id: 5,
@@ -124,6 +128,7 @@ export const treksData = [
         videos: []
       }
     ],
+    caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
@@ -140,7 +145,7 @@ export const treksData = [
     ],
     reports: [],
     reposts: [],
-    date_posted: Date.now()
+    date_posted: new Date(2020, 11, 24, 10, 33, 30, 0)
   },
   {
     id: 6,
@@ -152,6 +157,7 @@ export const treksData = [
         videos: []
       }
     ],
+    caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
@@ -168,7 +174,7 @@ export const treksData = [
     ],
     reports: [],
     reposts: [],
-    date_posted: Date.now()
+    date_posted: new Date(2019, 12, 24, 10, 33, 30, 0)
   },
   {
     id: 7,
@@ -180,6 +186,7 @@ export const treksData = [
         videos: []
       }
     ],
+    caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
@@ -196,7 +203,7 @@ export const treksData = [
     ],
     reports: [],
     reposts: [],
-    date_posted: Date.now()
+    date_posted: new Date(2020, 7, 10, 10, 33, 30, 0)
   },
   {
     id: 8,
@@ -208,6 +215,7 @@ export const treksData = [
         videos: []
       }
     ],
+    caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
     location: 'Nairobi National Park',
@@ -224,6 +232,6 @@ export const treksData = [
     ],
     reports: [],
     reposts: [],
-    date_posted: Date.now()
+    date_posted: new Date(2019, 2, 2, 10, 33, 30, 0)
   }
 ];

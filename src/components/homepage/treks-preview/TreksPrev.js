@@ -1,21 +1,20 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { navigate } from 'gatsby';
-import { fetchTreks } from '../../../state/treks/treks.actions';
+import { addTreks, fetchRecentTreks } from '../../../state/treks/treks.actions';
 import TextContent from '../../TextContent';
-import { treksData } from '../../../state/treks/treksData';
 import Trek from '../../trek/Trek';
 import LargeBtn from '../../LargeBtn';
 import { checkPageLoading } from '../../../state/auth/auth.actions';
 
-const TreksPrev = ({ treks, fetchTreks, checkPageLoading }) => {
+const TreksPrev = ({ treks, checkPageLoading, fetchRecentTreks }) => {
   const goToTreks = () => {
     checkPageLoading(true);
     navigate('treks');
   };
   useEffect(() => {
-    fetchTreks(treksData);
-  }, [treks, fetchTreks]);
+    fetchRecentTreks();
+  }, [treks]);
   return (
     <section className="treks-prev-sec">
       <TextContent heading="Recent Treks" textColor="c-cream text-center" />
@@ -34,8 +33,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchTreks: (treks) => dispatch(fetchTreks(treks)),
-  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
+  fetchRecentTreks: () => dispatch(fetchRecentTreks()),
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading)),
+  addTreks: (treks) => dispatch(addTreks(treks))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TreksPrev);

@@ -5,7 +5,7 @@ import TimeTrekPosted from './TimeTrekPosted';
 import Treker from './Treker';
 import TrekModal from './TrekModal';
 
-const Trek = ({ trek, treks }) => {
+const Trek = ({ trek }) => {
   const [trekLikes, showTrekLikes] = useState(false);
   const [trekComments, showTrekComments] = useState(false);
   const [trekReposts, showTrekReposts] = useState(false);
@@ -27,7 +27,6 @@ const Trek = ({ trek, treks }) => {
 
   return (
     <>
-      {treks.indexOf(trek) < 4 ? (
           <article className="p-2">
             <div className="trek">
               <div
@@ -41,7 +40,7 @@ const Trek = ({ trek, treks }) => {
               <div className="trek-right">
                 <Treker trek={trek} />
                 <div className="trek-text-content pt-2 small-text">
-                  <span className="trek-text">{trek.trek[0].text}</span>
+                  <span className="trek-text">{trek.caption}</span>
                 </div>
                 <TrekInteractions trek={trek} showLikes={() => toggleLikes(trek.id)} showComments={() => toggleComments(trek.id)} showReposts={() => toggleReposts(trek.id)} />
                 <TimeTrekPosted timePosted={trek.date_posted} />
@@ -57,8 +56,6 @@ const Trek = ({ trek, treks }) => {
               </div>
             </div>
           </article>
-
-      ) : null}
     </>
   );
 };

@@ -15,6 +15,7 @@ const TextInput = ({ inputId, ph, getText, dV, extraClass, icon, iconColor }) =>
         id={inputId}
         className={`auth-input ml-2 ${extraClass}`}
         onChange={(ev) => getText(ev.target.value)}
+        autoComplete="off"
       />
     </InputGroup>
   );

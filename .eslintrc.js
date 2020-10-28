@@ -42,6 +42,8 @@ module.exports = {
     'max-lines': 0,
     'import/no-named-as-default': 0,
     'import/no-extraneous-dependencies': 0,
+    'no-unused-expressions': 0,
+    'init-declarations': 0,
     'no-shadow': 0,
     'default-param-last': 0,
     'import/prefer-default-export': 0,

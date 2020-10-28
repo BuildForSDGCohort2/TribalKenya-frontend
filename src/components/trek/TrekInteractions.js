@@ -7,10 +7,9 @@ import { FaRegComments } from 'react-icons/fa';
 const TrekInteractions = ({ trek, showLikes, showComments, showReposts }) => {
   return (
         <div className="trek-interactions w-100 mt-3">
-            <div className="tags left">
-                {trek.tags.map((tag) => (
-                    <span className="tag" key={tag}>{tag}</span>
-                ))}
+            <div className="tags left column">
+                    <span className="tag">{trek.tags.toString()}</span>
+                    <span className="small-text">{trek.category}</span>
             </div>
             <div className="interactions left mt-2">
                 <div className="center interaction">

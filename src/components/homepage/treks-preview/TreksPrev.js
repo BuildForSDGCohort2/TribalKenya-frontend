@@ -7,20 +7,20 @@ import Trek from '../../trek/Trek';
 import LargeBtn from '../../LargeBtn';
 import { checkPageLoading } from '../../../state/auth/auth.actions';
 
-const TreksPrev = ({ treks, checkPageLoading, fetchRecentTreks }) => {
+const TreksPrev = ({ recentTreks, checkPageLoading, fetchRecentTreks }) => {
   const goToTreks = () => {
     checkPageLoading(true);
     navigate('treks');
   };
   useEffect(() => {
     fetchRecentTreks();
-  }, [treks]);
+  }, [recentTreks]);
   return (
     <section className="treks-prev-sec">
       <TextContent heading="Recent Treks" textColor="c-cream text-center" />
       <div className="two-sec-grid-cols">
-        {treks.map((key) => (
-          <Trek key={key.id} trek={key} treks={treks} />
+        {recentTreks.map((key) => (
+          <Trek key={key.id} trek={key} />
         ))}
       </div>
       <LargeBtn activate={goToTreks} textContent="Treks" extraClass="white-bg mb-2"/>
@@ -29,7 +29,7 @@ const TreksPrev = ({ treks, checkPageLoading, fetchRecentTreks }) => {
 };
 
 const mapStateToProps = (state) => ({
-  treks: state.treksStore.treks
+  recentTreks: state.treksStore.recentTreks
 });
 
 const mapDispatchToProps = (dispatch) => ({

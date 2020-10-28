@@ -1,13 +1,13 @@
 const initialState = {
-  treks: []
+  recentTreks: []
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'fetch_treks':
+    case 'fetch_recent_treks':
       return {
         ...state,
-        treks: action.treks
+        recentTreks: action.recentTreks
       };
     default:
       return state;

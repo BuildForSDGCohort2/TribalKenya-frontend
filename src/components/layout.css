@@ -321,6 +321,14 @@ a:hover {
   visibility: hidden;
 }
 
+.z-index-99 {
+  z-index: 99;
+}
+
+.br-1 {
+  border-radius: 50%;
+}
+
 /* Buttons */
 .large-btn {
   font-size: 2em;
@@ -417,6 +425,7 @@ a:hover {
 .form-preview-media {
   width: 300px;
   height: auto;
+  min-height: 118px;
 }
 
 .select-input,

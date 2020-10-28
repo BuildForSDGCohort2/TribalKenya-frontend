@@ -1,7 +1,7 @@
 import { treksData } from './treksData';
 
-export const addTreks = (treks) => ({
-  type: 'fetch_treks', treks
+export const addTreks = (recentTreks) => ({
+  type: 'fetch_recent_treks', recentTreks
 });
 
 export const sortByDate = (data) => {
@@ -14,3 +14,32 @@ export const fetchRecentTreks = () => {
     dispatch(addTreks(sortedTreks));
   };
 };
+
+const createUrlForObject = (obj) => URL.createObjectURL(obj);
+
+export const addTrekToState = (data) => {
+  return () => {
+    let newData = { ...data };
+    const images = [];
+    const videos = [];
+    newData.images.forEach((image) => images.push(createUrlForObject(image)));
+    newData.videos.forEach((video) => videos.push(createUrlForObject(video)));
+    newData = { ...data, images: images, videos: videos };
+    return newData;
+  };
+};
+
+/*
+ * export const addNewTrek = (trek) => {
+ *   return (dispatch) => {
+ *     const newTrek = {
+ *       ...trek,
+ *       date_posted: new Date(Date.now()),
+ *       comments: [],
+ *       reports: [],
+ *       reposts: []
+ *     };
+ *     dispatch(addTreks())
+ *   };
+ * };
+ */

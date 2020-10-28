@@ -5,16 +5,11 @@ export const treksData = [
   {
     id: 1,
     user: { username: 'Trigga Maserati', profile_pic: userImg },
-    trek: [
-      {
-        images: [trek1, userImg, trek1],
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
-        videos: []
-      }
-    ],
+    images: [trek1, userImg, trek1],
+    videos: [],
     caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
-    category: ['Wildlife'],
+    category: 'Wildlife',
     location: 'Nairobi National Park',
     privacy: 'Public',
     comments: [
@@ -34,13 +29,8 @@ export const treksData = [
   {
     id: 2,
     user: { username: 'Trigga Maserati', profile_pic: userImg },
-    trek: [
-      {
-        images: [trek1],
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
-        videos: []
-      }
-    ],
+    images: [trek1],
+    videos: [],
     caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
@@ -66,10 +56,11 @@ export const treksData = [
     trek: [
       {
         images: [trek1],
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
         videos: []
       }
     ],
+    images: [trek1],
+    videos: [],
     caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
@@ -92,13 +83,8 @@ export const treksData = [
   {
     id: 4,
     user: { username: 'Trigga Maserati', profile_pic: userImg },
-    trek: [
-      {
-        images: [trek1],
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
-        videos: []
-      }
-    ],
+    images: [trek1],
+    videos: [],
     caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
@@ -121,13 +107,8 @@ export const treksData = [
   {
     id: 5,
     user: { username: 'Trigga Maserati', profile_pic: userImg },
-    trek: [
-      {
-        images: [trek1],
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
-        videos: []
-      }
-    ],
+    images: [trek1],
+    videos: [],
     caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
@@ -150,13 +131,8 @@ export const treksData = [
   {
     id: 6,
     user: { username: 'Trigga Maserati', profile_pic: userImg },
-    trek: [
-      {
-        images: [trek1],
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
-        videos: []
-      }
-    ],
+    images: [trek1],
+    videos: [],
     caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
@@ -179,13 +155,8 @@ export const treksData = [
   {
     id: 7,
     user: { username: 'Trigga Maserati', profile_pic: userImg },
-    trek: [
-      {
-        images: [trek1],
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
-        videos: []
-      }
-    ],
+    images: [trek1],
+    videos: [],
     caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',
@@ -208,13 +179,8 @@ export const treksData = [
   {
     id: 8,
     user: { username: 'Trigga Maserati', profile_pic: userImg },
-    trek: [
-      {
-        images: [trek1],
-        text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
-        videos: []
-      }
-    ],
+    images: [trek1],
+    videos: [],
     caption: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi possimus corporis consectetur rerum incidunt dolore id dolorum quo ab qui!',
     tags: ['#wildlife'],
     category: 'Wildlife',

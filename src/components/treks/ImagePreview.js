@@ -10,7 +10,9 @@ const ImagePreview = ({ image, images }) => {
     <li className="uk-width-3-4">
         <div className="uk-panel">
             <img src={imgSRC} alt="preview" className="form-preview-media" />
-            <div className="uk-position-center uk-panel"><h1>{images.indexOf(image) + 1}</h1></div>
+            <div className="uk-position-center uk-panel fade-black br-1 p-2">
+              <span className="heading">{images.indexOf(image) + 1}</span>
+            </div>
         </div>
     </li>
   );

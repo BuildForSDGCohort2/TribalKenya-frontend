@@ -10,13 +10,17 @@ import { privacyOptions, categoryOptions } from './TreksNavData';
 import LargeBtn from '../LargeBtn';
 import TrekMediaPreview from './TrekMediaPreview';
 
-const AddTrekForm = () => {
+const AddTrekForm = ({ getInputs }) => {
   const [privacy, setprivacyOptions] = useState([]);
   const [category, setcategoryOptions] = useState([]);
   const [inputs, setinputs] = useState({ category: 'popular sites', privacy: 'public' });
   const [mediaPreview, setMediaPreview] = useState(false);
   const handleClick = () => {
-    console.log(inputs);
+    if (!inputs.images && !inputs.videos) {
+      console.log('Add image or video');
+    } else {
+      getInputs(inputs);
+    }
   };
   const filterFiles = (files) => {
     setMediaPreview(false);

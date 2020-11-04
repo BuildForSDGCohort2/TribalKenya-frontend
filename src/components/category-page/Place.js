@@ -14,7 +14,7 @@ const Place = ({ place, checkLoading, checkPageLoading }) => {
     navigate('/place');
   };
   return (
-        <div className="custom-card m-2 center">
+        <div className="custom-card m-2 center" onClick={() => goToPlace(place)}>
             <div className="custom-card-body text-center p-2 c-cream">
                 <img src={place.poster} alt="" className="category-poster mt-2" />
                 <h1 className="overpass c-cream">{place.name}</h1>

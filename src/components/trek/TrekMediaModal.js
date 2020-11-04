@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import TrekImages from './TrekImages';
 import TrekVidoes from './TrekVidoes';
 
@@ -32,14 +32,6 @@ const TrekMediaModal = ({ modal, toggle, trek }) => {
           ></a>
         </div>
       </ModalBody>
-      <ModalFooter>
-        <Button color="primary" onClick={toggle}>
-          Do Something
-        </Button>{' '}
-        <Button color="secondary" onClick={toggle}>
-          Cancel
-        </Button>
-      </ModalFooter>
     </Modal>
   );
 };

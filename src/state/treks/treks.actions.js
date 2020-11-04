@@ -8,12 +8,14 @@ export const sortByDate = (data) => {
   return () => data.sort((first, second) => new Date(second.date_posted) - new Date(first.date_posted));
 };
 
-export const fetchRecentTreks = () => {
+export const fetchRecentTreks = (startLoading = () => null, stopLoading = () => null) => {
   return async (dispatch) => {
     try {
+      startLoading();
       const response = await fetch('https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks');
       const results = await response.json();
       dispatch(addTreks(results));
+      stopLoading();
     } catch (error) {
       console.log(error.message);
     }

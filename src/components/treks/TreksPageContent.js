@@ -4,14 +4,17 @@ import SortDescription from './SortDescription';
 import Trek from '../trek/Trek';
 import AddTrekForm from './AddTrekForm';
 import { addTreks, addTrekToState, addTrekToDb, addFilesToStorage, updateTrekState } from '../../state/treks/treks.actions';
+import PreLoader from '../pre-loader/PreLoader';
 
-const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, changeNav, addTrekToState, addTrekToDb, addFilesToStorage, updateTrekState }) => {
+const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, changeNav, addTrekToState, addTrekToDb, addFilesToStorage, loading }) => {
   const getInputs = async (profile, trek) => {
     try {
       const newTrek = {
         ...trek,
         id: '',
-        user: { username: profile.username, profile_pic: profile.photoURL },
+        profileId: profile.id,
+        username: profile.username,
+        profile_pic: profile.photoURL,
         date_posted: new Date(Date.now()),
         comments: [],
         reports: [],
@@ -30,9 +33,10 @@ const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, chang
   };
   return (
         <div className="trek-page-content center column">
-          {console.log(profile)}
             <SortDescription sortDes={sortDes} />
-            {currentNav === 'post' ? <AddTrekForm getInputs={(trek) => getInputs(profile, trek)} /> : (
+            {loading ? <PreLoader /> : (
+              <>
+              {currentNav === 'post' ? <AddTrekForm getInputs={(trek) => getInputs(profile, trek)} /> : (
                 <div className="treks">
                     {treks.map((key) => (
                       <div key={key.id} data-aos="fade-up">
@@ -40,6 +44,8 @@ const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, chang
                       </div>
                     ))}
                 </div>
+              )}
+              </>
             )}
         </div>
   );

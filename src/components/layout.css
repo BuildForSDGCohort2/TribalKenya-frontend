@@ -329,6 +329,14 @@ a:hover {
   border-radius: 50%;
 }
 
+.hover-show {
+  display: none;
+}
+
+.hover-show:hover {
+  display: block;
+}
+
 /* Buttons */
 .large-btn {
   font-size: 2em;

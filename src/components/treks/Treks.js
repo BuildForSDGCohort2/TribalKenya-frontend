@@ -9,19 +9,20 @@ import { fetchRecentTreks } from '../../state/treks/treks.actions';
 const Treks = ({ fetchRecentTreks, recentTreks }) => {
   const [sortDes, setsortDes] = useState('Most recent Treks');
   const [currentNav, setcurrentNav] = useState('recent');
+  const [loading, setLoading] = useState(false);
   const changeDes = (newValue) => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     animateCSS('.trek-page-content', 'slideInUp');
     setsortDes(newValue);
   };
   useEffect(() => {
-    fetchRecentTreks();
+    fetchRecentTreks(() => setLoading(true), () => setLoading(false));
     AOS.init();
   }, []);
   return (
         <div className="center column mt-2">
             <TreksNavbar changeDes={changeDes} sortDes={sortDes} changeNav={(nav) => setcurrentNav(nav)} />
-            <TreksPageContent sortDes={sortDes} treks={recentTreks} currentNav={currentNav} changeNav={(nav) => setcurrentNav(nav)} />
+            <TreksPageContent sortDes={sortDes} loading={loading} treks={recentTreks} currentNav={currentNav} changeNav={(nav) => setcurrentNav(nav)} />
         </div>
   );
 };
@@ -31,7 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRecentTreks: () => dispatch(fetchRecentTreks())
+  fetchRecentTreks: (startLoading, stopLoading) => dispatch(fetchRecentTreks(startLoading, stopLoading))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Treks);

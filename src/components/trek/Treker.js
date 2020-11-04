@@ -5,8 +5,8 @@ const Treker = ({ trek, commented, trekOwner, commentOwner }) => {
     <>
       {trek ? (
         <div className={`trek-owner mb-2 ${trekOwner}`}>
-          <img src={trek.user.profile_pic} alt="trek owner" />
-          <span className="trek-username">{trek.user.username}</span>
+          <img src={trek.profile_pic} alt="trek owner" />
+          <span className="trek-username">{trek.username}</span>
         </div>
       ) : null}
       {commented ? (

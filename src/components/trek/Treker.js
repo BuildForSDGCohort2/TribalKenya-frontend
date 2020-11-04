@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import PopOver from './PopOver';
 
-const Treker = ({ trek, deleteTrek }) => {
+const Treker = ({ trek, deleteTrek, updateModal }) => {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const deleteT = (ev, trekId) => {
     ev.preventDefault();
@@ -18,7 +18,7 @@ const Treker = ({ trek, deleteTrek }) => {
           <span className="trek-username">{trek.username}</span>
           <div className="float-right">
             <span className="m-auto" id="popover1" onClick={() => setPopoverOpen(!popoverOpen)}><BsThreeDotsVertical /></span>
-            <PopOver trekId={trek.id} deleteT={deleteT} popoverOpen={popoverOpen} toggle={() => setPopoverOpen(false)} />
+            <PopOver trekId={trek.id} deleteT={deleteT} popoverOpen={popoverOpen} toggle={() => setPopoverOpen(false)} updateModal={updateModal} />
           </div>
         </div>
         </>

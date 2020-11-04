@@ -7,12 +7,14 @@ import Treker from './Treker';
 import TrekModal from './TrekModal';
 import TrekMediaModal from './TrekMediaModal';
 import { deleteTrek } from '../../state/treks/treks.actions';
+import TrekUpdateModal from './TrekUpdateModal';
 
 const Trek = ({ trek, treks, deleteTrek }) => {
   const [trekLikes, showTrekLikes] = useState(false);
   const [trekComments, showTrekComments] = useState(false);
   const [trekReposts, showTrekReposts] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   const toggleLikes = (trekId) => {
     if (trek.id === trekId) {
       showTrekLikes(!trekLikes);
@@ -33,6 +35,7 @@ const Trek = ({ trek, treks, deleteTrek }) => {
           {trek.images ? (
             <article className="p-2">
               <TrekMediaModal modal={showModal} toggle={() => setShowModal(!showModal)} trek={trek} />
+              <TrekUpdateModal modal={showUpdateModal} toggle={() => setShowUpdateModal(!showUpdateModal)} trek={trek} treks={treks} />
             <div className="trek">
               <div
                 className="trek-left m-1 p-1 c-white"
@@ -44,7 +47,7 @@ const Trek = ({ trek, treks, deleteTrek }) => {
                 ) : null}
               </div>
               <div className="trek-right">
-              <Treker trek={trek} treks={treks} deleteTrek={(docId) => deleteTrek(docId, trek, treks)} />
+              <Treker trek={trek} treks={treks} deleteTrek={(docId) => deleteTrek(docId, trek, treks)} updateModal={() => setShowUpdateModal(true)} />
                 <div className="trek-text-content pt-2 small-text">
                   <span className="trek-text">{trek.caption}</span>
                 </div>

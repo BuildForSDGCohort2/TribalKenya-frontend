@@ -117,10 +117,23 @@ export const deleteTrek = (docId, trek, treks) => {
   };
 };
 
-export const updateTrek = (docId, currentTrek, newTrek) => {
-  try {
-    console.log(docId, currentTrek, newTrek);
-  } catch (error) {
-    console.log(error.message);
-  }
+export const updateTrek = (docId, trekUpdate, treks) => {
+  return async (dispatch) => {
+    try {
+      const currentTreks = [...treks];
+      currentTreks.splice(currentTreks.indexOf(trekUpdate.current), 1, { ...trekUpdate.current, ...trekUpdate.newTrek });
+      dispatch(addTreks(currentTreks));
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      const options = {
+        method: 'PUT',
+        headers,
+        body: JSON.stringify(trekUpdate.newTrek)
+      };
+      const request = new Request(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/update/${docId}`, options);
+      await fetch(request);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 };

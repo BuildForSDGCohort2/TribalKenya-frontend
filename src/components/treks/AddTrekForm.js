@@ -5,7 +5,6 @@ import { MdLocationOn } from 'react-icons/md';
 import FileInput from './FileInput';
 import TextInput from '../auth/TextInput';
 import SelecterInput from './SelecterInput';
-
 import { privacyOptions, categoryOptions } from './TreksNavData';
 import LargeBtn from '../LargeBtn';
 import TrekMediaPreview from './TrekMediaPreview';

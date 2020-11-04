@@ -15,13 +15,13 @@ const VideoPreview = ({ video }) => {
   }, []);
   return (
         <li className="uk-width-3-4">
-            <div className="uk-panel">
-            <video onClick={(ev) => playPause(ev)} ref={(node) => (videoRef = node)} className="form-preview-media" >
-                <source src={videoURL} />
-            </video>
-            <div className="uk-position-center uk-panel c-white" onClick={(ev) => playPause(ev)}>
-                <span className="heading">{videoPaused ? <BiPauseCircle className="fade-black br-1"/> : <BiPlayCircle className="fade-black br-1"/> }</span>
-            </div>
+            <div className="uk-panel show-on-hover-wrapper">
+              <video onClick={(ev) => playPause(ev)} ref={(node) => (videoRef = node)} className="form-preview-media" onEnded={() => setVideoPaused(false)} >
+                  <source src={videoURL} />
+              </video>
+              <div className="uk-position-center uk-panel c-white" onClick={(ev) => playPause(ev)}>
+                  <span className={`heading ${videoPaused ? 'show-on-hover' : ''}`}>{videoPaused ? <BiPauseCircle className="fade-black br-1"/> : <BiPlayCircle className="fade-black br-1"/> }</span>
+              </div>
             </div>
         </li>
   );

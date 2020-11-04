@@ -454,6 +454,7 @@ a:hover {
   width: 300px;
   height: auto;
   min-height: 118px;
+  max-height: 300px;
 }
 
 .select-input,

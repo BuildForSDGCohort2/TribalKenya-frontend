@@ -97,12 +97,30 @@ export const addFilesToStorage = (trek, profile) => {
 };
 
 export const deleteTrek = (docId, trek, treks) => {
-  return (dispatch) => {
-    const currentTreks = [...treks];
-    console.log(docId);
-    currentTreks.forEach((item) => {
-      if (item.id === docId) currentTreks.splice(currentTreks.indexOf(item), 1);
-    });
-    dispatch(addTreks(currentTreks));
+  return async (dispatch) => {
+    try {
+      const currentTreks = [...treks];
+      currentTreks.splice(currentTreks.indexOf(trek), 1);
+      dispatch(addTreks(currentTreks));
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      const options = {
+        method: 'DELETE',
+        headers,
+        body: JSON.stringify(trek)
+      };
+      const request = new Request(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/delete/${docId}`, options);
+      await fetch(request);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+};
+
+export const updateTrek = (docId, currentTrek, newTrek) => {
+  try {
+    console.log(docId, currentTrek, newTrek);
+  } catch (error) {
+    console.log(error.message);
+  }
 };

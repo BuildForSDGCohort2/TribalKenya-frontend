@@ -7,7 +7,6 @@ const Treker = ({ trek, deleteTrek }) => {
   const deleteT = (ev, trekId) => {
     ev.preventDefault();
     setPopoverOpen(false);
-    console.log(popoverOpen);
     deleteTrek(trekId);
   };
   return (

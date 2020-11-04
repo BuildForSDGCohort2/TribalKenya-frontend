@@ -210,7 +210,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   grid-area: trekright;
   padding: 0 0.7rem;
@@ -230,7 +230,6 @@
   font-family: 'Overpass', sans-serif;
   width: 100%;
   cursor: pointer;
-  flex: 1 10%;
 }
 
 .trek-owner img {

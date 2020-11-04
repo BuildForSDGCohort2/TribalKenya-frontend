@@ -9,7 +9,7 @@ const TrekMediaPreview = ({ images, videos }) => {
                 <div className="uk-position-relative uk-visible-toggle uk-light" tabIndex="-1" uk-slider="center: true">
                     <ul className="uk-slider-items uk-grid">
                         {images.map((key) => (
-                            <ImagePreview image={key} key={key.name} images={images} />
+                            <ImagePreview image={key} key={key.name} />
                         ))}
                         {videos.map((key) => (
                             <VideoPreview key={key.name} video={key} />

@@ -44,7 +44,6 @@ const AddTrekForm = ({ getInputs, profile }) => {
   }, []);
   return (
     <>
-    {console.log(profile)}
         {profile.username ? (
           <Form className="text-center center column overpass add-trek-form">
           <FileInput fileId="post-file"

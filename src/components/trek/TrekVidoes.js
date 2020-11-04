@@ -13,12 +13,12 @@ const TrekVidoes = ({ slides }) => {
         <>
         {slides.map((slide) => (
             <li className="uk-width-3-4" key={slide}>
-              <div className="uk-cover-container">
-                <video onClick={(ev) => playPause(ev)} ref={(node) => (videoRef = node)} className="w-100 trek-video" controls>
+              <div className="uk-cover-container show-on-hover-wrapper">
+                <video onClick={(ev) => playPause(ev)} ref={(node) => (videoRef = node)} className="w-100 trek-video" controls onEnded={() => setVideoPaused(false)}>
                     <source src={slide} />
                 </video>
                 <div className="uk-position-center uk-panel" onClick={(ev) => playPause(ev)}>
-                    <span className={`heading ${videoPaused ? 'hover-show' : ''}`}>{videoPaused ? <BiPauseCircle className="fade-black br-1"/> : <BiPlayCircle className="fade-black br-1"/> }</span>
+                    <span className={`heading ${videoPaused ? 'show-on-hover' : ''}`}>{videoPaused ? <BiPauseCircle className="fade-black br-1"/> : <BiPlayCircle className="fade-black br-1"/> }</span>
                 </div>
               </div>
             </li>

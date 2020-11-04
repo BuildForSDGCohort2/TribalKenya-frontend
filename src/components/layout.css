@@ -41,7 +41,8 @@ body {
 }
 
 button,
-article {
+article,
+video {
   outline: none !important;
 }
 
@@ -329,12 +330,16 @@ a:hover {
   border-radius: 50%;
 }
 
-.hover-show {
+.show-on-hover {
   display: none;
 }
 
-.hover-show:hover {
+.show-on-hover-wrapper:hover .show-on-hover {
   display: block;
+}
+
+.caps {
+  text-transform: capitalize;
 }
 
 /* Buttons */

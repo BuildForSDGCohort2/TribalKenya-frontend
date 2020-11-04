@@ -9,7 +9,7 @@ const TrekInteractions = ({ trek, showLikes, showComments, showReposts }) => {
         <div className="trek-interactions w-100 mt-3">
             <div className="tags left column">
                     <span className="tag">{trek.tags.toString()}</span>
-                    <span className="small-text">{trek.category}</span>
+                    <span className="small-text overpass small-caps caps">{trek.category}</span>
             </div>
             <div className="interactions left mt-2">
                 <div className="center interaction">

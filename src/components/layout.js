@@ -34,6 +34,7 @@ const Layout = ({ children, checkUser, addProfile }) => {
         getProfile(user.uid);
       } else {
         checkUser({});
+        addProfile({});
       }
     });
   }, []);

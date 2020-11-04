@@ -3,15 +3,16 @@ import { useLocation } from '@reach/router';
 import firebase from 'gatsby-plugin-firebase';
 import { connect } from 'react-redux';
 import { navigate } from 'gatsby';
-import { checkUser, checkPageLoading } from '../../state/auth/auth.actions';
+import { checkUser, checkPageLoading, addProfile } from '../../state/auth/auth.actions';
 
-const AODropdownOptions = ({ checkUser, close, checkPageLoading }) => {
+const AODropdownOptions = ({ checkUser, close, checkPageLoading, addProfile }) => {
   const location = useLocation();
   const logOut = async () => {
     try {
       checkPageLoading(true);
       await firebase.auth().signOut();
       checkUser({});
+      addProfile({});
       close();
       navigate('/login');
     } catch (error) {
@@ -46,7 +47,8 @@ const AODropdownOptions = ({ checkUser, close, checkPageLoading }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   checkUser: (user) => dispatch(checkUser(user)),
-  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading)),
+  addProfile: (profile) => dispatch(addProfile(profile))
 });
 
 export default connect(null, mapDispatchToProps)(AODropdownOptions);

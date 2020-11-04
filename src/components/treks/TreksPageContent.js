@@ -36,7 +36,7 @@ const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, chang
             <SortDescription sortDes={sortDes} />
             {loading ? <PreLoader /> : (
               <>
-              {currentNav === 'post' ? <AddTrekForm getInputs={(trek) => getInputs(profile, trek)} /> : (
+              {currentNav === 'post' ? <AddTrekForm getInputs={(trek) => getInputs(profile, trek)} profile={profile} /> : (
                 <div className="treks">
                     {treks.map((key) => (
                       <div key={key.id} data-aos="fade-up">

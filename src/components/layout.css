@@ -342,6 +342,10 @@ a:hover {
   text-transform: capitalize;
 }
 
+.popover-body {
+  color: var(--cream);
+}
+
 /* Buttons */
 .large-btn {
   font-size: 2em;
@@ -424,6 +428,12 @@ a:hover {
 
 .treks {
   padding-bottom: 5rem;
+}
+
+.d-u-trek span {
+  width: 75px;
+  padding: 3px;
+  cursor: pointer;
 }
 
 .image-upload-icon {

@@ -21,13 +21,13 @@ const TrekMediaModal = ({ modal, toggle, trek }) => {
           <a
             className="uk-position-center-left uk-position-small"
             href="/"
-            uk-slidenav-previous
+            uk-slidenav-previous="true"
             uk-slider-item="previous"
           ></a>
           <a
             className="uk-position-center-right uk-position-small"
             href="/"
-            uk-slidenav-next
+            uk-slidenav-next="true"
             uk-slider-item="next"
           ></a>
         </div>

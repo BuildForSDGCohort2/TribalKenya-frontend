@@ -42,7 +42,7 @@ const Trek = ({ trek }) => {
                 ) : null}
               </div>
               <div className="trek-right">
-                <Treker trek={trek} />
+              <Treker trek={trek} />
                 <div className="trek-text-content pt-2 small-text">
                   <span className="trek-text">{trek.caption}</span>
                 </div>

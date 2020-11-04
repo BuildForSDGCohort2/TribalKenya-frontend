@@ -54,6 +54,7 @@ const AddTrekForm = ({ getInputs }) => {
                 icon={<IoMdText />}
                 getText={(caption) => setinputs({ ...inputs, caption: caption })}
                 iconColor="c-cream medium-text"
+                textarea="true"
             />
             <TextInput
                 inputId="trek-location-input"

@@ -13,7 +13,7 @@ import TrekMediaPreview from './TrekMediaPreview';
 const AddTrekForm = ({ getInputs }) => {
   const [privacy, setprivacyOptions] = useState([]);
   const [category, setcategoryOptions] = useState([]);
-  const [inputs, setinputs] = useState({ category: 'popular sites', privacy: 'public' });
+  const [inputs, setinputs] = useState({ category: 'popular sites', privacy: 'public', caption: '', tags: '', location: '' });
   const [mediaPreview, setMediaPreview] = useState(false);
   const handleClick = () => {
     if (!inputs.images && !inputs.videos) {

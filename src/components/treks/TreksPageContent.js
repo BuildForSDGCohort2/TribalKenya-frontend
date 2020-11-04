@@ -3,33 +3,36 @@ import { connect } from 'react-redux';
 import SortDescription from './SortDescription';
 import Trek from '../trek/Trek';
 import AddTrekForm from './AddTrekForm';
-import { addTreks, addTrekToState } from '../../state/treks/treks.actions';
+import { addTreks, addTrekToState, addTrekToDb, addFilesToStorage, updateTrekState } from '../../state/treks/treks.actions';
 
-const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, changeNav, addTrekToState }) => {
-  const getInputs = (trek) => {
-    let newTrek = {
-      ...trek,
-      id: 20003,
-      user: { username: profile.username, profile_pic: profile.photoURL },
-      date_posted: new Date(Date.now()),
-      comments: [],
-      reports: [],
-      reposts: [],
-      likes: []
-    };
-    if (!trek.caption) newTrek = { ...newTrek, caption: '' };
-    if (!trek.tags) newTrek = { ...newTrek, tags: '' };
-    if (!trek.location) newTrek = { ...newTrek, location: '' };
-    changeNav('recent');
-    const trekReadyForState = addTrekToState(newTrek);
-    console.log(trekReadyForState);
-    addTreks([...treks, trekReadyForState]);
+const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, changeNav, addTrekToState, addTrekToDb, addFilesToStorage, updateTrekState }) => {
+  const getInputs = async (profile, trek) => {
+    try {
+      const newTrek = {
+        ...trek,
+        id: '',
+        user: { username: profile.username, profile_pic: profile.photoURL },
+        date_posted: new Date(Date.now()),
+        comments: [],
+        reports: [],
+        reposts: [],
+        likes: []
+      };
+      changeNav('recent');
+      const trekReadyForState = addTrekToState(newTrek);
+      addTreks([...treks, trekReadyForState]);
+      const trekReadyToUpload = await addFilesToStorage(newTrek, profile);
+      const tb = { ...newTrek, images: trekReadyToUpload.images, videos: trekReadyToUpload.videos };
+      await addTrekToDb(tb);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
         <div className="trek-page-content center column">
-          {console.log(treks)}
+          {console.log(profile)}
             <SortDescription sortDes={sortDes} />
-            {currentNav === 'post' ? <AddTrekForm getInputs={getInputs} /> : (
+            {currentNav === 'post' ? <AddTrekForm getInputs={(trek) => getInputs(profile, trek)} /> : (
                 <div className="treks">
                     {treks.map((key) => (
                       <div key={key.id} data-aos="fade-up">
@@ -48,7 +51,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addTreks: (treks) => dispatch(addTreks(treks)),
-  addTrekToState: (trek) => dispatch(addTrekToState(trek))
+  addTrekToState: (trek) => dispatch(addTrekToState(trek)),
+  addTrekToDb: (trek) => dispatch(addTrekToDb(trek)),
+  addFilesToStorage: (trek, profile) => dispatch(addFilesToStorage(trek, profile)),
+  updateTrekState: (updatedItem, itemToUpdate, listOfItems) => dispatch(updateTrekState(updatedItem, itemToUpdate, listOfItems))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TreksPageContent);

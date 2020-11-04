@@ -26,11 +26,12 @@ const Trek = ({ trek }) => {
   };
   return (
     <>
-          <article className="p-2">
+          {trek.images ? (
+            <article className="p-2">
             <div className="trek">
               <div
                 className="trek-left m-1 p-1 c-white"
-                style={{ backgroundImage: `url(${trek.images[0]})` }}
+                style={{ backgroundImage: `url(${trek.images[0] || trek.videos[0]})` }}
               >
                 {trek.images.length > 1 ? (
                   <BsFillCollectionFill />
@@ -55,6 +56,7 @@ const Trek = ({ trek }) => {
               </div>
             </div>
           </article>
+          ) : null}
     </>
   );
 };

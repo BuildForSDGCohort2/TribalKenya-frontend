@@ -36,6 +36,8 @@ module.exports = {
       }
     ],
     'class-methods-use-this': 0,
+    'no-plusplus': 0,
+    'id-length': 0,
     'no-invalid-this': 0,
     'react/prop-types': 0,
     'spaced-comment': 0,

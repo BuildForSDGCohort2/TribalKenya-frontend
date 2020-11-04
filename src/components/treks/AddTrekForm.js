@@ -17,7 +17,7 @@ const AddTrekForm = ({ getInputs }) => {
   const [mediaPreview, setMediaPreview] = useState(false);
   const handleClick = () => {
     if (!inputs.images && !inputs.videos) {
-      console.log('Add image or video');
+      alert('Add image or video');
     } else {
       getInputs(inputs);
     }

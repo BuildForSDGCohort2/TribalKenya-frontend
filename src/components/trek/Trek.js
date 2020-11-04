@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { BsFillCollectionFill } from 'react-icons/bs';
+import { connect } from 'react-redux';
 import TrekInteractions from './TrekInteractions';
 import TimeTrekPosted from './TimeTrekPosted';
 import Treker from './Treker';
 import TrekModal from './TrekModal';
 import TrekMediaModal from './TrekMediaModal';
+import { deleteTrek } from '../../state/treks/treks.actions';
 
-const Trek = ({ trek }) => {
+const Trek = ({ trek, treks, deleteTrek }) => {
   const [trekLikes, showTrekLikes] = useState(false);
   const [trekComments, showTrekComments] = useState(false);
   const [trekReposts, showTrekReposts] = useState(false);
@@ -37,12 +39,12 @@ const Trek = ({ trek }) => {
                 style={{ backgroundImage: `url(${trek.images[0] || trek.videos[0]})` }}
                 onClick={() => setShowModal(true)}
               >
-                {trek.images.length > 1 ? (
+                {trek.images.length + trek.videos.length > 1 ? (
                   <BsFillCollectionFill />
                 ) : null}
               </div>
               <div className="trek-right">
-              <Treker trek={trek} />
+              <Treker trek={trek} treks={treks} deleteTrek={(docId) => deleteTrek(docId, trek, treks)} />
                 <div className="trek-text-content pt-2 small-text">
                   <span className="trek-text">{trek.caption}</span>
                 </div>
@@ -65,4 +67,8 @@ const Trek = ({ trek }) => {
   );
 };
 
-export default Trek;
+const mapDispatchToProps = (dispatch) => ({
+  deleteTrek: (docId, trek, treks) => dispatch(deleteTrek(docId, trek, treks))
+});
+
+export default connect(null, mapDispatchToProps)(Trek);

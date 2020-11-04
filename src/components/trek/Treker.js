@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
-import { MdUpdate, MdDelete } from 'react-icons/md';
+import PopOver from './PopOver';
 
-const Treker = ({ trek, commented, commentOwner }) => {
+const Treker = ({ trek, deleteTrek }) => {
   const [popoverOpen, setPopoverOpen] = useState(false);
+  const deleteT = (ev, trekId) => {
+    ev.preventDefault();
+    setPopoverOpen(false);
+    console.log(popoverOpen);
+    deleteTrek(trekId);
+  };
   return (
     <>
       {trek ? (
@@ -13,23 +18,11 @@ const Treker = ({ trek, commented, commentOwner }) => {
           <img src={trek.profile_pic} alt="trek owner" />
           <span className="trek-username">{trek.username}</span>
           <div className="float-right">
-            <span className="m-auto" id="Popover1"><BsThreeDotsVertical /></span>
-            <Popover placement="bottom" isOpen={popoverOpen} target="Popover1" toggle={() => setPopoverOpen(!popoverOpen)}>
-              <PopoverHeader className="overpass small-caps medium-text white-bg">Options</PopoverHeader>
-              <PopoverBody className="black-bg overpass center column d-u-trek">
-                <span><MdDelete /> Delete</span>
-                <span><MdUpdate /> Update</span>
-              </PopoverBody>
-            </Popover>
+            <span className="m-auto" id="popover1" onClick={() => setPopoverOpen(!popoverOpen)}><BsThreeDotsVertical /></span>
+            <PopOver trekId={trek.id} deleteT={deleteT} popoverOpen={popoverOpen} toggle={() => setPopoverOpen(false)} />
           </div>
         </div>
         </>
-      ) : null}
-      {commented ? (
-          <div className={`trek-owner mb-2 ${commentOwner}`}>
-          <img src={commented.profile_pic} alt="trek owner" />
-          <span className="trek-username">{commented.username}</span>
-        </div>
       ) : null}
     </>
   );

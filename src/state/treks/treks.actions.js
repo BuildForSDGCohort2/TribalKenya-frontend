@@ -39,9 +39,9 @@ export const addTrekToState = (data) => {
 export const updateTrekState = (updatedItem, itemToUpdate, listOfItems) => {
   return (dispatch) => {
     const items = [...listOfItems];
-    items.splice(items.indexOf(itemToUpdate), 1, updatedItem);
-    const sortedItems = dispatch(sortByDate(items));
-    dispatch(addTreks(sortedItems));
+    items.splice(items.indexOf(itemToUpdate), 1);
+    items.unshift(updatedItem);
+    dispatch(addTreks(items));
     console.log(items);
   };
 };
@@ -57,8 +57,7 @@ export const addTrekToDb = (trek) => {
         body: JSON.stringify(trek)
       };
       const request = new Request('https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/add', options);
-      const results = await fetch(request);
-      console.log(results);
+      await fetch(request);
     } catch (error) {
       console.log(error);
     }
@@ -94,5 +93,16 @@ export const addFilesToStorage = (trek, profile) => {
       console.log(error.message);
       return error.message;
     }
+  };
+};
+
+export const deleteTrek = (docId, trek, treks) => {
+  return (dispatch) => {
+    const currentTreks = [...treks];
+    console.log(docId);
+    currentTreks.forEach((item) => {
+      if (item.id === docId) currentTreks.splice(currentTreks.indexOf(item), 1);
+    });
+    dispatch(addTreks(currentTreks));
   };
 };

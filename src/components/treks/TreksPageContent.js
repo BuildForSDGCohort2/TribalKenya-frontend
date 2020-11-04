@@ -23,7 +23,7 @@ const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, chang
       };
       changeNav('recent');
       const trekReadyForState = addTrekToState(newTrek);
-      addTreks([...treks, trekReadyForState]);
+      addTreks([trekReadyForState, ...treks]);
       const trekReadyToUpload = await addFilesToStorage(newTrek, profile);
       const tb = { ...newTrek, images: trekReadyToUpload.images, videos: trekReadyToUpload.videos };
       await addTrekToDb(tb);

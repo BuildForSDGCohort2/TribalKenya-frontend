@@ -9,7 +9,7 @@ const Navitem = ({ link, title, icon, classname, handleIconClick, children, clos
   const handleClick = (event) => {
     event.preventDefault();
     close();
-    if (location.pathname !== link) {
+    if (location.pathname !== link && location.pathname !== `${link}/`) {
       navigate(link);
       checkPageLoading(true);
     }

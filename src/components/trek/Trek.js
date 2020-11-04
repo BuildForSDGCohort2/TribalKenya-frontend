@@ -4,11 +4,13 @@ import TrekInteractions from './TrekInteractions';
 import TimeTrekPosted from './TimeTrekPosted';
 import Treker from './Treker';
 import TrekModal from './TrekModal';
+import TrekMediaModal from './TrekMediaModal';
 
 const Trek = ({ trek }) => {
   const [trekLikes, showTrekLikes] = useState(false);
   const [trekComments, showTrekComments] = useState(false);
   const [trekReposts, showTrekReposts] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const toggleLikes = (trekId) => {
     if (trek.id === trekId) {
       showTrekLikes(!trekLikes);
@@ -28,10 +30,12 @@ const Trek = ({ trek }) => {
     <>
           {trek.images ? (
             <article className="p-2">
+              <TrekMediaModal modal={showModal} toggle={() => setShowModal(!showModal)} trek={trek} />
             <div className="trek">
               <div
                 className="trek-left m-1 p-1 c-white"
                 style={{ backgroundImage: `url(${trek.images[0] || trek.videos[0]})` }}
+                onClick={() => setShowModal(true)}
               >
                 {trek.images.length > 1 ? (
                   <BsFillCollectionFill />

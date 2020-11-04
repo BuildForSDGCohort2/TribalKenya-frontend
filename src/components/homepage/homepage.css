@@ -76,7 +76,7 @@
 }
 
 .vjs-poster::before {
-  content: "";
+  content: '';
   position: absolute;
   height: 100%;
   width: 100%;
@@ -163,7 +163,7 @@
 .gallery-text h1,
 .gallery-text p {
   animation-duration: 1.5s;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 /* Treks Preview Sec */
@@ -180,7 +180,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "trekleft trekright";
+  grid-template-areas: 'trekleft trekright';
   column-gap: 0.7rem;
   background: var(--white);
   background-image: var(--white-bg);
@@ -202,7 +202,7 @@
 }
 
 .collection-tag {
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 .trek-right {
@@ -228,7 +228,7 @@
 
 .trek-owner {
   display: flex;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   width: 100%;
   cursor: pointer;
   flex: 1 10%;
@@ -250,7 +250,7 @@
 }
 
 .trek-text-content {
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   font-weight: bold;
 }
 
@@ -262,8 +262,7 @@
 
 .tag {
   color: var(--green);
-  text-decoration: underline;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   font-weight: 600;
   font-size: 0.9em;
   cursor: pointer;
@@ -272,7 +271,7 @@
 .time-trek-posted {
   width: 100%;
   text-align: left;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
   font-size: 0.8em;
 }
 
@@ -336,7 +335,7 @@
   .trek {
     grid-template-columns: auto;
     grid-template-rows: auto auto;
-    grid-template-areas: "trekleft" "trekright";
+    grid-template-areas: 'trekleft' 'trekright';
   }
 }
 

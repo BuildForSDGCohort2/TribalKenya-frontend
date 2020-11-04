@@ -1,4 +1,3 @@
-import { treksData } from './treksData';
 import { addImageToStorage } from '../auth/auth.actions';
 
 export const addTreks = (recentTreks) => ({
@@ -8,19 +7,6 @@ export const addTreks = (recentTreks) => ({
 export const sortByDate = (data) => {
   return () => data.sort((first, second) => new Date(second.date_posted) - new Date(first.date_posted));
 };
-
-/*
- * export const fetchRecentTreks = () => {
- *   return (dispatch) => {
- *     try {
- *       const sortedTreks = dispatch(sortByDate(treksData));
- *       dispatch(addTreks(sortedTreks));
- *     } catch (error) {
- *       console.log(error.message);
- *     }
- *   };
- * };
- */
 
 export const fetchRecentTreks = () => {
   return async (dispatch) => {
@@ -73,7 +59,6 @@ export const addTrekToDb = (trek) => {
       console.log(results);
     } catch (error) {
       console.log(error);
-      return error.message;
     }
   };
 };

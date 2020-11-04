@@ -438,6 +438,10 @@ a:hover {
   outline: none;
 }
 
+.trek-video {
+  max-height: 460px;
+}
+
 /* Footer */
 footer {
   font-family: 'Overpass', sans-serif;

@@ -5,7 +5,7 @@ const PopOver = ({ popoverOpen, deleteT, trekId, updateModal }) => {
   return (
         <>
         {popoverOpen ? (
-            <div className="center column float-left">
+            <div className="center column float-left mr-2 animate__animated animate__fadeInRight">
                 <span onClick={(ev) => deleteT(ev, trekId)}><MdDelete /> Delete</span>
                 <span onClick={updateModal}><MdUpdate /> Update</span>
             </div>

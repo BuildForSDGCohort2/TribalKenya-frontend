@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import { ImCancelCircle } from 'react-icons/im';
 import PopOver from './PopOver';
 
 const Treker = ({ trek, deleteTrek, updateModal }) => {
@@ -17,7 +18,7 @@ const Treker = ({ trek, deleteTrek, updateModal }) => {
           <img src={trek.profile_pic} alt="trek owner" />
           <span className="trek-username">{trek.username}</span>
           <div className="float-right">
-            <span className="m-auto" id="popover1" onClick={() => setPopoverOpen(!popoverOpen)}><BsThreeDotsVertical /></span>
+      <span className="m-auto" id="popover1" onClick={() => setPopoverOpen(!popoverOpen)}>{popoverOpen ? <ImCancelCircle /> : <BsThreeDotsVertical />}</span>
             <PopOver trekId={trek.id} deleteT={deleteT} popoverOpen={popoverOpen} toggle={() => setPopoverOpen(false)} updateModal={updateModal} />
           </div>
         </div>

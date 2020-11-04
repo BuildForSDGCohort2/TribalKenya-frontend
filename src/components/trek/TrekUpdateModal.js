@@ -9,7 +9,14 @@ const TrekUpdateModal = ({ modal, toggle, trek, updateTrek, treks }) => {
     <Modal isOpen={modal} toggle={toggle}>
       <ModalHeader toggle={toggle} className="overpass white-bg small-caps">Update Trek</ModalHeader>
       <ModalBody className="black-bg c-cream overpass center column">
-        <TrekUpdateForm trek={trek} getInputs={(newTrek) => updateTrek(trek.id, { current: trek, newTrek: newTrek }, treks)} />
+        <TrekUpdateForm trek={trek} getInputs={async (newTrek) => {
+          try {
+            toggle();
+            await updateTrek(trek.id, { current: trek, newTrek: newTrek }, treks);
+          } catch (error) {
+            console.log(error.message);
+          }
+        }} />
       </ModalBody>
     </Modal>
   );

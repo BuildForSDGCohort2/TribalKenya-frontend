@@ -16,11 +16,17 @@ export const fetchRecentTreks = (info, startLoading = () => null, stopLoading = 
       let response;
       if (info.currentNav === 'recent') {
         info.limit ? response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/limited/${info.limit}`) : response = await fetch('https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks');
-      } else {
+      } else if (info.currentNav === 'private') {
         response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/private/${info.profile.id}`);
+      } else if (info.currentNav === 'my treks') {
+        response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/mytreks/${info.profile.id}`);
+      } else {
+        response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/category/${info.category}`);
       }
-      const results = await response.json();
-      dispatch(addTreks(results));
+      if (response !== null) {
+        const results = await response.json();
+        dispatch(addTreks(results));
+      }
       stopLoading();
     } catch (error) {
       console.log(error.message);

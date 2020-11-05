@@ -38,6 +38,7 @@ body {
 *:hover {
   -webkit-appearance: none;
   box-shadow: none;
+  outline: none;
 }
 
 button,
@@ -482,6 +483,11 @@ a:hover {
   object-fit: fill;
 }
 
+#category-selector {
+  width: 600px;
+  height: 40px;
+}
+
 /* Footer */
 footer {
   font-family: 'Overpass', sans-serif;
@@ -497,6 +503,14 @@ footer {
   .place-image {
     min-height: 17rem;
     max-height: 17rem;
+  }
+
+  .category-selector-wrapper {
+    min-height: 40px !important;
+  }
+
+  #category-selector {
+    width: 500px;
   }
 }
 
@@ -514,5 +528,10 @@ footer {
   .place-image {
     min-height: 10rem;
     max-height: 10rem;
+  }
+
+  #category-selector {
+    width: 300px;
+    height: 40px;
   }
 }

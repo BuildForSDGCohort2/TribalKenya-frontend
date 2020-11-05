@@ -10,7 +10,7 @@ export const treksNavData = [
   { type: 'private', icon: <RiChatPrivateFill/>, des: 'Treks only you can see' },
   { type: 'post', icon: <IoIosAddCircle/>, post: true, des: 'Share your Experience' },
   { type: 'my treks', icon: <BsLayoutTextSidebarReverse/>, des: 'Treks posted by me' },
-  { type: 'category', icon: <MdSort/>, des: 'Treks related to a Category' }
+  { type: 'categories', icon: <MdSort/>, des: 'Choose a Category' }
 ];
 
 export const privacyOptions = [
@@ -20,7 +20,7 @@ export const privacyOptions = [
 ];
 
 export const categoryOptions = [
-  { option: 'popular sites' },
+  { option: 'Popular' },
   { option: 'Wildlife' },
   { option: 'Sports' },
   { option: 'Coast' },

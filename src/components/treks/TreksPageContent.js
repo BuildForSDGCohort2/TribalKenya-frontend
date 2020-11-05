@@ -6,6 +6,7 @@ import Trek from '../trek/Trek';
 import AddTrekForm from './AddTrekForm';
 import { addTrekToDb, addFilesToStorage, fetchRecentTreks } from '../../state/treks/treks.actions';
 import PreLoader from '../pre-loader/PreLoader';
+import CategorySelector from './CategorySelector';
 
 const TreksPageContent = ({ sortDes, changeDes, treks, currentNav, profile, changeNav, addTrekToDb, addFilesToStorage, loading, fetchRecentTreks }) => {
   const [newTrekLoading, setNewTrekLoading] = useState(false);
@@ -35,7 +36,7 @@ const TreksPageContent = ({ sortDes, changeDes, treks, currentNav, profile, chan
       const tb = { ...newTrek, images: trekReadyToUpload.images, videos: trekReadyToUpload.videos };
       await addTrekToDb(tb);
       const cn = trek.privacy === 'public' ? 'recent' : 'private';
-      await fetchRecentTreks({ currentNav: cn, profile: profile }, () => null, () => setNewTrekLoading(false));
+      await fetchRecentTreks({ currentNav: cn, profile: profile, category: 'popular sites' }, () => null, () => setNewTrekLoading(false));
       setNewTrekLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -55,16 +56,19 @@ const TreksPageContent = ({ sortDes, changeDes, treks, currentNav, profile, chan
                     <p className="medium-text bold c-cream text-center overpass">Uploading your trek</p>
                     </>
                   ) : null}
-                    {treks.map((key) => (
-                      <div key={key.id} data-aos="fade-up">
-                        <Trek trek={key} treks={treks} profile={profile} />
-                      </div>
-                    ))}
-                    {treks.length < 1 && currentNav === 'private' ? (
-                      <div className="w-100 center text-center">
-                        <h3 className="heading small-caps overpass c-cream">You don&apos;t have Private Treks</h3>
-                      </div>
-                    ) : null}
+                  {currentNav === 'categories' ? (
+                    <CategorySelector startLoading={() => setNewTrekLoading(true)} stopLoading={() => setNewTrekLoading(false)} />
+                  ) : null}
+                  {treks.map((key) => (
+                    <div key={key.id} data-aos="fade-up">
+                      <Trek trek={key} treks={treks} profile={profile} />
+                    </div>
+                  ))}
+                  {treks.length < 1 && currentNav === 'private' ? (
+                    <div className="w-100 center text-center">
+                      <h3 className="heading small-caps overpass c-cream">You don&apos;t have Private Treks</h3>
+                    </div>
+                  ) : null}
                 </div>
               )}
               </>

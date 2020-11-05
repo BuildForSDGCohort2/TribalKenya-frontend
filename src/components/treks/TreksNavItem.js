@@ -7,7 +7,8 @@ const TreksNavItem = ({ navitem, changeDes, changeNav, currentNav }) => {
   };
   return (
         <li onClick={handleClick}
-            className={`center column overpass cursor ${navitem.type === currentNav ? 'c-green' : ''}`}>
+            className={`center column overpass cursor ${navitem.type === currentNav ? 'c-green' : ''}`}
+            id={`${navitem.type === 'categories' ? 'c-green' : ''}`}>
             <span className="trek-nav-icon p-1">{navitem.icon}</span>
             <span className="trek-nav-type">{navitem.type}</span>
         </li>

@@ -16,7 +16,7 @@ const Treks = ({ fetchRecentTreks, recentTreks, profile }) => {
     setsortDes(newValue);
   };
   useEffect(() => {
-    fetchRecentTreks({ currentNav: currentNav, profile: profile }, () => setLoading(true), () => setLoading(false));
+    fetchRecentTreks({ currentNav: currentNav, profile: profile, category: 'popular' }, () => setLoading(true), () => setLoading(false));
     AOS.init();
   }, [currentNav]);
   return (

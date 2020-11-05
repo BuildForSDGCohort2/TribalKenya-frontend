@@ -31,6 +31,7 @@ const TrekInteractions = ({ trek, showLikes, showComments, showReposts, like, pr
                 <span className="small-text overpass small-caps caps bold">{trek.location}</span>
                 <span className="tag">{trek.tags.toString()}</span>
                 <span className="small-text overpass caps">Cateogory: <span className="bold">{trek.category}</span></span>
+                {trek.privacy === 'private' ? <span className="small-text overpass caps">{trek.privacy}</span> : null}
             </div>
             <div className="interactions left mt-2">
                 <div className="center interaction">

@@ -14,8 +14,8 @@ const TrekMediaModal = ({ modal, toggle, trek }) => {
           uk-slider="center: true"
         >
           <ul className="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 30">
-            {trek.images.length > 0 ? <TrekImages slides={trek.images} /> : null }
-            {trek.videos.length > 0 ? <TrekVidoes slides={trek.videos} /> : null }
+            {trek.images.length > 0 ? <TrekImages slides={trek.images} extraClass="trek-video" /> : null }
+            {trek.videos.length > 0 ? <TrekVidoes slides={trek.videos} extraClass="trek-video" /> : null }
           </ul>
 
           <a

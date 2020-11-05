@@ -14,7 +14,7 @@ export const fetchRecentTreks = (info, startLoading = () => null, stopLoading = 
       startLoading();
       let response;
       if (info.currentNav === 'recent') {
-        response = await fetch('https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks');
+        info.limit ? response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/limited/${info.limit}`) : response = await fetch('https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks');
       } else {
         response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/private/${info.profile.id}`);
       }
@@ -24,20 +24,6 @@ export const fetchRecentTreks = (info, startLoading = () => null, stopLoading = 
     } catch (error) {
       console.log(error.message);
     }
-  };
-};
-
-const createUrlForObject = (obj) => URL.createObjectURL(obj);
-
-export const addTrekToState = (data) => {
-  return () => {
-    let newData = { ...data };
-    const images = [];
-    const videos = [];
-    newData.images.forEach((image) => images.push(createUrlForObject(image)));
-    newData.videos.forEach((video) => videos.push(createUrlForObject(video)));
-    newData = { ...data, images: images, videos: videos };
-    return newData;
   };
 };
 
@@ -72,7 +58,7 @@ export const addTrekToDb = (trek) => {
 const getItemsAddedToStorage = (item, arr, info) => {
   return async (dispatch) => {
     try {
-      const objectUrl = await dispatch(addImageToStorage(`treks/${info.type}/${info.username}`, item));
+      const objectUrl = await dispatch(addImageToStorage(`treks/${info}/`, item));
       arr.push(objectUrl);
       return arr;
     } catch (error) {
@@ -83,15 +69,15 @@ const getItemsAddedToStorage = (item, arr, info) => {
 };
 
 // Add trek images and videos to storage
-export const addFilesToStorage = (trek, profile) => {
+export const addFilesToStorage = (trek) => {
   return async (dispatch) => {
     try {
       const newTrek = { ...trek, images: [], videos: [] };
       await Promise.all(trek.images.map(async (image) => {
-        await dispatch(getItemsAddedToStorage(image, newTrek.images, { type: 'images', username: profile.username }));
+        await dispatch(getItemsAddedToStorage(image, newTrek.images, 'images'));
       }));
       await Promise.all(trek.videos.map(async (video) => {
-        await dispatch(getItemsAddedToStorage(video, newTrek.videos, { type: 'videos', username: profile.username }));
+        await dispatch(getItemsAddedToStorage(video, newTrek.videos, 'videos'));
       }));
       return newTrek;
     } catch (error) {

@@ -28,11 +28,15 @@ const AddTrekForm = ({ getInputs, profile }) => {
     const images = [];
     const videos = [];
     files.forEach((file) => {
-      if (file.type.substring(0, 5) === 'video') {
-        videos.push(file);
-      }
-      if (file.type.substring(0, 5) === 'image') {
-        images.push(file);
+      if (file.size > 20000000) {
+        alert('Video/Image file size over 20MB cannot be uploaded');
+      } else {
+        if (file.type.substring(0, 5) === 'video') {
+          videos.push(file);
+        }
+        if (file.type.substring(0, 5) === 'image') {
+          images.push(file);
+        }
       }
     });
     setinputs({ ...inputs, images: images, videos: videos });

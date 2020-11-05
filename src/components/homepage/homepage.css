@@ -193,12 +193,21 @@
   position: relative;
   height: auto;
   min-height: 40vh;
+  max-height: 40vh;
   width: 100%;
   grid-area: trekleft;
   background-size: cover;
   background-position: center center;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.trek-bg {
+  max-height: 250px;
+  min-height: 250px;
+  max-width: 300px;
+  min-width: 250px;
+  object-fit: fill;
 }
 
 .collection-tag {

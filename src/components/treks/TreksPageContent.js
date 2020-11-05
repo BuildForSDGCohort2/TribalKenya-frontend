@@ -1,12 +1,14 @@
-import React from 'react';
+/* eslint-disable max-statements */
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import SortDescription from './SortDescription';
 import Trek from '../trek/Trek';
 import AddTrekForm from './AddTrekForm';
-import { addTreks, addTrekToState, addTrekToDb, addFilesToStorage, updateTrekState } from '../../state/treks/treks.actions';
+import { addTrekToDb, addFilesToStorage, fetchRecentTreks } from '../../state/treks/treks.actions';
 import PreLoader from '../pre-loader/PreLoader';
 
-const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, changeNav, addTrekToState, addTrekToDb, addFilesToStorage, loading }) => {
+const TreksPageContent = ({ sortDes, changeDes, treks, currentNav, profile, changeNav, addTrekToDb, addFilesToStorage, loading, fetchRecentTreks }) => {
+  const [newTrekLoading, setNewTrekLoading] = useState(false);
   const getInputs = async (profile, trek) => {
     try {
       const newTrek = {
@@ -22,11 +24,13 @@ const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, chang
         likes: []
       };
       changeNav('recent');
-      const trekReadyForState = addTrekToState(newTrek);
-      addTreks([trekReadyForState, ...treks]);
-      const trekReadyToUpload = await addFilesToStorage(newTrek, profile);
+      changeDes('Most recent Treks');
+      setNewTrekLoading(true);
+      const trekReadyToUpload = await addFilesToStorage(newTrek);
       const tb = { ...newTrek, images: trekReadyToUpload.images, videos: trekReadyToUpload.videos };
       await addTrekToDb(tb);
+      await fetchRecentTreks({ currentNav: 'recent', profile: profile }, () => null, () => setNewTrekLoading(false));
+      setNewTrekLoading(false);
     } catch (error) {
       console.log(error.message);
     }
@@ -38,11 +42,23 @@ const TreksPageContent = ({ sortDes, treks, currentNav, profile, addTreks, chang
               <>
               {currentNav === 'post' ? <AddTrekForm getInputs={(trek) => getInputs(profile, trek)} profile={profile} /> : (
                 <div className="treks">
+                  {newTrekLoading ? (
+                    <>
+
+                    <PreLoader />
+                    <p className="medium-text bold c-cream text-center overpass">Uploading your trek</p>
+                    </>
+                  ) : null}
                     {treks.map((key) => (
                       <div key={key.id} data-aos="fade-up">
                         <Trek trek={key} treks={treks} />
                       </div>
                     ))}
+                    {treks.length < 1 && currentNav === 'private' ? (
+                      <div className="w-100 center text-center">
+                        <h3 className="heading small-caps overpass c-cream">You don&apos;t have Private Treks</h3>
+                      </div>
+                    ) : null}
                 </div>
               )}
               </>
@@ -56,11 +72,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addTreks: (treks) => dispatch(addTreks(treks)),
-  addTrekToState: (trek) => dispatch(addTrekToState(trek)),
   addTrekToDb: (trek) => dispatch(addTrekToDb(trek)),
-  addFilesToStorage: (trek, profile) => dispatch(addFilesToStorage(trek, profile)),
-  updateTrekState: (updatedItem, itemToUpdate, listOfItems) => dispatch(updateTrekState(updatedItem, itemToUpdate, listOfItems))
+  addFilesToStorage: (trek) => dispatch(addFilesToStorage(trek)),
+  fetchRecentTreks: (info, startLoading, stopLoading) => dispatch(fetchRecentTreks(info, startLoading, stopLoading))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TreksPageContent);

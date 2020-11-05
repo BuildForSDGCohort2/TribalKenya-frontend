@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BiPauseCircle, BiPlayCircle } from 'react-icons/bi';
 
-const TrekVidoes = ({ slides }) => {
+const TrekVidoes = ({ slides, extraClass, container }) => {
   let videoRef;
   const [videoPaused, setVideoPaused] = useState(false);
   const playPause = (ev) => {
@@ -13,8 +13,8 @@ const TrekVidoes = ({ slides }) => {
         <>
         {slides.map((slide) => (
             <li className="uk-width-3-4" key={slide}>
-              <div className="uk-cover-container show-on-hover-wrapper">
-                <video onClick={(ev) => playPause(ev)} ref={(node) => (videoRef = node)} className="w-100 trek-video" controls onEnded={() => setVideoPaused(false)}>
+              <div className={`uk-cover-container show-on-hover-wrapper ${container}`}>
+                <video onClick={(ev) => playPause(ev)} ref={(node) => (videoRef = node)} className={`w-100 ml-2 mr-2 ${extraClass}`} controls onEnded={() => setVideoPaused(false)}>
                     <source src={slide} />
                 </video>
                 <div className="uk-position-center uk-panel" onClick={(ev) => playPause(ev)}>

@@ -346,6 +346,15 @@ a:hover {
   color: var(--cream);
 }
 
+/* UI kit */
+.uk-icon > * {
+  width: 20px;
+}
+
+.uk-icon:not(.uk-preserve) [stroke*='#']:not(.uk-preserve) {
+  stroke: var(--green) !important;
+}
+
 /* Buttons */
 .large-btn {
   font-size: 2em;
@@ -469,6 +478,8 @@ a:hover {
 
 .trek-video {
   max-height: 460px;
+  min-height: 100%;
+  object-fit: fill;
 }
 
 /* Footer */

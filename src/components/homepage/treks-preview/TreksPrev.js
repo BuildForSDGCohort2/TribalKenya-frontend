@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { navigate } from 'gatsby';
 import { addTreks, fetchRecentTreks } from '../../../state/treks/treks.actions';
@@ -6,34 +6,41 @@ import TextContent from '../../TextContent';
 import Trek from '../../trek/Trek';
 import LargeBtn from '../../LargeBtn';
 import { checkPageLoading } from '../../../state/auth/auth.actions';
+import PreLoader from '../../pre-loader/PreLoader';
 
-const TreksPrev = ({ recentTreks, checkPageLoading, fetchRecentTreks }) => {
+const TreksPrev = ({ recentTreks, checkPageLoading, fetchRecentTreks, profile }) => {
+  const [loading, setLoading] = useState(false);
   const goToTreks = () => {
     checkPageLoading(true);
     navigate('treks');
   };
   useEffect(() => {
-    fetchRecentTreks();
-  }, [recentTreks]);
+    fetchRecentTreks({ currentNav: 'recent', profile: profile, limit: 4 }, () => setLoading(true), () => setLoading(false));
+  }, []);
   return (
     <section className="treks-prev-sec">
-      <TextContent heading="Recent Treks" textColor="c-cream text-center" />
-      <div className="two-sec-grid-cols">
-        {recentTreks.map((key) => (
-          <Trek key={key.id} trek={key} />
-        ))}
-      </div>
-      <LargeBtn activate={goToTreks} textContent="Treks" extraClass="white-bg mb-2"/>
+      {loading ? <PreLoader /> : (
+        <>
+        <TextContent heading="Recent Treks" textColor="c-cream text-center" />
+        <div className="two-sec-grid-cols">
+          {recentTreks.map((key) => (
+            <Trek key={key.id} trek={key} />
+          ))}
+        </div>
+        <LargeBtn activate={goToTreks} textContent="Treks" extraClass="white-bg mb-2"/>
+        </>
+      )}
     </section>
   );
 };
 
 const mapStateToProps = (state) => ({
-  recentTreks: state.treksStore.recentTreks
+  recentTreks: state.treksStore.recentTreks,
+  profile: state.auth.profile
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRecentTreks: () => dispatch(fetchRecentTreks()),
+  fetchRecentTreks: (info, startLoading, stopLoading) => dispatch(fetchRecentTreks(info, startLoading, stopLoading)),
   checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading)),
   addTreks: (treks) => dispatch(addTreks(treks))
 });

@@ -8,6 +8,7 @@ import TrekModal from './TrekModal';
 import TrekMediaModal from './TrekMediaModal';
 import { deleteTrek } from '../../state/treks/treks.actions';
 import TrekUpdateModal from './TrekUpdateModal';
+import TrekMediaList from './TrekMediaList';
 
 const Trek = ({ trek, treks, deleteTrek }) => {
   const [trekLikes, showTrekLikes] = useState(false);
@@ -39,12 +40,9 @@ const Trek = ({ trek, treks, deleteTrek }) => {
             <div className="trek">
               <div
                 className="trek-left m-1 p-1 c-white"
-                style={{ backgroundImage: `url(${trek.images[0] || trek.videos[0]})` }}
-                onClick={() => setShowModal(true)}
               >
-                {trek.images.length + trek.videos.length > 1 ? (
-                  <BsFillCollectionFill />
-                ) : null}
+                <span className="c-black overpass mb-1" onClick={() => setShowModal(true)}><BsFillCollectionFill /> Open media</span>
+                <TrekMediaList trek={trek} />
               </div>
               <div className="trek-right">
               <Treker trek={trek} treks={treks} deleteTrek={(docId) => deleteTrek(docId, trek, treks)} updateModal={() => setShowUpdateModal(true)} />

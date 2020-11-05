@@ -22,7 +22,7 @@ const Treks = ({ fetchRecentTreks, recentTreks, profile }) => {
   return (
         <div className="center column mt-2">
             <TreksNavbar currentNav={currentNav} changeDes={changeDes} sortDes={sortDes} changeNav={(nav) => setcurrentNav(nav)} />
-            <TreksPageContent sortDes={sortDes} loading={loading} treks={recentTreks} currentNav={currentNav} changeNav={(nav) => setcurrentNav(nav)} />
+            <TreksPageContent sortDes={sortDes} changeDes={(des) => setsortDes(des)} loading={loading} treks={recentTreks} currentNav={currentNav} changeNav={(nav) => setcurrentNav(nav)} />
         </div>
   );
 };

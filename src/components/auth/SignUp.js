@@ -30,7 +30,7 @@ const SignUp = ({ addMessage }) => {
         headers,
         body: JSON.stringify(data)
       };
-      const request = new Request('https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/signup', options);
+      const request = new Request('https://us-central1-tribalkenya-78cfa.cloudfunctions.net/auth/signup', options);
       await fetch(request);
     } catch (error) {
       addMessage(error.message, false);
@@ -39,7 +39,7 @@ const SignUp = ({ addMessage }) => {
   // Confirm if username already exists during sign up
   const confirmIfUserExists = async (username) => {
     try {
-      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/confirm-username/${username}`);
+      const response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/auth/confirm-username/${username}`);
       const result = await response.json();
       return result;
     } catch (error) {

@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 import { addImageToStorage } from '../auth/auth.actions';
 
 export const addTreks = (recentTreks) => ({
@@ -14,9 +15,9 @@ export const fetchRecentTreks = (info, startLoading = () => null, stopLoading = 
       startLoading();
       let response;
       if (info.currentNav === 'recent') {
-        info.limit ? response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/limited/${info.limit}`) : response = await fetch('https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks');
+        info.limit ? response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/limited/${info.limit}`) : response = await fetch('https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks');
       } else {
-        response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/private/${info.profile.id}`);
+        response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/private/${info.profile.id}`);
       }
       const results = await response.json();
       dispatch(addTreks(results));
@@ -47,7 +48,7 @@ export const addTrekToDb = (trek) => {
         headers,
         body: JSON.stringify(trek)
       };
-      const request = new Request('https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/add', options);
+      const request = new Request('https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/add', options);
       await fetch(request);
     } catch (error) {
       console.log(error);
@@ -100,7 +101,25 @@ export const deleteTrek = (docId, trek, treks) => {
         headers,
         body: JSON.stringify(trek)
       };
-      const request = new Request(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/delete/${docId}`, options);
+      const request = new Request(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/delete/${docId}`, options);
+      await fetch(request);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+export const trekUpdateEndpoint = (docId, newTrek) => {
+  return async () => {
+    try {
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      const options = {
+        method: 'PUT',
+        headers,
+        body: JSON.stringify(newTrek)
+      };
+      const request = new Request(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/update/${docId}`, options);
       await fetch(request);
     } catch (error) {
       console.log(error.message);
@@ -114,15 +133,32 @@ export const updateTrek = (docId, trekUpdate, treks) => {
       const currentTreks = [...treks];
       currentTreks.splice(currentTreks.indexOf(trekUpdate.current), 1, { ...trekUpdate.current, ...trekUpdate.newTrek });
       dispatch(addTreks(currentTreks));
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      const options = {
-        method: 'PUT',
-        headers,
-        body: JSON.stringify(trekUpdate.newTrek)
-      };
-      const request = new Request(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/treks/update/${docId}`, options);
-      await fetch(request);
+      await dispatch(trekUpdateEndpoint(docId, trekUpdate.newTrek));
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+// Like trek
+export const like = (profile, trek, info) => {
+  return async (dispatch) => {
+    try {
+      const { liked, treks } = info;
+      const allTreks = [...treks];
+      let updatedTrek;
+      const myLike = { profileId: profile.id, username: profile.username, profile_pic: profile.photoURL };
+      if (!liked) {
+        updatedTrek = { ...trek, likes: [...trek.likes, myLike] };
+      }
+      if (liked) {
+        const trekLikes = [...trek.likes];
+        trekLikes.splice(trekLikes.indexOf(myLike), 1);
+        updatedTrek = { ...trek, likes: [...trekLikes] };
+      }
+      allTreks.splice(allTreks.indexOf(trek), 1, updatedTrek);
+      dispatch(addTreks(allTreks));
+      await dispatch(trekUpdateEndpoint(trek.id, { likes: updatedTrek.likes }));
     } catch (error) {
       console.log(error.message);
     }

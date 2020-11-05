@@ -3,7 +3,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { ImCancelCircle } from 'react-icons/im';
 import PopOver from './PopOver';
 
-const Treker = ({ trek, deleteTrek, updateModal }) => {
+const Treker = ({ trek, deleteTrek, updateModal, person }) => {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const deleteT = (ev, trekId) => {
     ev.preventDefault();
@@ -14,15 +14,34 @@ const Treker = ({ trek, deleteTrek, updateModal }) => {
     <>
       {trek ? (
         <>
-        <div className="trek-owner mb-2">
-          <img src={trek.profile_pic} alt="trek owner" />
-          <span className="trek-username">{trek.username}</span>
-          <div className="float-right">
-      <span className="m-auto" id="popover1" onClick={() => setPopoverOpen(!popoverOpen)}>{popoverOpen ? <ImCancelCircle /> : <BsThreeDotsVertical />}</span>
-            <PopOver trekId={trek.id} deleteT={deleteT} popoverOpen={popoverOpen} toggle={() => setPopoverOpen(false)} updateModal={updateModal} />
+          <div className="trek-owner mb-2">
+            <img src={trek.profile_pic} alt="trek owner" />
+            <span className="trek-username">{trek.username}</span>
+            <div className="float-right">
+              <span
+                className="m-auto"
+                onClick={() => setPopoverOpen(!popoverOpen)}
+              >
+                {popoverOpen ? <ImCancelCircle /> : <BsThreeDotsVertical />}
+              </span>
+              <PopOver
+                trekId={trek.id}
+                deleteT={deleteT}
+                popoverOpen={popoverOpen}
+                toggle={() => setPopoverOpen(false)}
+                updateModal={updateModal}
+              />
+            </div>
           </div>
-        </div>
         </>
+      ) : null}
+      {person ? (
+        <>
+        <div className="trek-owner mb-2">
+          <img src={person.profile_pic} alt="trek owner" />
+          <span className="trek-username">{person.username}</span>
+        </div>
+      </>
       ) : null}
     </>
   );

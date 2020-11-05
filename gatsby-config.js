@@ -47,14 +47,14 @@ module.exports = {
       resolve: 'gatsby-plugin-firebase',
       options: {
         credentials: {
-          apiKey: 'AIzaSyCQc0KombCHi0hZBKSF0vT_ZhWV1BiOoKo',
-          authDomain: 'tribalkenya-ff470.firebaseapp.com',
-          databaseURL: 'https://tribalkenya-ff470.firebaseio.com',
-          projectId: 'tribalkenya-ff470',
-          storageBucket: 'tribalkenya-ff470.appspot.com',
-          messagingSenderId: '812549061912',
-          appId: '1:812549061912:web:a2fd9c25d99b4ebef7f26d',
-          measurementId: 'G-L2VF3SHGJ0',
+          apiKey: 'AIzaSyB8BPdGFKdFvT8GnUfNs6wM6Zko66fCFfc',
+          authDomain: 'tribalkenya-78cfa.firebaseapp.com',
+          databaseURL: 'https://tribalkenya-78cfa.firebaseio.com',
+          projectId: 'tribalkenya-78cfa',
+          storageBucket: 'tribalkenya-78cfa.appspot.com',
+          messagingSenderId: '998143895886',
+          appId: '1:998143895886:web:803fd06de3e16793f2961f',
+          measurementId: 'G-DJWP5851WT',
           analytics: true
         }
       }

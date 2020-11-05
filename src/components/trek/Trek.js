@@ -10,7 +10,7 @@ import { deleteTrek } from '../../state/treks/treks.actions';
 import TrekUpdateModal from './TrekUpdateModal';
 import TrekMediaList from './TrekMediaList';
 
-const Trek = ({ trek, treks, deleteTrek }) => {
+const Trek = ({ trek, treks, deleteTrek, profile }) => {
   const [trekLikes, showTrekLikes] = useState(false);
   const [trekComments, showTrekComments] = useState(false);
   const [trekReposts, showTrekReposts] = useState(false);
@@ -49,7 +49,7 @@ const Trek = ({ trek, treks, deleteTrek }) => {
                 <div className="trek-text-content pt-2 small-text">
                   <span className="trek-text">{trek.caption}</span>
                 </div>
-                <TrekInteractions trek={trek} showLikes={() => toggleLikes(trek.id)} showComments={() => toggleComments(trek.id)} showReposts={() => toggleReposts(trek.id)} />
+                <TrekInteractions trek={trek} treks={treks} profile={profile} showLikes={() => toggleLikes(trek.id)} showComments={() => toggleComments(trek.id)} showReposts={() => toggleReposts(trek.id)} />
                 <TimeTrekPosted timePosted={trek.date_posted} />
                 {trekLikes ? (
                   <TrekModal people={trek.likes} openModal={trekLikes} toggleModal={() => toggleLikes(trek.id)} title="Liked by" postId={trek.id} />

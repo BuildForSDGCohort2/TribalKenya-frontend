@@ -1,15 +1,16 @@
 import React from 'react';
 import { FaNewspaper } from 'react-icons/fa';
 import { RiChatPrivateFill } from 'react-icons/ri';
-import { IoIosAddCircle, IoIosPricetags } from 'react-icons/io';
+import { IoIosAddCircle } from 'react-icons/io';
 import { MdSort } from 'react-icons/md';
+import { BsLayoutTextSidebarReverse } from 'react-icons/bs';
 
 export const treksNavData = [
   { type: 'recent', icon: <FaNewspaper/>, des: 'Most recent Treks' },
   { type: 'private', icon: <RiChatPrivateFill/>, des: 'Treks only you can see' },
   { type: 'post', icon: <IoIosAddCircle/>, post: true, des: 'Share your Experience' },
-  { type: 'category', icon: <MdSort/>, des: 'Treks related to a Category' },
-  { type: 'tags', icon: <IoIosPricetags/>, des: 'Treks related to a Tag' }
+  { type: 'my treks', icon: <BsLayoutTextSidebarReverse/>, des: 'Treks posted by me' },
+  { type: 'category', icon: <MdSort/>, des: 'Treks related to a Category' }
 ];
 
 export const privacyOptions = [

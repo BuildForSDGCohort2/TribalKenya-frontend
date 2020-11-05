@@ -12,7 +12,7 @@ const TrekModal = ({ openModal, people, comments, toggleModal, className, title 
           {people ? (
               <>
               {people.map((person) => (
-                  <Treker commented={person} key={person.id} />
+                  <Treker person={person} key={person} />
               ))}
               </>
           ) : null}

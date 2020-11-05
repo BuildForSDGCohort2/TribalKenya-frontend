@@ -23,13 +23,19 @@ const TreksPageContent = ({ sortDes, changeDes, treks, currentNav, profile, chan
         reposts: [],
         likes: []
       };
-      changeNav('recent');
-      changeDes('Most recent Treks');
+      if (trek.privacy === 'public') {
+        changeNav('recent');
+        changeDes('Most recent Treks');
+      } else {
+        changeNav('private');
+        changeDes('Treks only you can see');
+      }
       setNewTrekLoading(true);
       const trekReadyToUpload = await addFilesToStorage(newTrek);
       const tb = { ...newTrek, images: trekReadyToUpload.images, videos: trekReadyToUpload.videos };
       await addTrekToDb(tb);
-      await fetchRecentTreks({ currentNav: 'recent', profile: profile }, () => null, () => setNewTrekLoading(false));
+      const cn = trek.privacy === 'public' ? 'recent' : 'private';
+      await fetchRecentTreks({ currentNav: cn, profile: profile }, () => null, () => setNewTrekLoading(false));
       setNewTrekLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -51,7 +57,7 @@ const TreksPageContent = ({ sortDes, changeDes, treks, currentNav, profile, chan
                   ) : null}
                     {treks.map((key) => (
                       <div key={key.id} data-aos="fade-up">
-                        <Trek trek={key} treks={treks} />
+                        <Trek trek={key} treks={treks} profile={profile} />
                       </div>
                     ))}
                     {treks.length < 1 && currentNav === 'private' ? (

@@ -11,7 +11,7 @@ const UploadPic = ({ profile, addImageToStorage }) => {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       const options = { method: 'PUT', headers, body: JSON.stringify({ photoURL: imageUrl }) };
-      const request = new Request(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/profile-pic/update/${profile.id}`, options);
+      const request = new Request(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/auth/profile-pic/update/${profile.id}`, options);
       await fetch(request);
     } catch (error) {
       console.log(error.message);

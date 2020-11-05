@@ -20,7 +20,7 @@ import { addMessage, checkUser, addProfile } from '../state/auth/auth.actions';
 const Layout = ({ children, checkUser, addProfile }) => {
   const getProfile = async (userId) => {
     try {
-      const profile = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/profile/${userId}`);
+      const profile = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/auth/profile/${userId}`);
       const result = await profile.json();
       addProfile(result);
     } catch (error) {

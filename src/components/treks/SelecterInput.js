@@ -6,7 +6,7 @@ const SelecterInput = ({ sId, options, selected, dV }) => {
     selected(ev.target.value);
   };
   return (
-        <select name={sId} id={sId} className="select-input overpass medium-text small-btn white-bg" onChange={handleChange} value={dV || ''}>
+        <select name={sId} id={sId} className="select-input overpass medium-text small-btn white-bg" onChange={handleChange} defaultValue={dV || ''}>
             {options.map((key) => (
                 <option value={key.option} key={key.option}>{key.option}</option>
             ))}

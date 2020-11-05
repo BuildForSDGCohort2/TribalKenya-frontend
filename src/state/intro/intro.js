@@ -2,7 +2,7 @@ import poster from '../../images/flag2.jpg';
 
 const initialState = {
   showVideo: false,
-  introVideo: 'https://firebasestorage.googleapis.com/v0/b/tribalkenya-ff470.appspot.com/o/extras%2Fintro.mp4?alt=media&token=8f0c07a3-2349-4e25-9afb-4d936644d735',
+  introVideo: 'https://firebasestorage.googleapis.com/v0/b/tribalkenya-78cfa.appspot.com/o/extras%2Fintro.mp4?alt=media&token=8f0c07a3-2349-4e25-9afb-4d936644d735',
   introPoster: poster
 };
 

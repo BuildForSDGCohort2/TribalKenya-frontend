@@ -36,7 +36,7 @@ export const updateProfile = (updates, userId) => {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       const options = { method: 'PUT', headers, body: JSON.stringify(updates) };
-      const request = new Request(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/profile-details/update/${userId}`, options);
+      const request = new Request(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/auth/profile-details/update/${userId}`, options);
       await fetch(request);
     } catch (error) {
       console.log(error.message);

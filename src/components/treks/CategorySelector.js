@@ -11,9 +11,9 @@ const CategorySelector = ({ fetchRecentTreks, startLoading, stopLoading }) => {
   };
   return (
         <div className="trek m-2 category-selector-wrapper">
-            <select name="category-selector" id="category-selector" className="caps" onChange={handleChange}>
+            <select name="category-selector" id="category-selector" className="white-bg" onChange={handleChange}>
                 {categoryOptions.map((key) => (
-                    <option key={key.option} className="ovepass medium-text caps" value={key.option}>{key.option}</option>
+                    <option key={key.option} className="ovepass medium-text" value={key.option}>{key.option}</option>
                 ))}
             </select>
         </div>

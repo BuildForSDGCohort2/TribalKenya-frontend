@@ -1,5 +1,6 @@
 /* eslint-disable max-statements */
 import { addImageToStorage } from '../auth/auth.actions';
+import { db, addTrekEndpoint, getPrivateTreksEndpoint, getLimitedTreksEndpoint, getPublicTreksEndpoint, getMyTreksEndpoint, getCategoryTreks } from './treksBackend';
 
 export const addTreks = (recentTreks) => ({
   type: 'fetch_recent_treks', recentTreks
@@ -15,17 +16,17 @@ export const fetchRecentTreks = (info, startLoading = () => null, stopLoading = 
       startLoading();
       let response;
       if (info.currentNav === 'recent') {
-        info.limit ? response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/limited/${info.limit}`) : response = await fetch('https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks');
+        // eslint-disable-next-line radix
+        info.limit ? response = await getLimitedTreksEndpoint(parseInt(info.limit)) : response = await getPublicTreksEndpoint();
       } else if (info.currentNav === 'private') {
-        response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/private/${info.profile.id}`);
+        response = await getPrivateTreksEndpoint(info.profile.id);
       } else if (info.currentNav === 'my treks') {
-        response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/mytreks/${info.profile.id}`);
+        response = await getMyTreksEndpoint(info.profile.id);
       } else {
-        response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/category/${info.category}`);
+        response = await getCategoryTreks(info.category);
       }
       if (response !== null) {
-        const results = await response.json();
-        dispatch(addTreks(results));
+        dispatch(addTreks(response));
       }
       stopLoading();
     } catch (error) {
@@ -47,15 +48,7 @@ export const updateTrekState = (updatedItem, itemToUpdate, listOfItems) => {
 export const addTrekToDb = (trek) => {
   return async () => {
     try {
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      const options = {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(trek)
-      };
-      const request = new Request('https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/add', options);
-      await fetch(request);
+      await addTrekEndpoint(trek);
     } catch (error) {
       console.log(error);
     }
@@ -118,15 +111,7 @@ export const deleteTrek = (docId, trek, treks) => {
 export const trekUpdateEndpoint = (docId, newTrek) => {
   return async () => {
     try {
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      const options = {
-        method: 'PUT',
-        headers,
-        body: JSON.stringify(newTrek)
-      };
-      const request = new Request(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/update/${docId}`, options);
-      await fetch(request);
+      await db.collection('treks').doc(docId).update(newTrek);
     } catch (error) {
       console.log(error.message);
     }

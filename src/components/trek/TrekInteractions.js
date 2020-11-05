@@ -21,10 +21,14 @@ const TrekInteractions = ({ trek, showLikes, showComments, showReposts, like, pr
       console.log(error.message);
     }
   };
-  const confirmIfLiked = () => trek.likes.forEach((like) => like.profileId === profile.id ? setLiked(true) : null);
+  const confirmIfLiked = () => {
+    if (profile) {
+      trek.likes.forEach((like) => like.profileId === profile.id ? setLiked(true) : null);
+    }
+  };
   useEffect(() => {
     confirmIfLiked();
-  }, []);
+  }, [profile]);
   return (
         <div className="trek-interactions w-100 mt-3">
             <div className="tags left column">

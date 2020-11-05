@@ -16,12 +16,12 @@ import 'uikit/dist/js/uikit';
 import { connect } from 'react-redux';
 import firebase from 'gatsby-plugin-firebase';
 import { addMessage, checkUser, addProfile } from '../state/auth/auth.actions';
+import { getProfileEndpoint } from '../state/auth/authBackend';
 
 const Layout = ({ children, checkUser, addProfile }) => {
   const getProfile = async (userId) => {
     try {
-      const profile = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/auth/profile/${userId}`);
-      const result = await profile.json();
+      const result = await getProfileEndpoint(userId);
       addProfile(result);
     } catch (error) {
       console.log(error.message);

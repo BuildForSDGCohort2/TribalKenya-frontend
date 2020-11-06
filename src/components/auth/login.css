@@ -1,6 +1,6 @@
 .form-container {
   border-radius: 20px;
-  font-family: "Overpass", sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 .form-text:hover {
@@ -23,4 +23,10 @@
   outline: none;
   color: var(--white);
   box-shadow: none;
+}
+
+.auth-textarea,
+.auth-textarea:focus {
+  border: 1px solid white;
+  border-radius: 10px;
 }

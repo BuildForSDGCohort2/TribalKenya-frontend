@@ -5,6 +5,7 @@ import firebase from 'gatsby-plugin-firebase';
 import { navigate } from 'gatsby';
 import SignUpForm from './SignUpForm';
 import { addMessage } from '../../state/auth/auth.actions';
+import { createUserEndpoint, confirmUsernameExists } from '../../state/auth/authBackend';
 
 const SignUp = ({ addMessage }) => {
   const [loading, setloading] = useState(false);
@@ -23,15 +24,7 @@ const SignUp = ({ addMessage }) => {
   // Create profile for new user
   const createProfile = async (data) => {
     try {
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      const options = {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(data)
-      };
-      const request = new Request('https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/signup', options);
-      await fetch(request);
+      await createUserEndpoint(data);
     } catch (error) {
       addMessage(error.message, false);
     }
@@ -39,8 +32,7 @@ const SignUp = ({ addMessage }) => {
   // Confirm if username already exists during sign up
   const confirmIfUserExists = async (username) => {
     try {
-      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/confirm-username/${username}`);
-      const result = await response.json();
+      const result = await confirmUsernameExists(username);
       return result;
     } catch (error) {
       return error.message;

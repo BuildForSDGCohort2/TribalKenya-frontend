@@ -11,7 +11,7 @@ const UploadPic = ({ profile, addImageToStorage }) => {
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       const options = { method: 'PUT', headers, body: JSON.stringify({ photoURL: imageUrl }) };
-      const request = new Request(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/profile-pic/update/${profile.id}`, options);
+      const request = new Request(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/auth/profile-pic/update/${profile.id}`, options);
       await fetch(request);
     } catch (error) {
       console.log(error.message);
@@ -27,7 +27,7 @@ const UploadPic = ({ profile, addImageToStorage }) => {
         <>
             <ProfilePic photoURL={photoUrl} />
             <label htmlFor="profile-pic-change" className="small-btn white-bg cursor">Change Profile Pic</label>
-            <input type="file" accept="image/*" name="profile-pic-change" id="profile-pic-change" className="small-btn white-bg mt-3" onChange={handleChange} />
+            <input type="file" accept="image/*" name="profile-pic-change" id="profile-pic-change" className="small-btn white-bg mt-3 hidden" onChange={handleChange} />
         </>
   );
 };

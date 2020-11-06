@@ -4,7 +4,7 @@ import { BiPhone } from 'react-icons/bi';
 const PlaceDetails = ({ place }) => {
   return (
         <article className="c-white overpass">
-            <h1 className="medium-text bold">Description</h1>
+            <h2 className="medium-text bold overpass c-white">Description</h2>
             <p className="small-text">{place.description}</p>
             {place.phone === '' ? null
               : <p className="small-text">

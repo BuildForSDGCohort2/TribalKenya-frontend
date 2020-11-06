@@ -16,7 +16,7 @@ const LoginForm = ({ login, loading }) => {
   };
   return (
     <div className="form-container c-white text-center">
-      <h2 className="medium-text">Login</h2>
+      <h2 className="medium-text c-white overpass">Login</h2>
       {loading ? <PreLoader /> : null}
       <Alert />
       <Form onSubmit={handleSubmit}>

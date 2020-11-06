@@ -2,8 +2,9 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Treker from './Treker';
 import Comment from './Comment';
+import AddCommentForm from './AddCommentForm';
 
-const TrekModal = ({ openModal, people, comments, toggleModal, className, title }) => {
+const TrekModal = ({ openModal, people, comments, toggleModal, className, title, trek }) => {
   return (
     <div>
       <Modal isOpen={openModal} toggle={toggleModal} className={className}>
@@ -12,14 +13,15 @@ const TrekModal = ({ openModal, people, comments, toggleModal, className, title 
           {people ? (
               <>
               {people.map((person) => (
-                  <Treker commented={person} key={person.id} />
+                  <Treker person={person} key={person} />
               ))}
               </>
           ) : null}
           {comments ? (
               <div className="comments">
+                <AddCommentForm trek={trek} comments={comments} />
                 {comments.map((comment) => (
-                    <Comment key={comment.id} comment={comment} />
+                    <Comment key={comment.username} comment={comment} />
                 ))}
               </div>
           ) : null}

@@ -4,7 +4,7 @@ const User = ({ user }) => {
   const [profile, setProfile] = useState({});
   const fetchPhotoURL = async (userId) => {
     try {
-      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/profile-pic/${userId}`);
+      const response = await fetch(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/auth/profile-pic/${userId}`);
       const result = await response.json();
       setProfile(result);
     } catch (error) {

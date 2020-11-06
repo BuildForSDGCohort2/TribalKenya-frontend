@@ -8,7 +8,10 @@ import LargeBtn from '../../LargeBtn';
 import { checkPageLoading } from '../../../state/auth/auth.actions';
 
 const SightSeeingPrev = ({ siteCategories, getCategories, setloading, checkPageLoading }) => {
-  const goToPage = () => navigate('sightseeing');
+  const goToPage = () => {
+    checkPageLoading(true);
+    navigate('sightseeing');
+  };
   const goToCategoryPage = (category) => {
     checkPageLoading(true);
     navigate('/category', { state: { category: category } });
@@ -33,7 +36,7 @@ const SightSeeingPrev = ({ siteCategories, getCategories, setloading, checkPageL
                     onClick={() => goToCategoryPage(key)}
                     data-aos="zoom-in" data-aos-duration="500" >
                     <div className="gallery-text animate__animated animate__slideInDown">
-                        <h1 className="medium-text animate__animated animate__rotateInDownLeft">{key.name}</h1>
+                        <h1 className="medium-text c-cream animate__animated animate__rotateInDownLeft">{key.name}</h1>
                     </div>
                 </div>
               ))}

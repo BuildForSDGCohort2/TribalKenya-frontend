@@ -34,6 +34,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
+    "uikit": "^3.5.9",
     "video.js": "^7.8.4"
   },
   "devDependencies": {

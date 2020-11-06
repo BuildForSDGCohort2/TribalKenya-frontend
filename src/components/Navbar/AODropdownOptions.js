@@ -1,15 +1,18 @@
 import React from 'react';
+import { useLocation } from '@reach/router';
 import firebase from 'gatsby-plugin-firebase';
 import { connect } from 'react-redux';
 import { navigate } from 'gatsby';
-import { checkUser, checkPageLoading } from '../../state/auth/auth.actions';
+import { checkUser, checkPageLoading, addProfile } from '../../state/auth/auth.actions';
 
-const AODropdownOptions = ({ checkUser, close, checkPageLoading }) => {
+const AODropdownOptions = ({ checkUser, close, checkPageLoading, addProfile }) => {
+  const location = useLocation();
   const logOut = async () => {
     try {
       checkPageLoading(true);
       await firebase.auth().signOut();
       checkUser({});
+      addProfile({});
       close();
       navigate('/login');
     } catch (error) {
@@ -25,13 +28,17 @@ const AODropdownOptions = ({ checkUser, close, checkPageLoading }) => {
     <ul className="ao-dropdown-options p-1 mt-1 ml-1">
         <li onClick={() => {
           close();
-          checkPageLoading(true);
-          navigate('/profile');
+          if (location.pathname !== '/profile') {
+            checkPageLoading(true);
+            navigate('/profile');
+          }
         }}>View Profile</li>
         <li onClick={() => {
           close();
-          checkPageLoading(true);
-          navigate('/settings');
+          if (location.pathname !== '/settings') {
+            checkPageLoading(true);
+            navigate('/settings');
+          }
         }}>Settings</li>
         <li onClick={(ev) => handleClick(ev)}>Log Out</li>
     </ul>
@@ -40,7 +47,8 @@ const AODropdownOptions = ({ checkUser, close, checkPageLoading }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   checkUser: (user) => dispatch(checkUser(user)),
-  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading))
+  checkPageLoading: (pageLoading) => dispatch(checkPageLoading(pageLoading)),
+  addProfile: (profile) => dispatch(addProfile(profile))
 });
 
 export default connect(null, mapDispatchToProps)(AODropdownOptions);

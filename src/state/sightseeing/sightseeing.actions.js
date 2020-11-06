@@ -1,3 +1,5 @@
+import { getCategoriesEndpoint, getPlacesEndpoint } from './sightseeingBackend';
+
 export const addpreviewSites = (previewSites) => ({
   type: 'add_preview_sites', previewSites
 });
@@ -14,8 +16,7 @@ export const getCategories = () => {
   return async (dispatch) => {
     try {
       dispatch(checkLoading(true));
-      const response = await fetch('https://us-central1-tribalkenya-ff470.cloudfunctions.net/categories/');
-      const results = await response.json();
+      const results = await getCategoriesEndpoint();
       dispatch(addCategories(results));
       dispatch(checkLoading(false));
       return results;
@@ -32,8 +33,7 @@ export const addToLocalStorage = (category, load, stopLoad) => {
       load();
       localStorage.setItem('category', JSON.stringify(category));
       // Fetch all site/places related to selected category
-      const response = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/places/${category.id}`);
-      const results = await response.json();
+      const results = await getPlacesEndpoint(category.id);
       localStorage.setItem('places', JSON.stringify(results));
       stopLoad();
     } catch (error) {

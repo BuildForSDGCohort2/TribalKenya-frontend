@@ -11,15 +11,17 @@ import 'video.js/dist/video';
 import 'video.js/dist/video-js.min.css';
 import 'aos/dist/aos.css';
 import 'intl-tel-input/build/css/intlTelInput.css';
+import 'uikit/dist/css/uikit.css';
+import 'uikit/dist/js/uikit';
 import { connect } from 'react-redux';
 import firebase from 'gatsby-plugin-firebase';
 import { addMessage, checkUser, addProfile } from '../state/auth/auth.actions';
+import { getProfileEndpoint } from '../state/auth/authBackend';
 
 const Layout = ({ children, checkUser, addProfile }) => {
   const getProfile = async (userId) => {
     try {
-      const profile = await fetch(`https://us-central1-tribalkenya-ff470.cloudfunctions.net/auth/profile/${userId}`);
-      const result = await profile.json();
+      const result = await getProfileEndpoint(userId);
       addProfile(result);
     } catch (error) {
       console.log(error.message);
@@ -32,6 +34,7 @@ const Layout = ({ children, checkUser, addProfile }) => {
         getProfile(user.uid);
       } else {
         checkUser({});
+        addProfile({});
       }
     });
   }, []);

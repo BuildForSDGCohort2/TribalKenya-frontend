@@ -45,7 +45,7 @@ const Trek = ({ trek, treks, deleteTrek, profile }) => {
                 <TrekMediaList trek={trek} />
               </div>
               <div className="trek-right">
-              <Treker trek={trek} treks={treks} deleteTrek={(docId) => deleteTrek(docId, trek, treks)} updateModal={() => setShowUpdateModal(true)} />
+              <Treker trek={trek} treks={treks} profile={profile} deleteTrek={(docId) => deleteTrek(docId, trek, treks)} updateModal={() => setShowUpdateModal(true)} />
                 <div className="trek-text-content pt-2 small-text">
                   <span className="trek-text">{trek.caption}</span>
                 </div>
@@ -55,7 +55,7 @@ const Trek = ({ trek, treks, deleteTrek, profile }) => {
                   <TrekModal people={trek.likes} openModal={trekLikes} toggleModal={() => toggleLikes(trek.id)} title="Liked by" postId={trek.id} />
                 ) : null}
                 {trekComments ? (
-                  <TrekModal comments={trek.comments} openModal={trekComments} toggleModal={() => toggleComments(trek.id)} title="Comments" postId={trek.id} />
+                  <TrekModal comments={trek.comments} trek={trek} openModal={trekComments} toggleModal={() => toggleComments(trek.id)} title="Comments" postId={trek.id} />
                 ) : null}
                 {trekReposts ? (
                   <TrekModal people={trek.reposts} openModal={trekReposts} toggleModal={() => toggleReposts(trek.id)} title="Reposted by" postId={trek.id} />

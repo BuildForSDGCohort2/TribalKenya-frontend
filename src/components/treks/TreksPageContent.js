@@ -18,7 +18,7 @@ const TreksPageContent = ({ sortDes, changeDes, treks, currentNav, profile, chan
         profileId: profile.id,
         username: profile.username,
         profile_pic: profile.photoURL,
-        date_posted: new Date(Date.now()),
+        date_posted: Date.now(),
         comments: [],
         reports: [],
         reposts: [],
@@ -67,6 +67,11 @@ const TreksPageContent = ({ sortDes, changeDes, treks, currentNav, profile, chan
                   {treks.length < 1 && currentNav === 'private' ? (
                     <div className="w-100 center text-center">
                       <h3 className="heading small-caps overpass c-cream">You don&apos;t have Private Treks</h3>
+                    </div>
+                  ) : null}
+                  {treks.length < 1 && currentNav === 'my treks' ? (
+                    <div className="w-100 center text-center">
+                      <h3 className="heading small-caps overpass c-cream">You don&apos;t have any Treks yet</h3>
                     </div>
                   ) : null}
                 </div>

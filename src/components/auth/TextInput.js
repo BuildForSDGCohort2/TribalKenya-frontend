@@ -9,8 +9,15 @@ const TextInput = ({
   extraClass,
   icon,
   iconColor,
-  textarea
+  textarea,
+  rows,
+  activateOnKeyup
 }) => {
+  const onClickingEnter = (ev) => {
+    if (ev.keyCode === 13) {
+      if (activateOnKeyup) activateOnKeyup(ev);
+    }
+  };
   return (
     <>
       {textarea ? (
@@ -21,8 +28,9 @@ const TextInput = ({
           placeholder={ph || ''}
           onChange={(ev) => getText(ev.target.value)}
           className={`auth-input auth-textarea ml-2 p-1 ${extraClass}`}
-          rows="4"
+          rows={rows || '4'}
           cols="35"
+          onKeyUp={onClickingEnter}
         />
       ) : (
         <InputGroup className="mb-3 group-input">

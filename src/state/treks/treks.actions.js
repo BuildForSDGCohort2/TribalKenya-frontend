@@ -19,9 +19,9 @@ export const fetchRecentTreks = (info, startLoading = () => null, stopLoading = 
         // eslint-disable-next-line radix
         info.limit ? response = await getLimitedTreksEndpoint(parseInt(info.limit)) : response = await getPublicTreksEndpoint();
       } else if (info.currentNav === 'private') {
-        response = await getPrivateTreksEndpoint(info.profile.id);
+        info.profile.id ? response = await getPrivateTreksEndpoint(info.profile.id) : response = [];
       } else if (info.currentNav === 'my treks') {
-        response = await getMyTreksEndpoint(info.profile.id);
+        info.profile.id ? response = await getMyTreksEndpoint(info.profile.id) : response = [];
       } else {
         response = await getCategoryTreks(info.category);
       }
@@ -74,14 +74,26 @@ export const addFilesToStorage = (trek) => {
     try {
       const newTrek = { ...trek, images: [], videos: [] };
       await Promise.all(trek.images.map(async (image) => {
-        await dispatch(getItemsAddedToStorage(image, newTrek.images, 'images'));
+        await dispatch(getItemsAddedToStorage(image, newTrek.images, `images/${Date.now()}`));
       }));
       await Promise.all(trek.videos.map(async (video) => {
-        await dispatch(getItemsAddedToStorage(video, newTrek.videos, 'videos'));
+        await dispatch(getItemsAddedToStorage(video, newTrek.videos, `videos/${Date.now()}`));
       }));
       return newTrek;
     } catch (error) {
       console.log(error.message);
+      return error.message;
+    }
+  };
+};
+
+// Delete trek
+export const deleteTrekEndpoint = (docId) => {
+  return async () => {
+    try {
+      await db.collection('treks').doc(docId).delete();
+      return 'Success';
+    } catch (error) {
       return error.message;
     }
   };
@@ -93,15 +105,7 @@ export const deleteTrek = (docId, trek, treks) => {
       const currentTreks = [...treks];
       currentTreks.splice(currentTreks.indexOf(trek), 1);
       dispatch(addTreks(currentTreks));
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      const options = {
-        method: 'DELETE',
-        headers,
-        body: JSON.stringify(trek)
-      };
-      const request = new Request(`https://us-central1-tribalkenya-78cfa.cloudfunctions.net/treks/delete/${docId}`, options);
-      await fetch(request);
+      await db.collection('treks').doc(docId).delete();
     } catch (error) {
       console.log(error.message);
     }

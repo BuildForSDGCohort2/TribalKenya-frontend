@@ -10,8 +10,8 @@ const CategorySelector = ({ fetchRecentTreks, startLoading, stopLoading }) => {
     fetchRecentTreks({ category: category }, startLoading, stopLoading);
   };
   return (
-        <div className="trek m-2 category-selector-wrapper">
-            <select name="category-selector" id="category-selector" className="white-bg" onChange={handleChange}>
+        <div className="m-2 category-selector-wrapper">
+            <select name="category-selector p-2" id="category-selector" className="white-bg" onChange={handleChange}>
                 {categoryOptions.map((key) => (
                     <option key={key.option} className="ovepass medium-text" value={key.option}>{key.option}</option>
                 ))}

@@ -486,6 +486,7 @@ a:hover {
 #category-selector {
   width: 600px;
   height: 40px;
+  border-radius: 10px;
 }
 
 /* Footer */
@@ -506,7 +507,7 @@ footer {
   }
 
   .category-selector-wrapper {
-    min-height: 40px !important;
+    width: 500px;
   }
 
   #category-selector {
@@ -532,6 +533,5 @@ footer {
 
   #category-selector {
     width: 300px;
-    height: 40px;
   }
 }

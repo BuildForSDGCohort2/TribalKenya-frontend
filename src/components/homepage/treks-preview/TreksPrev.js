@@ -22,9 +22,9 @@ const TreksPrev = ({ recentTreks, checkPageLoading, fetchRecentTreks, profile })
       {loading ? <PreLoader /> : (
         <>
         <TextContent heading="Recent Treks" textColor="c-cream text-center" />
-        <div className="two-sec-grid-cols">
+        <div className="center column">
           {recentTreks.map((key) => (
-            <Trek key={key.id} trek={key} />
+            <Trek key={key.id} trek={key} profile={profile} treks={recentTreks} />
           ))}
         </div>
         <LargeBtn activate={goToTreks} textContent="Treks" extraClass="white-bg mb-2"/>

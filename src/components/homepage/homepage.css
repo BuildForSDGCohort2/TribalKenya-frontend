@@ -193,8 +193,8 @@
 .trek-left {
   position: relative;
   height: auto;
-  min-height: 40vh;
-  max-height: 40vh;
+  max-height: 300px;
+  min-height: 300px;
   width: 100%;
   grid-area: trekleft;
   background-size: cover;

@@ -9,13 +9,15 @@ const TrekInteractions = ({ trek, showLikes, showComments, showReposts, like, pr
   const [liked, setLiked] = useState(false);
   const makeLike = async (profile, trek) => {
     try {
-      if (liked) {
-        setLiked(false);
-        await like(profile, trek, { treks: treks, liked: true });
-      }
-      if (!liked) {
-        setLiked(true);
-        await like(profile, trek, { treks: treks, liked: false });
+      if (profile.id) {
+        if (liked) {
+          setLiked(false);
+          await like(profile, trek, { treks: treks, liked: true });
+        }
+        if (!liked) {
+          setLiked(true);
+          await like(profile, trek, { treks: treks, liked: false });
+        }
       }
     } catch (error) {
       console.log(error.message);

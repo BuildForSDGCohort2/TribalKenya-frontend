@@ -356,6 +356,10 @@ a:hover {
   stroke: var(--green) !important;
 }
 
+.uk-grid > * {
+  padding: 0 !important;
+}
+
 /* Buttons */
 .large-btn {
   font-size: 2em;
